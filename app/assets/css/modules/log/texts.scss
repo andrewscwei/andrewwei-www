@@ -1,0 +1,148 @@
+/**
+ *  andrewwei mu
+ *  (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+@import '../../base/mixins';
+@import '../../base/typography';
+
+$base-path: '../../../' !default;
+
+.log-styles
+{
+    h1
+    {
+        margin: 60px 0px 15px 0px;
+        width: 80%;
+        font-family: $font-family-header;
+        font-size: 50px;
+        font-weight: $font-weight-header-light;
+        line-height: 1.2em;
+        text-align: left;
+        color: #fff;
+        display: block;
+        position: relative;
+    }
+
+    h2
+    {
+        margin: 50px 0px 15px 0px;
+        font-family: $font-family-header;
+        font-size: 36px;
+        font-weight: $font-weight-header-light;
+        text-align: left;
+        line-height: 1.2em;
+        color: #fff;
+        display: block;
+        position: relative;
+    }
+
+    h3
+    {
+        margin: 20px 0px 10px 0px;
+        font-family: $font-family-header;
+        font-weight: $font-weight-header-normal;
+        font-size: 24px;
+        text-align: left;
+        line-height: 1.2em;
+        color: #999;
+        display: block;
+        position: relative;
+    }
+
+    h4
+    {
+        margin: 0px;
+        font-family: $font-family-header;
+        font-size: 24px;
+        font-weight: $font-weight-header-light;
+        text-align: left;
+        color: #606060;
+        line-height: 1.2em;
+        display: block;
+        position: relative;
+    }
+
+    h5
+    {
+        margin: 0px;
+        padding: 10px 10px 20px 0px;
+        font-family: $font-family-header;
+        font-size: 14px;
+        font-weight: $font-weight-header-light;
+        color: #707070;
+        line-height: 1.2em;
+        text-align: left;
+        display: block;
+        position: relative;
+    }
+
+    h6
+    {
+        width: 100%;
+        font-family: $font-family-header;
+        font-size: 18px;
+        font-weight: $font-weight-header-light;
+        line-height: 1.4em;
+        color: #666;
+        text-align: left;
+        display: inline-block;
+        position: relative;
+    }
+
+    p
+    {
+        font-family: $font-family-content;
+        font-weight: $font-weight-content-normal;
+        font-size: 16px;
+        line-height: 1.6em;
+        color: #aaa;
+
+        & + p
+        {
+            margin-top: 20px;
+        }
+    }
+
+    em
+    {
+        font-size: inherit;
+        font-weight: inherit;
+        font-style: italic;
+    }
+
+    strong
+    {
+        font-size: inherit;
+        font-weight: $font-weight-content-bold;
+        font-style: none;
+    }
+
+    a
+    {
+        color: #999;
+
+        .csstransitions &
+        {
+            transition: opacity 0.4s ease-out;
+        }
+
+        &:hover,
+        {
+            opacity: 0.6;
+        }
+    }
+
+    blockquote
+    {
+        margin: 20px 0px;
+        padding: 0px 30px;
+
+        p
+        {
+            font-size: 14px;
+            line-height: 1.2em;
+            color: #999;
+        }
+    }
+}

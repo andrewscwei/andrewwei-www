@@ -1,0 +1,184 @@
+/**
+ *  andrewwei mu
+ *  (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+@import './mixins';
+
+$base-path: '../../' !default;
+
+$font-family-header: 'proxima-nova', sans-serif;
+$font-weight-header-light: 100;
+$font-weight-header-normal: 300;
+$font-weight-header-bold: 600;
+
+$font-family-content: 'proxima-nova', sans-serif;
+$font-weight-content-light: 100;
+$font-weight-content-normal: 300;
+$font-weight-content-bold: 600;
+
+span,
+p,
+li,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button
+{
+    margin: 0px;
+    padding: 0px;
+    font-style: normal;
+    text-align: inherit;
+    list-style: none;
+    color: inherit;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 0px;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+}
+
+span,
+p,
+li
+{
+    font-family: $font-family-content;
+    font-weight: $font-weight-content-normal;
+    font-size: 14px;
+    line-height: 1.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-family: $font-family-header;
+}
+
+p,
+li
+{
+    color: #fff;
+}
+
+p
+{
+    & + p
+    {
+        margin-top: 20px;
+    }
+}
+
+em
+{
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+h1
+{
+    font-size: 48px;
+    font-weight: $font-weight-header-bold;
+    line-height: 1.2em;
+    text-align: left;
+    color: #ddd;
+    display: inline-block;
+    position: relative;
+}
+
+h2
+{
+    margin: 20px 0px;
+    font-size: 28px;
+    font-weight: $font-weight-header-normal;
+    text-align: left;
+    line-height: 1.2em;
+    color: #c2c2c2;
+    display: block;
+    position: relative;
+}
+
+h3
+{
+    margin: 20px;
+    font-weight: $font-weight-header-normal;
+    font-size: 34px;
+    text-align: center;
+    line-height: 1.2em;
+    color: #fff;
+    display: block;
+    position: relative;
+}
+
+h4
+{
+    margin: 0px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: $font-weight-header-light;
+    color: #606060;
+    line-height: 1.2em;
+    display: block;
+    position: relative;
+}
+
+h5
+{
+    margin: 0px;
+    padding: 10px 10px 20px 0px;
+    font-size: 14px;
+    font-weight: $font-weight-header-light;
+    color: #707070;
+    line-height: 1.2em;
+    text-align: left;
+    display: block;
+    position: relative;
+}
+
+h6
+{
+    width: 100%;
+    color: #666;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.4em;
+    font-weight: $font-weight-header-light;
+    display: inline-block;
+    position: relative;
+}
+
+em
+{
+    font-style: italic;
+}
+
+a
+{
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: #000;
+    text-align: inherit;
+    line-height: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &.active,
+    &.state-active
+    {
+        opacity: 0.6;
+        text-decoration: none;
+    }
+
+    &:hover
+    {
+        cursor: pointer;
+    }
+}

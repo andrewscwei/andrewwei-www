@@ -1,0 +1,38 @@
+/**
+ *  andrewwei mu
+ *  (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+@import '../base/mixins';
+@import '../base/typography';
+
+$base-path: '../../' !default;
+
+main.log
+{
+    summary.post
+    {
+        margin: 0px auto 100px auto;
+        width: 100%;
+        max-width: 980px;
+        display: block;
+        position: relative;
+    }
+
+    hr
+    {
+        margin: 60px auto;
+        width: 40%;
+        border: 0;
+        height: 1px;
+        background: #333;
+    }
+
+    span.date
+    {
+        font-family: $font-family-content;
+        font-weight: $font-weight-header-normal;
+        color: #666;
+        line-height: 1.2em;
+    }
+}

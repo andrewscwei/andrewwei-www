@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<main class="post" data-lang="{{ page.language }}">
+    <section class="cover">
+        {% if page.cover != null %}<figure class="background" style="background-image:url({{ page.cover }});"></figure>{% endif %}
+        <div class="title">
+            <h1>{{ page.title | upcase }}</h1>
+        </div>
+    </section>
+    <section class="body">
+        <div class="content log-styles">
+            {{ content }}
+        </div>
+    </section>
+</main>
+
+<script src="/assets/js/default.js"></script>

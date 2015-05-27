@@ -1,0 +1,14 @@
+node_modules
+bower_components
+include
+bin
+lib
+/vendor
+public
+.tmp
+.generated
+.DS_STORE
+.jekyll-metadata
+*.sublime-project
+*.sublime-workspace
+npm-debug.log

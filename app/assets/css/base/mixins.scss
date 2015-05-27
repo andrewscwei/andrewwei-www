@@ -1,0 +1,173 @@
+/**
+ *  andrewwei mu
+ *  (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+$base-path: '../../' !default;
+
+@mixin portrait               { @media only screen and (orientation: portrait)       { @content; } }
+@mixin landscape              { @media only screen and (orientation: landscape)      { @content; } }
+@mixin min-width($minWidth)   { @media only screen and (min-width: #{$minWidth}px)   { @content; } }
+@mixin max-width($maxWidth)   { @media only screen and (max-width: #{$maxWidth}px)   { @content; } }
+@mixin min-height($minHeight) { @media only screen and (min-height: #{$minHeight}px) { @content; } }
+@mixin max-height($maxHeight) { @media only screen and (max-height: #{$maxHeight}px) { @content; } }
+
+@mixin clearfix
+{
+    *zoom: 1;
+
+    &:before
+    {
+        content: '';
+        display: table;
+    }
+
+    &:after
+    {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin inanimate
+{
+    transition: none !important;
+}
+
+@mixin animate
+{
+    transform: translate3d(0, 0, 0);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    perspective: 1000;
+}
+
+@mixin mask
+{
+    overflow: hidden;
+}
+
+@mixin fluid-block
+{
+    font-size: 0px;
+    text-align: center;
+    display: inline-block;
+
+    &:before
+    {
+        width: 0px;
+        height: 100%;
+        vertical-align: middle;
+        content: '';
+        display: inline-block;
+    }
+}
+
+@mixin abs-align($x:null, $y:null)
+{
+    position: absolute;
+
+    @if $x == 'left'
+    {
+        left: 0px;
+    }
+    @else if $x == 'center'
+    {
+        left: 0px;
+        right: 0px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @else if $x == 'right'
+    {
+        right: 0px;
+    }
+
+    @if $y == 'top'
+    {
+        top: 0px;
+    }
+    @else if $y == 'center'
+    {
+        top: 0px;
+        bottom: 0px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    @else if $y == 'bottom'
+    {
+        bottom: 0px;
+    }
+}
+
+@mixin inline-align($x:null, $y:null)
+{
+    display: inline-block;
+    position: relative;
+
+    @if $x == 'left'
+    {
+    }
+    @else if $x == 'center'
+    {
+    }
+    @else if $x == 'right'
+    {
+    }
+
+    @if $y == 'top'
+    {
+        vertical-align: top;
+    }
+    @else if $y == 'center'
+    {
+        vertical-align: middle;
+    }
+    @else if $y == 'bottom'
+    {
+        vertical-align: middle;
+    }
+}
+
+@mixin parallax
+{
+    height: 100vh;
+    perspective: 1px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .parallax-group
+    {
+        height: 100vh;
+        position: relative;
+        transform-style: preserve-3d;
+    }
+
+    .parallax-layer
+    {
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        position: absolute;
+    }
+
+    .parallax-layer-base
+    {
+        @extend .parallax-layer;
+        transform: translateZ(0px);
+    }
+
+    .parallax-layer-background
+    {
+        @extend .parallax-layer;
+        transform: translateZ(-1px);
+    }
+
+    .parallax-layer-foreground
+    {
+        @extend .parallax-layer;
+        transform: translateZ(1px);
+    }
+}

@@ -1,0 +1,164 @@
+/**
+ *  andrewwei mu
+ *  (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+@import '../base/mixins';
+@import '../base/typography';
+
+$base-path: '../../' !default;
+$nav-width: 230px;
+$nav-offset-y: 30px;
+
+nav#nav
+{
+    @include abs-align('left', 'top');
+
+    width: auto;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+    position: fixed;
+    z-index: 10;
+
+    .csstransitions &
+    {
+        transition: transform 0.2s ease-out;
+    }
+
+    &, &.state-collapsed
+    {
+        transform: translate3d(#{-$nav-width}, 0, 0);
+    }
+
+    &.state-expanded
+    {
+        transform: translate3d(0, 0, 0);
+    }
+
+    section.control
+    {
+        width: auto;
+        height: $menu-button-height;
+        line-height: $menu-button-height;
+        top: $nav-offset-y;
+        left: $nav-width;
+        display: block;
+        position: absolute;
+
+        button.menu
+        {
+            display: inline-block;
+            position: relative;
+        }
+
+        h2
+        {
+            margin: 0px;
+            padding: 0px 20px 0px 10px;
+            width: auto;
+            height: 100%;
+            font-size: 20px;
+            text-align: left;
+            line-height: inherit;
+            background-color: rgba(34, 34, 34, 0.8);
+            display: inline-block;
+            position: absolute;
+        }
+    }
+
+    section.panel
+    {
+        @include abs-align('left', 'top');
+
+        width: $nav-width;
+        height: 100%;
+        background-color: #fff;
+        display: block;
+        position: absolute;
+
+        ol
+        {
+            @include abs-align('left', 'top');
+
+            width: 100%;
+            height: auto;
+            padding: 40px 0px;
+            position: absolute;
+            box-sizing: border-box;
+
+            li
+            {
+                padding: 5px 20px;
+                width: 100%;
+                font-weight: $font-weight-content-normal;
+                font-size: 16px;
+                color: #666;
+                box-sizing: border-box;
+                border-left: 4px inset rgba(0, 0, 0, 0);
+                display: block;
+                position: relative;
+
+                .csstransitions &
+                {
+                    transition: color 0.4s ease-out, border-left-color 0.4s ease-out;
+                }
+
+                &.state-active
+                {
+                    border-left: 4px inset rgba(0, 0, 0, 1);
+                    color: #000;
+                }
+            }
+
+            .no-touch &
+            {
+                a:hover
+                {
+                    li
+                    {
+                        border-left: 4px inset rgba(0, 0, 0, 1);
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+        aside
+        {
+            @include abs-align('left', 'bottom');
+
+            padding: 40px 30px;
+            width: 100%;
+            height: auto;
+            position: absolute;
+
+            img.gravatar
+            {
+                margin: 10px 10px 10px 0px;
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                display: inline-block;
+                position: relative;
+            }
+
+            a.social
+            {
+                margin: 10px 0px;
+                vertical-align: bottom;
+
+                &:not(:last-child)
+                {
+                    margin-right: 8px;
+                }
+            }
+
+            p
+            {
+                font-size: 14px;
+                color: #000;
+            }
+        }
+    }
+}

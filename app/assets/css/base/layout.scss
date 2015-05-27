@@ -1,0 +1,43 @@
+/**
+ *  andrewwei mu
+ *  (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+@import './mixins';
+@import './typography';
+@import '../components/buttons';
+@import '../modules/nav';
+
+$base-path: '../../' !default;
+
+html,
+body
+{
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+}
+
+main#body
+{
+    width: 100%;
+    height: auto;
+    padding: 100px 10%;
+    display: block;
+    position: relative;
+
+    .csstransitions &
+    {
+        transition: transform 0.2s ease-out;
+    }
+
+    &, &.state-unshifted
+    {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &.state-shifted
+    {
+        transform: translate3d(#{$nav-width/2}, 0, 0);
+    }
+}

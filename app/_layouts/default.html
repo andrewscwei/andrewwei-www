@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        {% if page.title != null %}
+            <title>mu\ {{ page.title }}</title>
+        {% else if page.node != null %}
+            <title>mu\ {{ page.node | upcase }}</title>
+        {% else %}
+            <title>mu\</title>
+        {% endif %}
+
+        <meta charset="utf-8">
+        <meta name="description" content="{{ page.description }}"/>
+        <meta name="keywords" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:image" content="/og-image.png"/>
+        <meta property="og:title" content="{{ page.title }}"/>
+        <meta property="og:description" content="{{ page.description }}"/>
+
+        <link rel="shortcut icon" href="/favicon.png"/>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+
+        <link rel="stylesheet" href="/assets/vendor/vendor.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+
+        <script src="//use.typekit.net/cvb2rqu.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showMathMenu: false
+        });
+        </script>
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="/assets/vendor/vendor.js"></script>
+
+        <script>(function(e,t,n,r,i,s){e.GoogleAnalyticsObject=r;e[r]||(e[r]=function(){(e[r].q=e[r].q||[]).push(arguments)});e[r].l=+(new Date);i=t.createElement(n);s=t.getElementsByTagName(n)[0];i.src="//www.google-analytics.com/analytics.js";s.parentNode.insertBefore(i,s)})(window,document,"script","ga");ga("create","UA-XXXXX-X");ga("send","pageview")</script>
+    </head>
+    <body>
+        {% include nav.html node=page.node %}
+        {{ content }}
+    </body>
+</html>
