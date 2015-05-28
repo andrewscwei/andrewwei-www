@@ -4,6 +4,33 @@ This app is scaffolded by [Yeoman](http://yeoman.io). See [generator-vars-jekyll
 
 ## Setup
 
+### Remote
+
+Set up remote Git repositories. The source code is hosted on GitHub, while the app itself lives on Heroku. Heroku is linked to the GitHub repo.
+
+1. Clone this project:
+  - ```$ git clone https://github.com/andrewscwei/andrewwei.mu.git```
+
+2. ```cd``` into it
+  - ```$ cd andrewwei.mu```
+
+3. Set up Heroku remotes for all 3 environments: prod, stage and dev.
+  - ```$ git remote add prod https://git.heroku.com/andrewwei-mu.git```
+  - ```$ git remote add stage https://git.heroku.com/andrewwei-mu-stage.git```
+  - ```$ git remote add dev https://git.heroku.com/andrewwei-mu-dev.git```
+
+4. Verify that your remotes are set up correctly by doing: ```$ git remote -v```. You should see the following:
+  ```
+  dev     https://git.heroku.com/andrewwei-mu-dev.git (push)
+  dev     https://git.heroku.com/andrewwei-mu-dev.git (fetch)
+  origin  https://github.com/andrewscwei/andrewwei.mu.git (fetch)
+  origin  https://github.com/andrewscwei/andrewwei.mu.git (push)
+  prod    https://git.heroku.com/andrewwei-mu.git (push)
+  prod    https://git.heroku.com/andrewwei-mu.git (fetch)
+  stage   https://git.heroku.com/andrewwei-mu-stage.git (fetch)
+  stage   https://git.heroku.com/andrewwei-mu-stage.git (push)
+  ```
+
 ### Local
 
 Do the following to get the app up and running in your local machine.
