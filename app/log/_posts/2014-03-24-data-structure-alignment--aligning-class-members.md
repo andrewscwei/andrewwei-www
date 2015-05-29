@@ -1,5 +1,8 @@
 ---
 title: 'Data Structure Alignment: Alignment Class Members'
+tags:
+    -   coding
+    -   c++
 ---
 
 Suppose there are two C++ classes, A and B, with the following structures in a 64-bit system:

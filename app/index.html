@@ -1,29 +1,5 @@
 ---
 layout: 'default'
-node: log
 ---
-
-<main id="body" class="log">
-    <section class="posts">
-        {% for post in site.posts %}
-            <summary class="post log-styles">
-                {% if post.cover != null %}
-                    <figure class="cover" style="background-image:url({{ post.cover }});"></figure>
-                {% endif %}
-                <aside>
-                    <h1>{{ post.title | upcase }}</h1>
-                    <span class="date">{{ post.date | date_to_long_string }}</span>
-                    <p>{{ post.content | truncatewords:200 }}</p>
-                </aside>
-            </summary>
-
-            <a class="read-more" href="{{ post.url }}">Read more</a>
-
-            {% if forloop.last == false %}
-                <hr/>
-            {% endif %}
-        {% endfor %}
-    </section>
-</main>
 
 <script src="/assets/js/main.js"></script>

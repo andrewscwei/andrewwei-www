@@ -2,6 +2,10 @@ source: app
 destination: public
 highlighter: pygments
 
+permalink: /:categories/:title/
+paginate: 6
+paginate_path: /log/page:num/
+
 kramdown:
     input: GFM
 
@@ -17,12 +21,14 @@ defaults:
             type: 'posts'
         values:
             layout: 'log/post'
+            node: log
 
     -   scope:
             path: 'log'
             type: 'drafts'
         values:
             layout: 'log/post'
+            node: log
 
 prose:
     rooturl: 'app'

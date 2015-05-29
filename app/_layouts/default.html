@@ -1,13 +1,11 @@
 <!doctype html>
 <html class="no-js">
     <head>
-        {% if page.title != null %}
-            <title>mu\ {{ page.title }}</title>
-        {% else if page.node != null %}
-            <title>mu\ {{ page.node | upcase }}</title>
-        {% else %}
-            <title>mu\</title>
-        {% endif %}
+        {% capture title %}mu\{% endcapture %}
+        {% if page.node != nil %}{% capture title %}{{ title }} {{ page.node | upcase }}{% endcapture %}{% endif %}
+        {% if page.title != nil %}{% capture title %}{{ title }}\ {{ page.title }}{% endcapture %}{% endif %}
+
+        <title>{{ title }}</title>
 
         <meta charset="utf-8">
         <meta name="description" content="{{ page.description }}"/>
@@ -15,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta property="og:url" content=""/>
         <meta property="og:image" content="/og-image.png"/>
-        <meta property="og:title" content="{{ page.title }}"/>
+        <meta property="og:title" content="{{ title }}"/>
         <meta property="og:description" content="{{ page.description }}"/>
 
         <link rel="shortcut icon" href="/favicon.png"/>
@@ -27,21 +25,25 @@
         <link rel="stylesheet" href="/assets/vendor/vendor.css">
         <link rel="stylesheet" href="/assets/css/main.css">
 
+        <script>window.debug = true; if (window.debug) console.clear();</script>
         <script src="//use.typekit.net/cvb2rqu.js"></script>
         <script>try{Typekit.load();}catch(e){}</script>
 
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            showMathMenu: false
-        });
-        </script>
-        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        {% if page.extensions contains 'math' %}
+            <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                showMathMenu: false
+            });
+            </script>
+            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        {% endif %}
         <script src="/assets/vendor/vendor.js"></script>
 
         <script>(function(e,t,n,r,i,s){e.GoogleAnalyticsObject=r;e[r]||(e[r]=function(){(e[r].q=e[r].q||[]).push(arguments)});e[r].l=+(new Date);i=t.createElement(n);s=t.getElementsByTagName(n)[0];i.src="//www.google-analytics.com/analytics.js";s.parentNode.insertBefore(i,s)})(window,document,"script","ga");ga("create","UA-XXXXX-X");ga("send","pageview")</script>
     </head>
     <body>
         {% include nav.html node=page.node %}
+
         {{ content }}
     </body>
 </html>

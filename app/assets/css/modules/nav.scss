@@ -5,6 +5,7 @@
 
 @import '../base/mixins';
 @import '../base/typography';
+@import '../components/anchors';
 
 $base-path: '../../' !default;
 $nav-width: 230px;
@@ -21,17 +22,17 @@ nav#nav
     position: fixed;
     z-index: 10;
 
-    .csstransitions &
+    @include transition
     {
         transition: transform 0.2s ease-out;
     }
 
-    &, &.state-collapsed
+    @include state('collapsed', true)
     {
         transform: translate3d(#{-$nav-width}, 0, 0);
     }
 
-    &.state-expanded
+    @include state('expanded')
     {
         transform: translate3d(0, 0, 0);
     }
@@ -93,32 +94,32 @@ nav#nav
                 width: 100%;
                 font-weight: $font-weight-content-normal;
                 font-size: 16px;
-                color: #666;
+                color: #000;
                 box-sizing: border-box;
                 border-left: 4px inset rgba(0, 0, 0, 0);
                 display: block;
                 position: relative;
 
-                .csstransitions &
+                @include transition
                 {
-                    transition: color 0.4s ease-out, border-left-color 0.4s ease-out;
+                    transition: opacity 0.2s ease-out, border-left-color 0.2s ease-out;
                 }
 
-                &.state-active
+                @include state('active')
                 {
                     border-left: 4px inset rgba(0, 0, 0, 1);
-                    color: #000;
                 }
             }
 
-            .no-touch &
+            a
             {
-                a:hover
+                @include state('hover')
                 {
+                    text-decoration: none;
+
                     li
                     {
-                        border-left: 4px inset rgba(0, 0, 0, 1);
-                        color: #000;
+                        opacity: 0.6;
                     }
                 }
             }

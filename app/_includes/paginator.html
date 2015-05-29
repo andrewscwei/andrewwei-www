@@ -1,0 +1,28 @@
+<div id="paginator">
+    {% if paginator.previous_page != nil %}
+        <div class="prev">
+            <a class="paginator newer" href="{{ paginator.previous_page_path }}">
+                <span class="number">{{ paginator.previous_page }}</span>
+                <span class="label">Newer</span>
+            </a>
+            {% if paginator.previous_page > 1 %}
+                <a class="paginator newest" href="/log">
+                    <span class="label">Newest</span>
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if paginator.next_page != nil %}
+        <div class="next">
+            {% if paginator.next_page < paginator.total_pages %}
+                <a class="paginator oldest" href="/log/page{{ paginator.total_pages }}">
+                    <span class="label">Oldest</span>
+                </a>
+            {% endif %}
+            <a class="paginator older" href="{{ paginator.next_page_path }}">
+                <span class="label">Older</span>
+                <span class="number">{{ paginator.next_page }}</span>
+            </a>
+        </div>
+    {% endif %}
+</div>

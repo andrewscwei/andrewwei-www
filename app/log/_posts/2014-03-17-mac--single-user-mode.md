@@ -1,5 +1,7 @@
 ---
 title: 'Mac: Single-User Mode'
+tags:
+    -   hacks
 ---
 
 ## How to boot into Single-User Mode on a Mac

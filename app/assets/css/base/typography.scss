@@ -42,34 +42,16 @@ button
     text-size-adjust: 100%;
 }
 
-span,
 p,
-li
+li,
+span
 {
     font-family: $font-family-content;
     font-weight: $font-weight-content-normal;
     font-size: 14px;
     line-height: 1.2em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
-{
-    font-family: $font-family-header;
-}
-
-p,
-li
-{
     color: #fff;
-}
 
-p
-{
     & + p
     {
         margin-top: 20px;
@@ -84,18 +66,19 @@ em
 
 h1
 {
-    font-size: 48px;
-    font-weight: $font-weight-header-bold;
+    font-family: $font-family-header;
+    font-size: 50px;
+    font-weight: $font-weight-header-light;
     line-height: 1.2em;
     text-align: left;
-    color: #ddd;
+    color: #fff;
     display: inline-block;
     position: relative;
 }
 
 h2
 {
-    margin: 20px 0px;
+    font-family: $font-family-header;
     font-size: 28px;
     font-weight: $font-weight-header-normal;
     text-align: left;
@@ -107,7 +90,8 @@ h2
 
 h3
 {
-    margin: 20px;
+    margin: 0px;
+    font-family: $font-family-header;
     font-weight: $font-weight-header-normal;
     font-size: 34px;
     text-align: center;
@@ -119,7 +103,7 @@ h3
 
 h4
 {
-    margin: 0px;
+    font-family: $font-family-header;
     font-size: 24px;
     text-align: left;
     font-weight: $font-weight-header-light;
@@ -131,8 +115,7 @@ h4
 
 h5
 {
-    margin: 0px;
-    padding: 10px 10px 20px 0px;
+    font-family: $font-family-header;
     font-size: 14px;
     font-weight: $font-weight-header-light;
     color: #707070;
@@ -157,28 +140,4 @@ h6
 em
 {
     font-style: italic;
-}
-
-a
-{
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-    color: #000;
-    text-align: inherit;
-    line-height: inherit;
-    text-decoration: none;
-
-    &:hover,
-    &.active,
-    &.state-active
-    {
-        opacity: 0.6;
-        text-decoration: none;
-    }
-
-    &:hover
-    {
-        cursor: pointer;
-    }
 }

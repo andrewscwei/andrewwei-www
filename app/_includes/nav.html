@@ -8,16 +8,13 @@
     <section class="panel">
         <ol>
             {% for node in site.data.nav %}
-                {% if node.name != include.node %}
                     <a href="{{ node.url }}">
-                {% endif %}
                         <li {% if node.name == include.node %}class="state-active"{% endif %}>{{ node.name | capitalize }}</li>
-                {% if node.name != include.node %}
                     </a>
-                {% endif %}
             {% endfor %}
         </ol>
         <aside>
+            <a class="social github" href="https://www.github.com/{{ site.data.social.github }}"></a>
             <a class="social twitter" href="https://www.twitter.com/{{ site.data.social.twitter }}"></a>
             <a class="social linkedin" href="https://www.linkedin.com/in/{{ site.data.social.linkedin }}"></a>
             <p>{{ site.data.social.bio }}</p>

@@ -1,5 +1,9 @@
 ---
 title: 'Xcode Custom Key Bindings'
+cover: /assets/images/log/2014/03/xcode-custom-key-bindings.jpg
+tags:
+    -   hacks
+    -   coding
 ---
 
 ## Adding Custom Commands

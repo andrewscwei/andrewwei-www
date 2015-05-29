@@ -1,0 +1,78 @@
+---
+layout: 'default'
+node: log
+---
+
+<main id="body" class="posts">
+    <!-- Determine the source of the posts by the tag that is received. -->
+    {% if page.tag == nil %}
+        {% assign posts = paginator.posts %}
+    {% else %}
+        {% assign posts = site.posts %}
+    {% endif %}
+
+    <!-- Calculate total number of posts corresponding to the specified tag. -->
+    {% assign num_posts = 0 %}
+    {% for post in posts %}
+        {% if page.tag == nil or post.tags contains page.tag %}
+            {% capture num_posts %}{{ num_posts | plus:1 }}{% endcapture %}
+        {% endif %}
+    {% endfor %}
+
+    <!-- Display number of posts. -->
+    <section class="results">
+        <summary>
+            {% if page.tag == nil %}
+            {% else %}
+                {% if num_posts == 1 %}
+                    <p>Displaying {{ num_posts }} post for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
+                {% else %}
+                    <p>Displaying {{ num_posts }} posts for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
+                {% endif %}
+            {% endif %}
+        </summary>
+    </section>
+
+    <section class="posts">
+        <!-- Compute the ID of each displayed post. -->
+        {% if page.tag == nil %}
+            {% capture id %}{{ paginator.page | minus:1 | times:paginator.per_page }}{% endcapture %}
+        {% else %}
+            {% capture id %}{{ 0 }}{% endcapture %}
+        {% endif %}
+
+        {% for post in posts %}
+            {% if page.tag == nil or post.tags contains page.tag %}
+                {% capture id %}{{ id | plus:1 }}{% endcapture %}
+                <summary class="post">
+                    <span class="number-tag">{{ id }}</span>
+                    <aside>
+                        <a class="fade" href="{{ post.url }}"><h1>{{ post.title | upcase }}</h1></a>
+                        <span class="date">{{ post.date | date_to_long_string }}</span>
+
+                        {% include hashtags.html tags=post.tags %}
+
+                        {% if post.cover != nil %}
+                            <a class="cover" href="{{ post.url }}"><figure class="cover" style="background-image:url({{ post.cover }});"></figure></a>
+                        {% endif %}
+
+                        <div class="content log-styles">
+                            {{ post.content | truncatewords:120 }}
+                        </div>
+                    </aside>
+                    <a class="read-more" href="{{ post.url }}">Continue reading</a>
+
+                    {% if id < num_posts %}
+                        <hr/>
+                    {% endif %}
+                </summary>
+            {% endif %}
+        {% endfor %}
+    </section>
+</main>
+
+{% if page.tag == nil %}
+    {% include paginator.html %}
+{% endif %}
+
+<script src="/assets/js/posts.js"></script>

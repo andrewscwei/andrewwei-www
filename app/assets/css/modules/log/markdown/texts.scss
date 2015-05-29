@@ -3,24 +3,24 @@
  *  (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-@import '../../base/mixins';
-@import '../../base/typography';
+@import '../../../base/mixins';
+@import '../../../base/typography';
 
-$base-path: '../../../' !default;
+$base-path: '../../../../' !default;
 
 .log-styles
 {
     h1
     {
         margin: 60px 0px 15px 0px;
-        width: 80%;
+        width: auto;
         font-family: $font-family-header;
         font-size: 50px;
         font-weight: $font-weight-header-light;
         line-height: 1.2em;
         text-align: left;
         color: #fff;
-        display: block;
+        display: inline-block;
         position: relative;
     }
 
@@ -39,25 +39,25 @@ $base-path: '../../../' !default;
 
     h3
     {
-        margin: 20px 0px 10px 0px;
+        margin: 40px 0px 10px 0px;
         font-family: $font-family-header;
         font-weight: $font-weight-header-normal;
         font-size: 24px;
         text-align: left;
         line-height: 1.2em;
-        color: #999;
+        color: #fff;
         display: block;
         position: relative;
     }
 
     h4
     {
-        margin: 0px;
+        margin: 40px 0px 10px 0px;
         font-family: $font-family-header;
-        font-size: 24px;
-        font-weight: $font-weight-header-light;
+        font-size: 20px;
+        font-weight: $font-weight-header-bold;
         text-align: left;
-        color: #606060;
+        color: #fff;
         line-height: 1.2em;
         display: block;
         position: relative;
@@ -65,13 +65,14 @@ $base-path: '../../../' !default;
 
     h5
     {
-        margin: 0px;
-        padding: 10px 10px 20px 0px;
+        margin: 30px 0px 10px 0px;
+        padding-left: 20px;
         font-family: $font-family-header;
-        font-size: 14px;
-        font-weight: $font-weight-header-light;
-        color: #707070;
+        font-size: 18px;
+        font-weight: $font-weight-header-bold;
+        color: #fff;
         line-height: 1.2em;
+        border-left: 4px solid #fff;
         text-align: left;
         display: block;
         position: relative;
@@ -79,14 +80,15 @@ $base-path: '../../../' !default;
 
     h6
     {
-        width: 100%;
+        margin: 30px 0px 10px 0px;
+        padding-left: 20px;
         font-family: $font-family-header;
-        font-size: 18px;
-        font-weight: $font-weight-header-light;
+        font-size: 16px;
+        font-weight: $font-weight-header-bold;
         line-height: 1.4em;
-        color: #666;
+        color: #ccc;
         text-align: left;
-        display: inline-block;
+        display: block;
         position: relative;
     }
 
@@ -96,7 +98,7 @@ $base-path: '../../../' !default;
         font-weight: $font-weight-content-normal;
         font-size: 16px;
         line-height: 1.6em;
-        color: #aaa;
+        color: #ccc;
 
         & + p
         {
@@ -120,16 +122,12 @@ $base-path: '../../../' !default;
 
     a
     {
-        color: #999;
+        color: #f92672;
+        text-decoration: none;
 
-        .csstransitions &
+        &:hover
         {
-            transition: opacity 0.4s ease-out;
-        }
-
-        &:hover,
-        {
-            opacity: 0.6;
+            text-decoration: underline;
         }
     }
 

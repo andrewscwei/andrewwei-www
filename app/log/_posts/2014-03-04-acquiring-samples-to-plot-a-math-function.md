@@ -1,5 +1,10 @@
 ---
 title: 'Acquiring Samples to Plot a Math Function: Adaptive Sampling'
+tags:
+    -   coding
+    -   math
+extensions:
+    -   math
 ---
 
 Plotting graphs involves acquiring a set of samples (points) of the function $$f(x)$$ between two finite $$x$$-boundaries ($$x_{min}$$ and $$x_{max}$$ usually corresponding to the fixed width of the display), drawing these points on the display as dots and then connecting them with lines. More samples imply a higher precision of the graph, but that also imposes a direct impact on the performance since acquiring more samples means doing more calculation work. This log demonstrates an efficient way to collect enough samples while yielding an accurate representation of the function plot where the level of precision can be easily adjusted through a variable. This method is commonly known as the *adaptive sampling* routine.
@@ -79,4 +84,14 @@ Take note that the following variables will be involved: `max_depth`, `depth`, a
 
             If `true`, routine is complete and the final array of samples can be returned. If `false`, split the intervals further as if the `count > 2`.
 
+            ![](/assets/images/log/2014/03/linear-sampling.png)
+            *Linear sampling demo (500 samples) of $$sin(\frac{1}{x})$$ on [Calculator³](https://itunes.apple.com/us/app/calculator3/id828838134?ls=1&mt=8).*
+
+            ![](/assets/images/log/2014/03/adaptive-sampling.png)
+            *Adaptive sampling demo (recursion depth=8) of $$sin(\frac{1}{x})$$ on [Calculator³](https://itunes.apple.com/us/app/calculator3/id828838134?ls=1&mt=8).*
+
 Freely adjust `max_depth` and `tolerance` as desired to acquire optimal precision-performance balance.
+
+## Sources
+
+1.  [Numerical algorithms I: basic methods](http://yacas.sourceforge.net/Algochapter4.html)

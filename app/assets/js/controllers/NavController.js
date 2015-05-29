@@ -22,7 +22,7 @@ var State =
  */
 function NavController(init)
 {
-    vars.Element.call(this, init);
+    vars.Element.call(this, init || document.getElementById('nav'));
 } var parent = vars.inherit(NavController, vars.Element);
 
 /**
@@ -85,10 +85,12 @@ NavController.prototype.init = function()
     if (utils.touchEnabled())
     {
         this.children.switch.addEventListener(vars.EventType.TOUCH.TOUCH_START, this._onSwitchActivate.bind(this));
+        document.addEventListener(vars.EventType.TOUCH.TOUCH_START, this._onSwitchDeactivate.bind(this));
     }
     else
     {
         this.children.switch.addEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchActivate.bind(this));
+        document.addEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchDeactivate.bind(this));
     }
 
     this.state = State.COLLAPSED;
@@ -122,19 +124,21 @@ NavController.prototype.destroy = function()
  */
 NavController.prototype._onSwitchActivate = function(event)
 {
-    switch (this.state)
-    {
-        case State.EXPANDED:
-        {
-            this.state = State.COLLAPSED;
-            break;
-        }
+    if (this.state === State.EXPANDED) return;
 
-        default:
-        {
-            this.state = State.EXPANDED;
-            break;
-        }
+    this.state = State.EXPANDED;
+};
+
+NavController.prototype._onSwitchDeactivate = function(event)
+{
+    if (this.state === State.COLLAPSED) return;
+
+    var mouseX = event.clientX;
+    var panelRect = vars.getRect(this.element.getElementsByClassName('panel')[0]);
+
+    if (mouseX > panelRect.width)
+    {
+        this.state = State.COLLAPSED;
     }
 };
 

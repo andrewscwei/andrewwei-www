@@ -12,6 +12,155 @@ $base-path: '../../' !default;
 @mixin min-height($minHeight) { @media only screen and (min-height: #{$minHeight}px) { @content; } }
 @mixin max-height($maxHeight) { @media only screen and (max-height: #{$maxHeight}px) { @content; } }
 
+@mixin mobile($touch:true, $invert:false)
+{
+    @if $invert == true
+    {
+        @media only screen and (min-width: 769px)
+        {
+            @include touch($touch)
+            {
+                @content;
+            }
+        }
+    }
+    @else
+    {
+        @media only screen and (max-width: 768px)
+        {
+            @include touch($touch)
+            {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin tablet($touch:true, $invert:false)
+{
+    @if $invert == true
+    {
+        @media only screen and (max-width: 768px) and (min-width: 1025px)
+        {
+            @include touch($touch)
+            {
+                @content;
+            }
+        }
+    }
+    @else
+    {
+        @media only screen and (min-width: 769px) and (max-width: 1024px)
+        {
+            @include touch($touch)
+            {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin desktop($touch:false, $invert:false)
+{
+    @if $invert == true
+    {
+        @media only screen and (max-width: 1024px)
+        {
+            @include touch($touch)
+            {
+                @content;
+            }
+        }
+    }
+    @else
+    {
+        @media only screen and (min-width: 1025px)
+        {
+            @include touch($touch)
+            {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin state($names, $default:false)
+{
+    @each $name in $names
+    {
+        @if $name == 'hover'
+        {
+            .no-touch &:hover
+            {
+                @content;
+            }
+        }
+        @else
+        {
+            &.state-#{$name}
+            {
+                @content;
+            }
+        }
+    }
+
+    @if $default == true
+    {
+        &
+        {
+            @content;
+        }
+    }
+}
+
+@mixin transition($enabled:true)
+{
+    @if $enabled == true
+    {
+        .csstransitions &
+        {
+            @content;
+        }
+    }
+    @else
+    {
+        @content;
+    }
+}
+
+@mixin animation($enabled:true)
+{
+    @if $enabled == true
+    {
+        .cssanimations &
+        {
+            @content;
+        }
+    }
+    @else
+    {
+        @content;
+    }
+}
+
+@mixin touch($enabled:true)
+{
+    @if $enabled == true
+    {
+        .touch &
+        {
+            @content;
+        }
+    }
+    @else
+    {
+        .no-touch &
+        {
+            @content;
+        }
+    }
+}
+
 @mixin clearfix
 {
     *zoom: 1;

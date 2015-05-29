@@ -3,10 +3,10 @@
  *  (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-@import '../../base/mixins';
-@import '../../base/typography';
+@import '../../../base/mixins';
+@import '../../../base/typography';
 
-$base-path: '../../../' !default;
+$base-path: '../../../../' !default;
 
 .log-styles
 {
@@ -14,7 +14,7 @@ $base-path: '../../../' !default;
     {
         padding: 3px;
         font-family: monospace;
-        font-size: 16px;
+        font-size: inherit;
         background-color: #272822;
         border-radius: 4px;
         word-break: break-all;
@@ -31,6 +31,7 @@ $base-path: '../../../' !default;
     pre
     {
         margin: 20px 0px;
+        font-size: 16px;
 
         code
         {

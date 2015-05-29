@@ -1,0 +1,22 @@
+/**
+ *  andrewwei mu
+ *  (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+@import '../base/mixins';
+@import '../base/typography';
+
+$base-path: '../';
+
+div.hashtags
+{
+    a.hashtag
+    {
+        margin: 10px 0px;
+
+        &:not(:last-child)
+        {
+            margin-right: 10px;
+        }
+    }
+}

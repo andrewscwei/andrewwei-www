@@ -5,13 +5,11 @@
 
 'use strict';
 
-window.debug = true; if (window.debug) console.clear();
-
 var vars = require('vars');
 
-vars.module((function() {
+vars.module(require('./controllers/NavController'), document.getElementById('nav'));
 
-var NavController = require('./controllers/NavController');
+vars.module((function() {
 
 function Main()
 {
@@ -20,7 +18,6 @@ function Main()
 
 Main.prototype.init = function()
 {
-    this.addVirtualChild(new NavController(document.getElementById('nav')), 'nav');
     parent.prototype.init.call(this);
 };
 
