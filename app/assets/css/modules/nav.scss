@@ -13,7 +13,7 @@ $nav-offset-y: 30px;
 
 nav#nav
 {
-    @include abs-align('left', 'top');
+    @include abs-align(left, top);
 
     width: auto;
     height: 100%;
@@ -27,30 +27,56 @@ nav#nav
         transition: transform 0.2s ease-out;
     }
 
-    @include state('collapsed', true)
+    @include state(collapsed, true)
     {
         transform: translate3d(#{-$nav-width}, 0, 0);
     }
 
-    @include state('expanded')
+    @include state(expanded)
     {
         transform: translate3d(0, 0, 0);
     }
 
-    section.control
+    section.controls
     {
-        width: auto;
+        width: $menu-button-width;
         height: $menu-button-height;
         line-height: $menu-button-height;
         top: $nav-offset-y;
         left: $nav-width;
+        font-size: 0px;
         display: block;
         position: absolute;
 
-        button.menu
+        button.menu,
+        button.return
         {
+            vertical-align: top;
             display: inline-block;
             position: relative;
+        }
+
+        button.menu
+        {
+            z-index: 1;
+        }
+
+        button.return
+        {
+            transform: translate3d(#{-$menu-button-width}, 0, 0);
+            opacity: 0.0;
+            z-index: 0;
+        }
+
+        @include state(returnable)
+        {
+            width: #{$menu-button-width * 2};
+
+            button.return
+            {
+                transform: translate3d(0, 0, 0);
+                opacity: 1.0;
+            }
         }
 
         h2
@@ -80,7 +106,7 @@ nav#nav
 
         ol
         {
-            @include abs-align('left', 'top');
+            @include abs-align(left, top);
 
             width: 100%;
             height: auto;
@@ -105,7 +131,7 @@ nav#nav
                     transition: opacity 0.2s ease-out, border-left-color 0.2s ease-out;
                 }
 
-                @include state('active')
+                @include state(active)
                 {
                     border-left: 4px inset rgba(0, 0, 0, 1);
                 }
@@ -113,7 +139,7 @@ nav#nav
 
             a
             {
-                @include state('hover')
+                @include state(hover)
                 {
                     text-decoration: none;
 
@@ -127,7 +153,7 @@ nav#nav
 
         aside
         {
-            @include abs-align('left', 'bottom');
+            @include abs-align(left, bottom);
 
             padding: 40px 30px;
             width: 100%;

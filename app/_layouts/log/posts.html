@@ -20,18 +20,18 @@ node: log
     {% endfor %}
 
     <!-- Display number of posts. -->
-    <section class="results">
-        <summary>
-            {% if page.tag == nil %}
-            {% else %}
+    {% if page.tag != nil %}
+        <section class="results">
+            <summary>
                 {% if num_posts == 1 %}
                     <p>Displaying {{ num_posts }} post for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
                 {% else %}
                     <p>Displaying {{ num_posts }} posts for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
                 {% endif %}
-            {% endif %}
-        </summary>
-    </section>
+                <p><a class="reset" href="/log">Reset</a></p>
+            </summary>
+        </section>
+    {% endif %}
 
     <section class="posts">
         <!-- Compute the ID of each displayed post. -->

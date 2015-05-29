@@ -80,7 +80,10 @@ Object.defineProperty(NavController.prototype, 'state',
  */
 NavController.prototype.init = function()
 {
-    this.children.switch = this.element.querySelectorAll('button.menu')[0];
+    this.children.controls = this.element.getElementsByClassName('controls')[0];
+    console.log(this.children.controls);
+    this.children.switch = this.children.controls.querySelectorAll('button.menu')[0];
+    this.children.return = this.children.controls.querySelectorAll('button.return')[0];
 
     if (utils.touchEnabled())
     {
@@ -94,6 +97,11 @@ NavController.prototype.init = function()
     }
 
     this.state = State.COLLAPSED;
+
+    if (this.children.return)
+    {
+        utils.changeElementState(this.children.controls, 'returnable');
+    }
 
     parent.prototype.init.call(this);
 };

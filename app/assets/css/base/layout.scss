@@ -31,12 +31,12 @@ main
         transition: transform 0.2s ease-out;
     }
 
-    @include state('unshifted', true)
+    @include state(unshifted, true)
     {
         transform: translate3d(0, 0, 0);
     }
 
-    @include state('shifted')
+    @include state(shifted)
     {
         transform: translate3d(#{$nav-width/2}, 0, 0);
     }

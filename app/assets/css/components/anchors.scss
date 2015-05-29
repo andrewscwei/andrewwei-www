@@ -25,7 +25,7 @@ a
         line-height: inherit;
         text-decoration: none;
 
-        @include state('hover')
+        @include state(hover)
         {
             text-decoration: underline;
             cursor: pointer;
@@ -39,7 +39,7 @@ a
             transition: opacity 0.4s ease-out;
         }
 
-        @include state('hover')
+        @include state(hover)
         {
             opacity: 0.4;
             text-decoration: none;
@@ -91,16 +91,16 @@ a.hashtag
     display: inline-block;
     position: relative;
 
-    @include state('active')
+    @include state(active)
     {
         color: #fff;
         background-color: #f92672;
     }
 }
 
-a.read-more
+a.read-more,
+a.reset
 {
-    margin: 20px 0px;
     padding: 6px 10px;
     color: #000;
     width: auto;
@@ -118,7 +118,7 @@ a.read-more
         transition: background-color 0.2s ease-out, color 0.2s ease-out;
     }
 
-    @include state('hover')
+    @include state(hover)
     {
         background-color: #000;
         color: #fff;
@@ -167,7 +167,7 @@ a.cover
         }
     }
 
-    @include state('hover')
+    @include state(hover)
     {
         figure.cover
         {
@@ -238,7 +238,7 @@ a.paginator
         span.number { text-align: right; }
         span.label { text-align: left; }
 
-        @include state('hidden', true)
+        @include state(hidden, true)
         {
             transform: translate3d(#{-$paginator-anchor-number-width - $paginator-anchor-label-width }, 0, 0);
         }
@@ -251,7 +251,7 @@ a.paginator
         span.number { text-align: left; }
         span.label { text-align: right; }
 
-        @include state('hidden', true)
+        @include state(hidden, true)
         {
             transform: translate3d(#{$paginator-anchor-number-width + $paginator-anchor-label-width }, 0, 0);
         }
@@ -273,7 +273,7 @@ a.paginator
         left: #{$paginator-anchor-number-width + $paginator-anchor-label-width};
         text-align: left;
 
-        @include state('hidden', true)
+        @include state(hidden, true)
         {
             transform: translate3d(#{-$paginator-anchor-label-long-width}, 0, 0);
         }
@@ -284,7 +284,7 @@ a.paginator
         right: #{$paginator-anchor-number-width + $paginator-anchor-label-width};
         text-align: right;
 
-        @include state('hidden', true)
+        @include state(hidden, true)
         {
             transform: translate3d(#{$paginator-anchor-label-long-width}, 0, 0);
         }
@@ -297,20 +297,20 @@ a.paginator
         transition-timing-function: ease-out;
     }
 
-    @include state('hidden', true)
+    @include state(hidden, true)
     {
         opacity: 0.0;
         pointer-events: none;
     }
 
-    @include state('visible')
+    @include state(visible)
     {
         opacity: 1.0;
         transform: translate3d(0, 0, 0);
         pointer-events: auto;
     }
 
-    @include state('hover')
+    @include state(hover)
     {
         opacity: 0.4;
     }

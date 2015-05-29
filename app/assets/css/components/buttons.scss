@@ -11,19 +11,19 @@ $menu-button-height: 46px;
 
 button.menu
 {
+    margin: 0px;
+    padding: 0px;
     width: $menu-button-width;
     height: $menu-button-height;
     background-color: #000;
     text-align: center;
-    display: inline-block;
-    position: relative;
 
     svg circle
     {
         fill: #fff;
     }
 
-    .csstransitions &
+    @include transition
     {
         transition: background-color 0.2s ease-out;
 
@@ -33,14 +33,52 @@ button.menu
         }
     }
 
-    .no-touch &:hover,
-    &.state-active
+    @include state(active hover)
     {
         background-color: #fff;
 
         svg circle
         {
             fill: #000;
+        }
+    }
+}
+
+button.return
+{
+    margin: 0px;
+    padding: 0px;
+    width: $menu-button-width;
+    height: $menu-button-height;
+    background-color: #fff;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+
+    svg rect
+    {
+        fill: #000;
+    }
+
+    @include transition
+    {
+        transition-property: opacity, transform, background-color;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
+
+        svg rect
+        {
+            transition: fill 0.2s ease-out;
+        }
+    }
+
+    @include state(hover)
+    {
+        background-color: #000;
+
+        svg rect
+        {
+            fill: #fff;
         }
     }
 }

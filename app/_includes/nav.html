@@ -1,16 +1,22 @@
 <nav id="nav">
-    <section class="control">
+    <section class="controls">
         <button class="menu">
-            {% include logo.html %}
+            {% include svgs/logo.html %}
         </button>
-        <!-- <h2>\{{ include.node | upcase }}</h2> -->
+        {% if page.return != nil %}
+            <a href="/{{ page.return }}">
+                <button class="return">
+                    {% include svgs/return.html %}
+                </button>
+            </a>
+        {% endif %}
     </section>
     <section class="panel">
         <ol>
             {% for node in site.data.nav %}
-                    <a href="{{ node.url }}">
-                        <li {% if node.name == include.node %}class="state-active"{% endif %}>{{ node.name | capitalize }}</li>
-                    </a>
+                <a href="{{ node.url }}">
+                    <li {% if node.name == page.node %}class="state-active"{% endif %}>{{ node.name | capitalize }}</li>
+                </a>
             {% endfor %}
         </ol>
         <aside>
