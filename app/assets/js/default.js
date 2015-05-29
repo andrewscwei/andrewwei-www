@@ -7,4 +7,4 @@
 
 var vars = require('vars');
 
-vars.module(require('./controllers/NavController'), document.getElementById('nav'));
+vars.module(require('./controllers/NavController'));
