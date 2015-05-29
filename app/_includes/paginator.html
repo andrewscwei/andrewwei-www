@@ -3,7 +3,9 @@
         <div class="prev">
             <a class="paginator newer" href="{{ paginator.previous_page_path }}">
                 <span class="number">{{ paginator.previous_page }}</span>
-                <span class="label">Newer</span>
+                <span class="label">
+                    {% include svgs/return.html %}
+                </span>
             </a>
             {% if paginator.previous_page > 1 %}
                 <a class="paginator newest" href="/log">
@@ -20,7 +22,9 @@
                 </a>
             {% endif %}
             <a class="paginator older" href="{{ paginator.next_page_path }}">
-                <span class="label">Older</span>
+                <span class="label">
+                    {% include svgs/return.html %}
+                </span>
                 <span class="number">{{ paginator.next_page }}</span>
             </a>
         </div>

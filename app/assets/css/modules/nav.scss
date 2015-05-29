@@ -9,7 +9,7 @@
 
 $base-path: '../../' !default;
 $nav-width: 230px;
-$nav-offset-y: 30px;
+$nav-offset-y: 0px;
 
 nav#nav
 {
@@ -40,7 +40,7 @@ nav#nav
     section.controls
     {
         width: $menu-button-width;
-        height: $menu-button-height;
+        height: auto;
         line-height: $menu-button-height;
         top: $nav-offset-y;
         left: $nav-width;
@@ -70,8 +70,6 @@ nav#nav
 
         @include state(returnable)
         {
-            width: #{$menu-button-width * 2};
-
             button.return
             {
                 transform: translate3d(0, 0, 0);

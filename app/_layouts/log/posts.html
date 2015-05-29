@@ -5,48 +5,63 @@ return: '/'
 ---
 
 <main id="body" class="posts">
-    <!-- Determine the source of the posts by the tag that is received. -->
     {% if page.tag == nil %}
+        <!-- Determine the source of the posts by the tag that is received. -->
         {% assign posts = paginator.posts %}
+
+        <!-- Determine the total number of posts displayed. -->
+        {% capture num_posts = %}{{ posts | size }}{% endcapture %}
+
+        <!-- Determine the starting ID. -->
+        {% capture start_id %}{{ paginator.page | minus:1 | times:paginator.per_page }}{% endcapture %}
+
+        <!-- Determine the ending ID. -->
+        {% capture end_id %}{{ start_id | plus:num_posts }}{% endcapture %}
     {% else %}
+        <!-- Determine the source of the posts by the tag that is received. -->
         {% assign posts = site.posts %}
+
+        <!-- Determine the total number of posts displayed. -->
+        {% assign num_posts = 0 %}
+        {% for post in posts %}
+            {% if page.tag == nil or post.tags contains page.tag %}
+                {% capture num_posts %}{{ num_posts | plus:1 }}{% endcapture %}
+            {% endif %}
+        {% endfor %}
+
+        <!-- Determine the starting ID. -->
+        {% capture start_id %}{{ 0 }}{% endcapture %}
+
+        <!-- Determine the ending ID. -->
+        {% capture end_id %}{{ id | plus:num_posts }}{% endcapture %}
     {% endif %}
 
-    <!-- Calculate total number of posts corresponding to the specified tag. -->
-    {% assign num_posts = 0 %}
-    {% for post in posts %}
-        {% if page.tag == nil or post.tags contains page.tag %}
-            {% capture num_posts %}{{ num_posts | plus:1 }}{% endcapture %}
-        {% endif %}
-    {% endfor %}
-
     <!-- Display number of posts. -->
-    {% if page.tag != nil %}
-        <section class="results">
-            <summary>
+    <section class="results">
+        <summary>
+            {% if page.tag == nil %}
+                {% if num_posts == 1%}
+                    <p>Displaying post <a class="number-tag">{{ start_id | plus:1 }}</a></p>
+                {% else %}
+                    <p>Displaying posts <a class="number-tag">{{ start_id | plus:1 }}</a> to <a class="number-tag">{{ end_id }}</a>
+                {% endif %}
+            {% else %}
                 {% if num_posts == 1 %}
                     <p>Displaying {{ num_posts }} post for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
                 {% else %}
                     <p>Displaying {{ num_posts }} posts for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
                 {% endif %}
                 <p><a class="reset" href="/log">Reset</a></p>
-            </summary>
-        </section>
-    {% endif %}
+            {% endif %}
+        </summary>
+    </section>
 
     <section class="posts">
-        <!-- Compute the ID of each displayed post. -->
-        {% if page.tag == nil %}
-            {% capture id %}{{ paginator.page | minus:1 | times:paginator.per_page }}{% endcapture %}
-        {% else %}
-            {% capture id %}{{ 0 }}{% endcapture %}
-        {% endif %}
-
+        {% capture id %}{{ start_id | plus:1 }}{% endcapture %}
         {% for post in posts %}
             {% if page.tag == nil or post.tags contains page.tag %}
-                {% capture id %}{{ id | plus:1 }}{% endcapture %}
                 <summary class="post">
-                    <span class="number-tag">{{ id }}</span>
+                    <a class="number-tag">{{ id }}</a>
                     <aside>
                         <a class="fade" href="{{ post.url }}"><h1>{{ post.title | upcase }}</h1></a>
                         <span class="date">{{ post.date | date_to_long_string }}</span>
@@ -64,6 +79,7 @@ return: '/'
                     <a class="read-more" href="{{ post.url }}">Continue reading</a>
                     <hr/>
                 </summary>
+                {% capture id %}{{ id | plus:1 }}{% endcapture %}
             {% endif %}
         {% endfor %}
     </section>

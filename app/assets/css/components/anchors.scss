@@ -7,9 +7,10 @@
 @import '../base/typography';
 
 $base-path: '../';
-$social-anchor-diameter: 14px;
+$social-anchor-diameter: 26px;
+$paginator-anchor-height: 30px;
 $paginator-anchor-number-width: 30px;
-$paginator-anchor-label-width: 60px;
+$paginator-anchor-label-width: 30px;
 $paginator-anchor-label-long-width: 70px;
 
 a
@@ -181,13 +182,30 @@ a.cover
     }
 }
 
+a.number-tag
+{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-family: $font-family-header;
+    font-weight: $font-weight-header-normal;
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: 25px;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    display: inline-block;
+    pointer-events: none;
+}
+
 a.paginator
 {
     bottom: 30px;
     margin: 0px;
     padding: 0px;
     width: auto;
-    height: auto;
+    height: $paginator-anchor-height;
     font-family: $font-family-content;
     font-size: 0px;
     font-weight: $font-weight-content-normal;
@@ -198,11 +216,13 @@ a.paginator
     span.number,
     span.label
     {
-        padding: 4px 8px;
+        padding: 0px 8px;
+        height: 100%;
         font-family: inherit;
         font-size: 16px;
         font-weight: inherit;
         color: inherit;
+        line-height: $paginator-anchor-height;
         vertical-align: top;
         box-sizing: border-box;
         display: inline-block;
@@ -250,6 +270,8 @@ a.paginator
 
         span.number { text-align: left; }
         span.label { text-align: right; }
+
+        svg { transform: rotate(180deg); }
 
         @include state(hidden, true)
         {

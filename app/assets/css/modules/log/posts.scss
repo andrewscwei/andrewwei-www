@@ -48,24 +48,10 @@ section.posts
             opacity: 1.0;
         }
 
-        span.number-tag
+        a.number-tag
         {
             top: 0px;
             left: -40px;
-            margin: 0px;
-            padding: 0px;
-            width: 25px;
-            height: 25px;
-            text-align: center;
-            font-family: $font-family-header;
-            font-weight: $font-weight-header-normal;
-            font-size: 16px;
-            vertical-align: middle;
-            line-height: 25px;
-            border-radius: 4px;
-            color: #333;
-            background-color: #fff;
-            display: block;
             position: absolute;
         }
 
