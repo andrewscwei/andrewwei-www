@@ -22,25 +22,11 @@ main.post
     {
         @include fluid-block;
 
-        padding-left: screen-padding-left();
-        padding-right: screen-padding-right();
         width: 100%;
         position: relative;
         text-align: left;
         display: block;
         z-index: 0;
-
-        @include screen(phablet)
-        {
-            padding-left: screen-padding-left(phablet);
-            padding-right: screen-padding-right(phablet);
-        }
-
-        @include screen(tablet)
-        {
-            padding-left: screen-padding-left(tablet);
-            padding-right: screen-padding-right(tablet);
-        }
 
         div.title
         {
@@ -86,14 +72,42 @@ main.post
     {
         padding-top: 100px;
         padding-bottom: 0px;
+        padding-left: screen-padding-left();
+        padding-right: screen-padding-right();
         height: auto;
+
+        @include screen(phablet)
+        {
+            padding-left: screen-padding-left(phablet);
+            padding-right: screen-padding-right(phablet);
+        }
+
+        @include screen(tablet)
+        {
+            padding-left: screen-padding-left(tablet);
+            padding-right: screen-padding-right(tablet);
+        }
     }
 
     section.cover
     {
         padding-top: 40px;
         padding-bottom: 40px;
+        padding-left: screen-padding-left();
+        padding-right: screen-padding-right();
         height: 100%;
+
+        @include screen(phablet)
+        {
+            padding-left: screen-padding-left(phablet);
+            padding-right: screen-padding-right(phablet);
+        }
+
+        @include screen(tablet)
+        {
+            padding-left: screen-padding-left(tablet);
+            padding-right: screen-padding-right(tablet);
+        }
 
         @include screen(phablet, height)
         {
