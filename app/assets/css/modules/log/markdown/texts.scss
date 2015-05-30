@@ -26,15 +26,21 @@ $base-path: '../../../../' !default;
 
     h2
     {
-        margin: 50px 0px 15px 0px;
+        margin: 30px 0px 15px 0px;
         font-family: $font-family-header;
-        font-size: 36px;
+        font-size: 26px;
         font-weight: $font-weight-header-light;
         text-align: left;
         line-height: 1.2em;
         color: #fff;
         display: block;
         position: relative;
+
+        @include screen(phablet)
+        {
+            margin: 50px 0px 15px 0px;
+            font-size: 36px;
+        }
     }
 
     h3

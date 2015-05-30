@@ -7,7 +7,7 @@
 @import '../base/typography';
 
 $base-path: '../';
-$social-anchor-diameter: 26px;
+$social-anchor-diameter: 20px;
 $paginator-anchor-height: 30px;
 $paginator-anchor-number-width: 30px;
 $paginator-anchor-label-width: 30px;
@@ -131,11 +131,16 @@ a.cover
 {
     margin: 20px 0px;
     width: 100%;
-    height: 300px;
+    height: 150px;
     display: block;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
+
+    @include screen(phablet)
+    {
+        height: 300px;
+    }
 
     figure.cover
     {
@@ -145,7 +150,7 @@ a.cover
         background-size: cover;
         background-position: center;
         transform: scale(1);
-        background-attachment: fixed;
+        position: relative;
 
         @include transition
         {

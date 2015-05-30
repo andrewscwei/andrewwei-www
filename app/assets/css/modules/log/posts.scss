@@ -59,15 +59,21 @@ section.posts
         {
             margin: 0px 0px 15px 0px;
             width: auto;
-            max-width: 80%;
+            max-width: 100%;
             font-family: $font-family-header;
-            font-size: 50px;
+            font-size: 36px;
             font-weight: $font-weight-header-light;
             line-height: 1.2em;
             text-align: left;
             color: #fff;
             display: inline-block;
             position: relative;
+
+            @include screen(phablet)
+            {
+                max-width: 80%;
+                font-size: 50px;
+            }
         }
 
         .content

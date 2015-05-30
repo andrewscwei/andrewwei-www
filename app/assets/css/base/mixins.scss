@@ -5,80 +5,72 @@
 
 $base-path: '../../' !default;
 
-@mixin portrait               { @media only screen and (orientation: portrait)       { @content; } }
-@mixin landscape              { @media only screen and (orientation: landscape)      { @content; } }
-@mixin min-width($minWidth)   { @media only screen and (min-width: #{$minWidth}px)   { @content; } }
-@mixin max-width($maxWidth)   { @media only screen and (max-width: #{$maxWidth}px)   { @content; } }
-@mixin min-height($minHeight) { @media only screen and (min-height: #{$minHeight}px) { @content; } }
-@mixin max-height($maxHeight) { @media only screen and (max-height: #{$maxHeight}px) { @content; } }
+$mobile-min-threshold: 0px;
+$mobile-max-threshold: 499px;
+$phablet-min-threshold: 668px;
+$phablet-max-threshold: 767px;
+$tablet-min-threshold: 768px;
+$tablet-max-threshold: 1024px;
+$desktop-min-threshold: 1025px;
+$desktop-max-threshold: 10000px;
 
-@mixin mobile($touch:true, $invert:false)
-{
-    @if $invert == true
-    {
-        @media only screen and (min-width: 769px)
-        {
-            @include touch($touch)
-            {
-                @content;
-            }
-        }
-    }
-    @else
-    {
-        @media only screen and (max-width: 768px)
-        {
-            @include touch($touch)
-            {
-                @content;
-            }
-        }
-    }
-}
+@mixin portrait  { @media only screen and (orientation: portrait)  { @content; } }
+@mixin landscape { @media only screen and (orientation: landscape) { @content; } }
 
-@mixin tablet($touch:true, $invert:false)
-{
-    @if $invert == true
-    {
-        @media only screen and (max-width: 768px) and (min-width: 1025px)
-        {
-            @include touch($touch)
-            {
-                @content;
-            }
-        }
-    }
-    @else
-    {
-        @media only screen and (min-width: 769px) and (max-width: 1024px)
-        {
-            @include touch($touch)
-            {
-                @content;
-            }
-        }
-    }
-}
+@mixin screen-min-width($minWidth)   { @media only screen and (min-width: #{$minWidth}px)   { @content; } }
+@mixin screen-max-width($maxWidth)   { @media only screen and (max-width: #{$maxWidth}px)   { @content; } }
+@mixin screen-min-height($minHeight) { @media only screen and (min-height: #{$minHeight}px) { @content; } }
+@mixin screen-max-height($maxHeight) { @media only screen and (max-height: #{$maxHeight}px) { @content; } }
 
-@mixin desktop($touch:false, $invert:false)
+@mixin screen($name, $measurement:width, $touch:false, $exclusive:false, $invert:false)
 {
-    @if $invert == true
+    @if $name == mobile
     {
-        @media only screen and (max-width: 1024px)
+        $min-threshold: $mobile-min-threshold;
+        $max-threshold: $mobile-max-threshold;
+    }
+
+    @else if $name == phablet
+    {
+        $min-threshold: $phablet-min-threshold;
+        $max-threshold: $phablet-max-threshold;
+    }
+
+    @else if $name == tablet
+    {
+        $min-threshold: $tablet-min-threshold;
+        $max-threshold: $tablet-max-threshold;
+    }
+
+    @else if $name == desktop
+    {
+        $min-threshold: $desktop-min-threshold;
+        $max-threshold: $desktop-max-threshold;
+    }
+
+    @if $min-threshold != null and $max-threshold != null
+    {
+        @if $exclusive == true
         {
-            @include touch($touch)
+            @if $invert == true
             {
-                @content;
+                @media screen and (max-#{$measurement}: #{$min-threshold - 1px}) { @include touch($touch, false) { @content; } }
+                @media screen and (min-#{$measurement}: #{$max-threshold + 1px}) { @include touch($touch, false) { @content; } }
+            }
+            @else
+            {
+                @media screen and (min-#{$measurement}: #{$min-threshold}) and (max-#{$measurement}: #{$max-threshold}) { @include touch($touch, false) { @content; } }
             }
         }
-    }
-    @else
-    {
-        @media only screen and (min-width: 1025px)
+        @else
         {
-            @include touch($touch)
+            @if $invert == true
             {
-                @content;
+                @media screen and (max-#{$measurement}: #{$min-threshold - 1px}) { @include touch($touch, false) { @content; } }
+            }
+            @else
+            {
+                @media screen and (min-#{$measurement}: $min-threshold) { @include touch($touch, false) { @content; } }
             }
         }
     }
@@ -143,7 +135,7 @@ $base-path: '../../' !default;
     }
 }
 
-@mixin touch($enabled:true)
+@mixin touch($enabled:true, $exclusive:false)
 {
     @if $enabled == true
     {
@@ -154,7 +146,14 @@ $base-path: '../../' !default;
     }
     @else
     {
-        .no-touch &
+        @if $exclusive == true
+        {
+            .no-touch &
+            {
+                @content;
+            }
+        }
+        @else
         {
             @content;
         }
@@ -186,6 +185,7 @@ $base-path: '../../' !default;
 
 @mixin animate
 {
+    transform: translateZ(0);
     transform: translate3d(0, 0, 0);
     transform-style: preserve-3d;
     backface-visibility: hidden;

@@ -63,7 +63,7 @@ Posts.prototype.update = function(dirtyTypes)
             var rect = vars.getRect(post);
             var intersect = vars.getIntersectRect(post);
 
-            if (intersect.height > rect.height*0.2)
+            if ((intersect.height > rect.height*0.2) || (intersect.height > r.height *0.2))
             {
                 utils.changeElementState(post, 'visible');
             }

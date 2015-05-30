@@ -21,9 +21,19 @@ $base-path: '../../../../' !default;
 
     ol, ul
     {
-        margin: 30px 0px;
-        padding: 0px 40px;
+        margin: 30px 10px;
+        padding: 0px 0px 0px 20px;
         list-style: decimal;
+
+        @include screen(tablet)
+        {
+            padding: 0px 20px;
+        }
+
+        @include screen(desktop)
+        {
+            padding: 0px 40px;
+        }
 
         ol, ul
         {

@@ -5,6 +5,8 @@
 
 @import '../../base/mixins';
 @import '../../base/typography';
+@import '../../base/layout';
+@import '../../components/buttons';
 
 $base-path: '../../../' !default;
 
@@ -20,12 +22,25 @@ main.post
     {
         @include fluid-block;
 
-        padding: 100px 20%;
+        padding-left: screen-padding-left();
+        padding-right: screen-padding-right();
         width: 100%;
         position: relative;
         text-align: left;
         display: block;
         z-index: 0;
+
+        @include screen(phablet)
+        {
+            padding-left: screen-padding-left(phablet);
+            padding-right: screen-padding-right(phablet);
+        }
+
+        @include screen(tablet)
+        {
+            padding-left: screen-padding-left(tablet);
+            padding-right: screen-padding-right(tablet);
+        }
 
         div.title
         {
@@ -36,17 +51,22 @@ main.post
             {
                 margin: 0px;
                 width: auto;
-                max-width: 80%;
+                max-width: 100%;
                 text-align: left;
-                font-size: 60px;
+                font-size: 36px;
                 line-height: 1.2em;
                 color: #fff;
                 display: block;
                 position: relative;
 
-                @include max-width(768)
+                @include screen(tablet)
                 {
-                    font-size: 50px;
+                    font-size: 60px;
+                }
+
+                @include screen(desktop)
+                {
+                    max-width: 80%;
                 }
             }
 
@@ -64,16 +84,18 @@ main.post
 
     section.no-cover
     {
+        padding-top: 100px;
         padding-bottom: 0px;
         height: auto;
     }
 
     section.cover
     {
+        padding-top: 40px;
         padding-bottom: 40px;
         height: 100%;
 
-        @include min-height(600)
+        @include screen(phablet, height)
         {
             height: 80%;
         }
@@ -87,9 +109,13 @@ main.post
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             display: block;
             position: absolute;
+
+            @include screen(desktop)
+            {
+                background-attachment: fixed;
+            }
 
             &:before
             {
@@ -110,10 +136,20 @@ main.post
 
     section.body
     {
-        padding: 100px 20%;
+        padding: screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left();
         background-color: inherit;
         z-index: 10;
         position: relative;
+
+        @include screen(phablet)
+        {
+            padding: screen-padding-top(phablet) screen-padding-right(phablet) screen-padding-bottom(phablet) screen-padding-left(phablet);
+        }
+
+        @include screen(tablet)
+        {
+            padding: screen-padding-top(tablet) screen-padding-right(tablet) screen-padding-bottom(tablet) screen-padding-left(tablet);
+        }
 
         div.content
         {

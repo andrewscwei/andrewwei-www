@@ -86,8 +86,7 @@ NavController.prototype.init = function()
 
     if (utils.touchEnabled())
     {
-        this.children.switch.addEventListener(vars.EventType.TOUCH.TOUCH_START, this._onSwitchActivate.bind(this));
-        document.addEventListener(vars.EventType.TOUCH.TOUCH_START, this._onSwitchDeactivate.bind(this));
+        this.children.switch.addEventListener(vars.EventType.TOUCH.TOUCH_END, this._onSwitchActivate.bind(this));
     }
     else
     {
@@ -112,11 +111,12 @@ NavController.prototype.destroy = function()
 {
     if (utils.touchEnabled())
     {
-        this.children.switch.removeEventListener(vars.EventType.TOUCH.TOUCH_START, this._onSwitchActivate);
+        this.children.switch.removeEventListener(vars.EventType.TOUCH.TOUCH_END, this._onSwitchActivate);
     }
     else
     {
         this.children.switch.removeEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchActivate);
+        document.removeEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchDeactivate.bind(this));
     }
 
     parent.prototype.destroy.call(this);
@@ -131,9 +131,16 @@ NavController.prototype.destroy = function()
  */
 NavController.prototype._onSwitchActivate = function(event)
 {
-    if (this.state === State.EXPANDED) return;
+    if (!utils.touchEnabled() && this.state === State.EXPANDED) return;
 
-    this.state = State.EXPANDED;
+    if (this.state === State.EXPANDED)
+    {
+        this.state = State.COLLAPSED;
+    }
+    else
+    {
+        this.state = State.EXPANDED;
+    }
 };
 
 NavController.prototype._onSwitchDeactivate = function(event)

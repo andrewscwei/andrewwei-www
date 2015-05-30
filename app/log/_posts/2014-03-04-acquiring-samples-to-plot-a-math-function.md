@@ -78,6 +78,7 @@ Take note that the following variables will be involved: `max_depth`, `depth`, a
             $$
 
             Determine if the graph is smooth by evaluating:
+
             $$
             abs(f_1(x){-}f_2(x)) < tolerance*f_2(x)
             $$
