@@ -80,7 +80,7 @@ Take note that the following variables will be involved: `max_depth`, `depth`, a
             Determine if the graph is smooth by evaluating:
 
             $$
-            abs(f_1(x){-}f_2(x)) < tolerance*f_2(x)
+            abs(f_1(x){-}f_2(x)) \lt tolerance*f_2(x)
             $$
 
             If `true`, routine is complete and the final array of samples can be returned. If `false`, split the intervals further as if the `count > 2`.
