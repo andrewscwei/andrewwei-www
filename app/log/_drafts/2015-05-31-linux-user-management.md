@@ -89,6 +89,12 @@ To add a secondary group to an existing user:
 $ usermod -a -G {secondary_group_name} {username}
 ```
 
+To change a user's default shell (to bash, for example):
+
+```
+$ usermod -s /bin/bash {username}
+```
+
 ## Managing User Groups
 
 There are two types of user groups in the Linux system: primary and secondary. Groups are defined in `/etc/group`.
