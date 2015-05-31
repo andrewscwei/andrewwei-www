@@ -13,6 +13,8 @@ title: Linux User Management
 
 ## Managing Users
 
+A user can belong to only 1 primary group and muliple secondary groups.
+
 To add a new user (by default this creates a new group with the same name and assigns this new user's primary group to the new group):
 ```
 $ useradd username
@@ -20,27 +22,58 @@ $ useradd username
 
 To add a new user and assign its primary group to an existing group:
 ```
-$ useradd -g primary_group_name username
+$ useradd -g {primary_group_name} {username}
 ```
 
 To add a new user and assign its secondary group to an existing group (primary group is still the same as the username):
 ```
-$ useradd -G secondary_group_name username
+$ useradd -G {secondary_group_name, secondary_group_name, ...} {username}
 ```
 
-To change a password:
+To create a new home directory and assign its ownership to the new user:
 ```
-$ passwd username
+$ mkdir /home/username
+$ chown {username} /home/username
+```
+
+To create/change a password:
+```
+$ passwd {username}
 ```
 
 To delete a user:
 ```
-$ userdel username
+$ userdel {username}
 ```
 
-To delete a user along with its home directory and any other related data:
+To delete a user along with its home directory and mail spool:
 ```
-$ userdel -r username
+$ userdel -r {username}
+```
+
+To check the status of a user:
+```
+$ id {username}
+```
+
+To check the secondary groups which a user belongs to:
+```
+$ id -nG {username}
+```
+
+To change an existing user's primary group:
+```
+$ usermod -g {primary_group_name} {username}
+```
+
+To overwrite an existing user's secondary groups:
+```
+$ usermod -G {secondary_group_name, secondary_group_name, ...} {username}
+```
+
+To add a secondary group to an existing user:
+```
+$ usermod -a -G {secondary_group_name} {username}
 ```
 
 ## Managing User Groups
@@ -49,15 +82,15 @@ There are two types of user groups in the Linux system: primary and secondary. G
 
 To create a new group:
 ```
-$ groupadd groupname
+$ groupadd {group_name}
 ```
 
 To delete an existing group:
 ```
-$ groupdel groupname
+$ groupdel {group_name}
 ```
 
-To verify status of a group:
+To check the status of a group:
 ```
-$ grep groupname /etc/group
+$ grep {group_name} /etc/group
 ```
