@@ -67,6 +67,7 @@ prose:
         -   /app/log/objc
         -   /app/log/web
         -   /app/log/systems
+        -   /app/log/_drafts/style-guide.md
     metadata:
         app/_posts: &metadata
             -   name: 'title'
