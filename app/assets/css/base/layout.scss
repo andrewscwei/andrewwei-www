@@ -3,10 +3,9 @@
  *  (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-@import './mixins';
-@import './typography';
-@import '../components/buttons';
-@import '../modules/nav';
+@import 'base/typography';
+@import 'components/buttons';
+@import 'modules/nav';
 
 $base-path: '../../' !default;
 

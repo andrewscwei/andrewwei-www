@@ -15,7 +15,7 @@
     "compression": "^1.4.4",
     "express": "^4.12.3",
     "mathjax": "^2.5.1",
-    "vars": "https://github.com/VARIANTE/vars.js.git"
+    "vars": "https://github.com/VARIANTE/vars.web.git"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.1.7",
