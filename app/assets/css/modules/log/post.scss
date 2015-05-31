@@ -108,7 +108,7 @@ main.post
             padding-right: screen-padding-right(tablet);
         }
 
-        @include screen(phablet, height)
+        @include screen(phablet, false, false, height)
         {
             height: 80%;
         }
