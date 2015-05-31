@@ -68,7 +68,7 @@ prose:
         -   /app/log/web
         -   /app/log/systems
     metadata:
-        app/_posts: &metadata
+        app/log/_posts: &metadata
             -   name: 'title'
                 field:
                     element: 'text'
@@ -84,7 +84,7 @@ prose:
                     help: 'Uncheck this if you do not want this post published for the time being. You can reenable this at a later time.'
                     value: true
 
-        app/_drafts:
+        app/log/_drafts:
             -   name: 'title'
                 field:
                     element: 'text'
