@@ -1,3 +1,8 @@
+---
+published: true
+title: Linux User Management
+---
+
 ## Where User Info Are Stored
 
 1.	`/etc/passwd`: List of users.
