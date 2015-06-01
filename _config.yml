@@ -79,13 +79,13 @@ prose:
             -   name: 'published'
                 field:
                     element: 'checkbox'
-                    label: 'Specify whether this post is available on the live site.'
+                    label: 'Published'
                     value: true
 
             -   name: 'tags'
                 field:
                     element: 'multiselect'
-                    label: 'Specify the hashtags this post is associated with.'
+                    label: 'Hashtags'
                     options:
                         -   name: 'arduino'
                             value: 'arduino'
