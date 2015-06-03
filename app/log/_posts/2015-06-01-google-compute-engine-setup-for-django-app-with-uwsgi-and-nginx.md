@@ -1,6 +1,6 @@
 ---
 published: true
-title: Google Compute Engine Setup for Django App with uWSGI and Nginx
+title: 'Google Compute Engine Setup for Django App with uWSGI and Nginx'
 tags:
   - systems
 ---
@@ -365,3 +365,5 @@ Open up your browser and navigate to the site. It should be now be served proper
 4.  [Setting up Django with Nginx, Gunicorn, virtualenv, supervisor and PostgreSQL](http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/)
 
 5.  [Using uwsgi the right way](http://guoqiao.farbox.com/post/2014/0416-use-uwsgi-the-right-way)
+
+6.  [How To Set Up uWSGI and Nginx to Serve Python Apps on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04)
