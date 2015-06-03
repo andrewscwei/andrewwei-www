@@ -1,7 +1,7 @@
 ---
 published: true
 title: Linux User Management
-tags: 
+tags:
   - systems
 ---
 
@@ -17,82 +17,82 @@ tags:
 
 ## Managing Users
 
-A user can belong to only 1 primary group and muliple secondary groups.
+A user can belong to 1 primary group and muliple secondary groups.
 
-To add a new user (by default this creates a new group with the same name and assigns this new user's primary group to the new group):
+##### To add a new user (by default this creates a new group with the same name and assigns this new user's primary group to the new group):
 
 ```
 $ useradd username
 ```
 
-To add a new user and assign its primary group to an existing group:
+##### To add a new user and assign its primary group to an existing group:
 
 ```
 $ useradd -g {primary_group_name} {username}
 ```
 
-To add a new user and assign its secondary group to an existing group (primary group is still the same as the username):
+##### To add a new user and assign its secondary group to an existing group (primary group is still the same as the username):
 
 ```
 $ useradd -G {secondary_group_name, secondary_group_name, ...} {username}
 ```
 
-To create a new home directory and assign its ownership to the new user:
+##### To create a new home directory and assign its ownership to the new user:
 
 ```
 $ mkdir /home/username
 $ chown {username} /home/username
 ```
 
-To create/change a password:
+##### To create/change a password:
 
 ```
 $ passwd {username}
 ```
 
-To delete a user:
+##### To delete a user:
 
 ```
 $ userdel {username}
 ```
 
-To delete a user along with its home directory and mail spool:
+##### To delete a user along with its home directory and mail spool:
 
 ```
 $ userdel -r {username}
 ```
 
-To check the status of a user:
+##### To check the status of a user:
 
 ```
 $ id {username}
 ```
 
-To check the secondary groups which a user belongs to:
+##### To check the secondary groups which a user belongs to:
 
 ```
 $ id -nG {username}
 ```
 
-To change an existing user's primary group:
+##### To change an existing user's primary group:
 
 ```
 $ usermod -g {primary_group_name} {username}
 ```
 
-To overwrite an existing user's secondary groups:
+##### To overwrite an existing user's secondary groups:
 
 ```
 $ usermod -G {secondary_group_name, secondary_group_name, ...} {username}
 ```
 
-To add a secondary group to an existing user:
+##### To add a secondary group to an existing user:
 
 ```
 $ usermod -a -G {secondary_group_name} {username}
 ```
 
-To change a user's default shell (to bash, for example):
+##### To change a user's default shell (to bash, for example):
 
 ```
 $ usermod -s /bin/bash {username}
@@ -102,19 +102,19 @@ $ usermod -s /bin/bash {username}
 
 There are two types of user groups in the Linux system: primary and secondary. Groups are defined in `/etc/group`.
 
-To create a new group:
+##### To create a new group:
 
 ```
 $ groupadd {group_name}
 ```
 
-To delete an existing group:
+##### To delete an existing group:
 
 ```
 $ groupdel {group_name}
 ```
 
-To check the status of a group:
+##### To check the status of a group:
 
 ```
 $ grep {group_name} /etc/group
