@@ -1,12 +1,14 @@
 ---
-title: 'VARS: AS3 Front-End Framework'
-tags:
-    -   coding
-    -   experiments
-    -   as3
+title: "VARS: AS3 Front-End Framework"
+tags: 
+  - coding
+  - experiments
+  - as3
+published: true
 ---
 
-Another personal project (formerly called *GZFramework*) - this time a full front-end AS3 framework inspired by gaming UI architectures, available on [GitHub](https://github.com/VARIANTE/VARS.as3), fully compatible with [Scaleform](http://gameware.autodesk.com/scaleform).
+
+Another personal project (formerly called *GZFramework*) - this time a full front-end AS3 framework inspired by gaming UI architectures, available on [GitHub](https://github.com/VARIANTE/VARS.as), fully compatible with [Scaleform](http://gameware.autodesk.com/scaleform).
 
 ## Highlights
 
