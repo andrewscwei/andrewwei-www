@@ -1,5 +1,6 @@
 ---
 title: The Paper Bag Test
+cover: /assets/images/log/2011/02/paper-bag.jpg
 tags:
     -   as3
     -   experiments
