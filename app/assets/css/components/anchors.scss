@@ -11,6 +11,7 @@ $paginator-anchor-height: 30px;
 $paginator-anchor-number-width: 30px;
 $paginator-anchor-label-width: 30px;
 $paginator-anchor-label-long-width: 70px;
+$paginator-anchor-offset-y: 0px;
 
 a
 {
@@ -205,7 +206,7 @@ a.number-tag
 
 a.paginator
 {
-    bottom: 30px;
+    bottom: $paginator-anchor-offset-y;
     margin: 0px;
     padding: 0px;
     width: auto;
