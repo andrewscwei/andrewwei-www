@@ -1,4 +1,4 @@
-# andrewwei mu
+# andrewwei.mu
 
 This app is scaffolded by [Yeoman](http://yeoman.io). See [generator-vars-jekyll](https://github.com/VARIANTE/generator-vars-jekyll.git) for more details. This app is a static, database-less, blog-aware site that uses the [Jekyll](http://jekyllrb.com) generator and pipelined by [Gulp](http://gulpjs.com).
 
