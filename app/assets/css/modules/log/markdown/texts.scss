@@ -104,6 +104,11 @@ $base-path: '../../../../' !default;
         font-size: 16px;
         line-height: 1.6em;
         color: #ccc;
+
+        @include screen(desktop)
+        {
+            font-size: 18px;
+        }
     }
 
     p, ol, ul
@@ -141,14 +146,24 @@ $base-path: '../../../../' !default;
 
     blockquote
     {
-        margin: 20px 0px;
-        padding: 0px 30px;
+        margin: 20px 40px;
+        padding: 30px 30px;
+        // background-color: #111;
+        background-color: #2c2c2c;
+        border-radius: 4px;
+        display: block;
+        box-sizing: border-box;
 
         p
         {
             font-size: 14px;
-            line-height: 1.2em;
+            line-height: 1.4em;
             color: #999;
+
+            @include screen(desktop)
+            {
+                font-size: 16px;
+            }
         }
     }
 }
