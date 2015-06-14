@@ -1,10 +1,12 @@
 ---
-title: 'Migrating an iOS App From Paid to Freemium'
-tags:
-    -   objc
-    -   mobile
-    -   ios
+title: Migrating an iOS App From Paid to Freemium
+tags: 
+  - objc
+  - mobile
+  - ios
+published: true
 ---
+
 
 This log details out my recent effort in migrating the iOS app [Calculator³](https://itunes.apple.com/us/app/calculator3/id828838134?ls=1&mt=8) from paid model to freemium model with IAPs. Hopefully developers out there who are trying to do the same thing will find this log useful.
 
@@ -95,6 +97,6 @@ With the production receipt in front of me, I discovered what the mistake was. I
 
 If I took an extra measure of precaution and also compared the `original_purchase_date`, I might have avoided this regretful mistake.
 
-## Conslusion
+## Conclusion
 
 This incident welcomed a lot of 1-star reviews. Fellow developers, please be extra careful if you are also trying to convert your paid app to a freemium app using the same approach.
