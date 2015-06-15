@@ -102,7 +102,7 @@ $base-path: '../../../../' !default;
         font-family: $font-family-content;
         font-weight: $font-weight-content-normal;
         font-size: 16px;
-        line-height: 1.6em;
+        line-height: 1.4em;
         color: #ccc;
 
         @include screen(desktop)
@@ -146,19 +146,23 @@ $base-path: '../../../../' !default;
 
     blockquote
     {
-        margin: 20px 40px;
-        padding: 30px 30px;
-        // background-color: #111;
-        background-color: #2c2c2c;
+        margin: 20px 0px 20px 40px;
+        padding: 30px;
+        background-color: #999;
         border-radius: 4px;
         display: block;
         box-sizing: border-box;
+
+        @include screen(tablet)
+        {
+            margin: 20px 40px;
+        }
 
         p
         {
             font-size: 14px;
             line-height: 1.4em;
-            color: #999;
+            color: #111;
 
             @include screen(desktop)
             {
