@@ -48,10 +48,22 @@ main.playground
             }
         }
 
+        aside
+        {
+            margin: 10px 0px;
+            opacity: 0.0;
+
+            @include transition
+            {
+                transition: opacity 0.4s ease-out 0.6s;
+            }
+        }
+
         @include state(active)
         {
             h1,
-            h2
+            h2,
+            aside
             {
                 transform: translate3d(0, 0, 0);
                 opacity: 1.0;

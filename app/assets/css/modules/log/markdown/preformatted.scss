@@ -6,6 +6,7 @@
 @import 'base/typography';
 
 $base-path: '../../../../' !default;
+$preformatted-background-color: #1d1f21;
 
 .log-styles
 {
@@ -14,8 +15,7 @@ $base-path: '../../../../' !default;
         padding: 3px;
         font-family: monospace;
         font-size: inherit;
-        // background-color: #272822;
-        background-color: #111;
+        background-color: $preformatted-background-color;
         border-radius: 4px;
         word-break: break-all;
         display: inline-block;
@@ -64,8 +64,7 @@ $base-path: '../../../../' !default;
         }
 
         padding: 4px;
-        background-color: #272822;
-        background-color: #111;
+        background-color: $preformatted-background-color;
         border-radius: 4px;
     }
 

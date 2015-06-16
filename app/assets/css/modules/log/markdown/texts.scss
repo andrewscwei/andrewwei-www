@@ -135,7 +135,6 @@ $base-path: '../../../../' !default;
 
     a
     {
-        color: #f92672;
         text-decoration: none;
 
         &:hover
@@ -148,7 +147,7 @@ $base-path: '../../../../' !default;
     {
         margin: 20px 0px 20px 40px;
         padding: 30px;
-        background-color: #999;
+        background-color: #20b684;
         border-radius: 4px;
         display: block;
         box-sizing: border-box;
@@ -162,7 +161,7 @@ $base-path: '../../../../' !default;
         {
             font-size: 14px;
             line-height: 1.4em;
-            color: #111;
+            color: #000;
 
             @include screen(desktop)
             {

@@ -167,14 +167,17 @@ nav#nav
                 position: relative;
             }
 
-            a.social
+            a
             {
-                margin: 10px 0px;
-                vertical-align: bottom;
-
-                &:not(:last-child)
+                &.social
                 {
-                    margin-right: 8px;
+                    margin: 10px 0px;
+                    vertical-align: bottom;
+
+                    &:not(:last-child)
+                    {
+                        margin-right: 8px;
+                    }
                 }
             }
 
