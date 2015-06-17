@@ -1,5 +1,5 @@
 ---
-title: 'Data Structures: Stacks'
+title: 'Data Structures: Linked Lists'
 tags:
     -   c++
     -   coding
