@@ -1,5 +1,5 @@
 ---
-title: 'Data Structures: Stacks'
+title: 'Data Structures: Circular Queues'
 tags:
     -   c++
     -   coding
