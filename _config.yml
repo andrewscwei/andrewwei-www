@@ -82,6 +82,12 @@ prose:
                     label: 'Published'
                     value: true
 
+            -   name: 'deprecated'
+                field:
+                    element: 'checkbox'
+                    label: 'Deprecated'
+                    value: false
+
             -   name: 'tags'
                 field:
                     element: 'multiselect'

@@ -204,6 +204,29 @@ a.number-tag
     pointer-events: none;
 }
 
+span.deprecated
+{
+    margin: 0px 10px;
+    height: 30px;
+    padding: 0px 10px;
+    text-align: left;
+    font-family: $font-family-content;
+    font-weight: $font-weight-content-normal;
+    font-size: 16px;
+    line-height: 30px;
+    vertical-align: middle;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #f92672;
+    display: inline-block;
+    pointer-events: none;
+
+    &:after
+    {
+        content: 'Deprecated';
+    }
+}
+
 a.paginator
 {
     bottom: $paginator-anchor-offset-y;

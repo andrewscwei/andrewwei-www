@@ -63,7 +63,7 @@ return: '/'
                 <summary class="post">
                     <a class="number-tag">{{ id }}</a>
                     <aside>
-                        <a class="fade" href="{{ post.url }}"><h1>{{ post.title | upcase }}</h1></a>
+                        <a class="fade" href="{{ post.url }}"><h1>{{ post.title | upcase }}{% if post.deprecated == true %}<span class="deprecated"></span>{% endif %}</h1></a>
                         <span class="date">{{ post.date | date_to_long_string }}</span>
 
                         {% include hashtags.html tags=post.tags %}

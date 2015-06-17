@@ -1,10 +1,11 @@
 ---
-title: 'VARS: AS3 Front-End Framework (deprecated)'
+title: 'VARS: AS3 Front-End Framework'
 tags:
     -   coding
     -   experiments
     -   as3
 published: true
+deprecated: true
 ---
 
 
