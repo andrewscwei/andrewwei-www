@@ -1,5 +1,5 @@
 ---
-title: Tic-Tac-Toe!
+title: 'Tic-Tac-Toe! (deprecated)'
 cover: /assets/images/log/2011/02/tic-tac-toe.jpg
 tags:
     -   as3

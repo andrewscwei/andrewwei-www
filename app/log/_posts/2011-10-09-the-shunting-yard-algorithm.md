@@ -4,6 +4,7 @@ tags:
     -   algorithms
     -   coding
     -   objc
+    -   math
 ---
 
 The *Shunting-Yard* algorithm is an algorithm developed by [Edsger Dijkstra](http://en.wikipedia.org/wiki/Edsger_Dijkstra) which parses infix mathematical expressions into *Reverse Polish Notations* (RPN). The algorithm scans a string representation of a math expression (i.e. `1+4(6)+53`) and records each character group in the expression as tokens, and each token will be processed accordingly to generate an RPN stack. From the RPN output the numerical answer can then be easily deducted.

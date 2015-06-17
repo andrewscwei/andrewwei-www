@@ -1,9 +1,9 @@
 ---
 title: Migrating an iOS App From Paid to Freemium
-tags: 
-  - objc
-  - mobile
-  - ios
+tags:
+    -   objc
+    -   mobile
+    -   ios
 published: true
 ---
 

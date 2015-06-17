@@ -2,7 +2,7 @@
 published: true
 title: 'Google Compute Engine Setup for Django App with uWSGI and Nginx'
 tags:
-  - systems
+    -   systems
 ---
 
 This log demonstrates how to set up a [Django](https://www.djangoproject.com/) app on [Google Compute Engine](https://cloud.google.com/compute/) and serve it using [uWSGI](https://uwsgi-docs.readthedocs.org) and [Nginx](http://wiki.nginx.org/Main) from **scratch**. Assume the following:

@@ -3,6 +3,7 @@ title: 'How to Maximize iPhone Battery Life'
 published: false
 tags:
     -   mobile
+    -   ios
 ---
 
 Some settings to tweak on the iPhone to maximize battery life:

@@ -2,6 +2,8 @@
 title: 'Evaluating an RPN Stack'
 tags:
     -   coding
+    -   math
+    -   algorithms
 ---
 
 ### Terms Used

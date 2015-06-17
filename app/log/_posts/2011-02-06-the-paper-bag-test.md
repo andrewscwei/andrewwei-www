@@ -1,5 +1,5 @@
 ---
-title: The Paper Bag Test
+title: 'The Paper Bag Test (deprecated)'
 cover: /assets/images/log/2011/02/paper-bag.jpg
 tags:
     -   as3
