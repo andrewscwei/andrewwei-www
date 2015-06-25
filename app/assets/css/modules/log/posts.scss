@@ -68,7 +68,7 @@ section.posts
             display: inline-block;
             position: relative;
 
-            @include screen(phablet)
+            @include screen(tablet)
             {
                 max-width: 80%;
                 font-size: 50px;
