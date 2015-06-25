@@ -1,5 +1,6 @@
 ---
 title: 'Push-Deploy a Django App with Bitnami Jenkins on Google Cloud Engine'
+cover: /assets/images/log/2015/06/jenkins.svg
 tags:
     -   systems
 ---

@@ -1,5 +1,6 @@
 ---
 title: 'Mac: Single-User Mode'
+cover: /assets/images/log/2014/03/single-user-mode-cover.jpg
 tags:
     -   hacks
 ---

@@ -1,6 +1,7 @@
 ---
 published: true
 title: 'Google Compute Engine Setup for Django App with uWSGI and Nginx'
+cover: /assets/images/log/2015/06/django.svg
 tags:
     -   systems
 ---

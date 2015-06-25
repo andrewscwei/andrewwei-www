@@ -1,5 +1,6 @@
 ---
 title: Migrating an iOS App From Paid to Freemium
+cover: /assets/images/log/2015/06/calculator3.jpg
 tags:
     -   objc
     -   mobile

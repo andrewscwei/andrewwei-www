@@ -1,6 +1,7 @@
 ---
 published: true
 title: Linux User Management
+cover: /assets/images/log/2015/05/linux.svg
 tags:
     -   systems
 ---

@@ -1,5 +1,6 @@
 ---
 title: 'Data Structure Alignment: Alignment Class Members'
+cover: /assets/images/log/2014/03/data-structure-alignment-cover.jpg
 tags:
     -   coding
     -   c++
