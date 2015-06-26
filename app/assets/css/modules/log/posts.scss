@@ -17,6 +17,11 @@ section.results
         text-align: center;
         display: block;
         position: relative;
+
+        p
+        {
+            line-height: 2em;
+        }
     }
 }
 

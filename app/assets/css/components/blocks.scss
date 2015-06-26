@@ -9,9 +9,11 @@ $base-path: '../';
 
 div.hashtags
 {
+    padding: 10px 0px;
+
     a.hashtag
     {
-        margin: 10px 0px;
+        margin: 3px 0px;
 
         &:not(:last-child)
         {

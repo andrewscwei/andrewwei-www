@@ -29,6 +29,7 @@ main.post
 
         div.title
         {
+            width: 100%;
             display: inline-block;
             position: relative;
 
@@ -43,6 +44,7 @@ main.post
                 color: #fff;
                 display: block;
                 position: relative;
+                word-wrap: break-word;
 
                 @include screen(tablet)
                 {
