@@ -1,5 +1,6 @@
 ---
 title: 'The Shunting-Yard Algorithm'
+cover: /assets/images/log/2011/10/shunting-yard-cover.jpg
 tags:
     -   algorithms
     -   coding

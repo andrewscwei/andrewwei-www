@@ -1,6 +1,6 @@
 ---
 title: 'Acquiring Samples to Plot a Math Function: Adaptive Sampling'
-cover: /assets/images/log/2014/03/adaptive-sampling-cover.png
+cover: /assets/images/log/2014/03/adaptive-sampling-cover.jpg
 tags:
     -   coding
     -   math

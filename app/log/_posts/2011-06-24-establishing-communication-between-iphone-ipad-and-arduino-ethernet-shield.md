@@ -1,5 +1,6 @@
 ---
 title: 'Establishing Communication between iPhone/iPad and Arduino Ethernet Shield'
+cover: /assets/images/log/2011/06/arduino-ethernet-shield-cover.jpg
 tags:
     -   arduino
     -   c++

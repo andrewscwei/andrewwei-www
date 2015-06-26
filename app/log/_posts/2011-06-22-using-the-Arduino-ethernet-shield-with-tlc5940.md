@@ -1,5 +1,6 @@
 ---
 title: 'Using the Arduino Ethernet Shield with TLC5940'
+cover: /assets/images/log/2011/06/arduino-cover.jpg
 tags:
     -   arduino
     -   c++

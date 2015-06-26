@@ -1,5 +1,6 @@
 ---
 title: 'VARS: AS3 Front-End Framework'
+cover: /assets/images/log/2013/06/vars-as3-cover.jpg
 tags:
     -   coding
     -   experiments

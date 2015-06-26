@@ -1,5 +1,6 @@
 ---
 title: 'How to Invert Mouse Wheel Scrolling on Windows 7/8'
+cover: /assets/images/log/2013/04/invert-mouse-scroll-cover.jpg
 tags:
     -   hacks
 ---
