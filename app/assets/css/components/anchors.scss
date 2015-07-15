@@ -80,7 +80,7 @@ a.hashtag
 {
     @extend a.fade;
 
-    padding: 5px 10px;
+    padding: 8px 10px;
     width: auto;
     height: auto;
     font-family: $font-family-content;
@@ -89,6 +89,7 @@ a.hashtag
     color: #666;
     background-color: #000;
     border-radius: 4px;
+    line-height: 1em;
     display: inline-block;
     position: relative;
 
@@ -102,7 +103,7 @@ a.hashtag
 a.read-more,
 a.reset
 {
-    padding: 6px 10px;
+    padding: 8px 10px;
     color: #000;
     width: auto;
     height: auto;
@@ -110,6 +111,7 @@ a.reset
     font-size: 16px;
     font-weight: $font-weight-content-normal;
     border-radius: 4px;
+    line-height: 1em;
     background-color: #fff;
     display: inline-block;
     position: relative;

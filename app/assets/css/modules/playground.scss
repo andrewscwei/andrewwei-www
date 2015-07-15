@@ -11,6 +11,7 @@ main.playground
 {
     @include fluid-block;
 
+    padding: 50px;
     width: 100%;
     height: 100%;
     display: block;
@@ -20,6 +21,7 @@ main.playground
     section.bio
     {
         width: auto;
+        max-width: 400px;
         height: auto;
         position: relative;
         text-align: left;

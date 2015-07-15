@@ -16,9 +16,14 @@ button.menu
     background-color: #000;
     text-align: center;
 
-    svg circle
+    svg
     {
-        fill: #fff;
+        vertical-align: middle;
+
+        circle
+        {
+            fill: #fff;
+        }
     }
 
     @include transition
