@@ -9,13 +9,11 @@ $base-path: '../../' !default;
 
 main.playground
 {
-    @include fluid-block;
+    @include flex-block;
 
     padding: 50px;
     width: 100%;
     height: 100%;
-    display: block;
-    font-size: 0;
     position: relative;
 
     section.bio
@@ -25,7 +23,6 @@ main.playground
         height: auto;
         position: relative;
         text-align: left;
-        vertical-align: middle;
         display: inline-block;
         position: relative;
 

@@ -237,7 +237,6 @@ a.paginator
     width: auto;
     height: $paginator-anchor-height;
     font-family: $font-family-content;
-    font-size: 0px;
     font-weight: $font-weight-content-normal;
     box-sizing: border-box;
     display: inline-block;
@@ -255,7 +254,8 @@ a.paginator
         line-height: $paginator-anchor-height;
         vertical-align: top;
         box-sizing: border-box;
-        display: inline-block;
+        display: block;
+        float: left;
         position: relative;
     }
 

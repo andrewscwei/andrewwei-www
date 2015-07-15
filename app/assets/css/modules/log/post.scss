@@ -19,13 +19,11 @@ main.post
     section.cover,
     section.no-cover
     {
-        @include fluid-block;
+        @include flex-block(center, bottom);
 
         width: 100%;
         position: relative;
         text-align: left;
-        display: block;
-        z-index: 0;
 
         div.title
         {
@@ -141,11 +139,6 @@ main.post
                 display: block;
                 position: relative;
             }
-        }
-
-        div.title
-        {
-            vertical-align: bottom;
         }
     }
 
