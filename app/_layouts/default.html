@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class='no-js'>
     <head>
         {% capture title %}mu\{% endcapture %}
         {% if page.node != nil %}{% capture title %}{{ title }} {{ page.node | upcase }}{% endcapture %}{% endif %}
@@ -7,26 +7,26 @@
 
         <title>{{ title }}</title>
 
-        <meta charset="utf-8">
-        <meta name="description" content="{{ page.description }}"/>
-        <meta name="keywords" content=""/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:image" content="/og-image.png"/>
-        <meta property="og:title" content="{{ title }}"/>
-        <meta property="og:description" content="{{ page.description }}"/>
+        <meta charset='utf-8'>
+        <meta name='description' content='{{ page.description }}'/>
+        <meta name='keywords' content=''/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
+        <meta property='og:url' content=''/>
+        <meta property='og:image' content='/og-image.png'/>
+        <meta property='og:title' content='{{ title }}'/>
+        <meta property='og:description' content='{{ page.description }}'/>
 
-        <link rel="shortcut icon" href="/favicon.png"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+        <link rel='shortcut icon' href='/favicon.png'/>
+        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+        <link rel='apple-touch-icon' sizes='57x57' href='/apple-touch-icon-57x57.png' />
+        <link rel='apple-touch-icon' sizes='72x72' href='/apple-touch-icon-72x72.png' />
+        <link rel='apple-touch-icon' sizes='114x114' href='/apple-touch-icon-114x114.png' />
 
-        <link rel="stylesheet" href="/assets/vendor/vendor.css">
-        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel='stylesheet' href='/assets/vendor/vendor.css'>
+        <link rel='stylesheet' href='/assets/css/main.css'>
 
         <!-- <script>window.debug = true; if (window.debug) console.clear();</script> -->
-        <script src="//use.typekit.net/cvb2rqu.js"></script>
+        <script src='//use.typekit.net/cvb2rqu.js'></script>
         <script>try{Typekit.load();}catch(e){}</script>
         <!--<script>
             (function(d)
@@ -36,25 +36,26 @@
                     kitId: 'cvb2rqu',
                     scriptTimeout: 3000
                 },
-                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,'')+' wf-inactive';},config.scriptTimeout),tk=d.createElement('script'),f=false,s=d.getElementsByTagName('script')[0],a;h.className+=' wf-loading';tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!='complete'&&a!='loaded')return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
             })(document);
         </script>-->
 
         {% if page.extensions contains 'math' %}
-            <script type="text/x-mathjax-config">
+            <script type='text/x-mathjax-config'>
             MathJax.Hub.Config({
                 showMathMenu: false
             });
             </script>
-            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            <script type='text/javascript' src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
         {% endif %}
-        <script src="/assets/vendor/vendor.js"></script>
+        <script src='/assets/vendor/vendor.js'></script>
 
-        <script>(function(e,t,n,r,i,s){e.GoogleAnalyticsObject=r;e[r]||(e[r]=function(){(e[r].q=e[r].q||[]).push(arguments)});e[r].l=+(new Date);i=t.createElement(n);s=t.getElementsByTagName(n)[0];i.src="//www.google-analytics.com/analytics.js";s.parentNode.insertBefore(i,s)})(window,document,"script","ga");ga("create","UA-19387715-3");ga("send","pageview")</script>
+        <script>(function(e,t,n,r,i,s){e.GoogleAnalyticsObject=r;e[r]||(e[r]=function(){(e[r].q=e[r].q||[]).push(arguments)});e[r].l=+(new Date);i=t.createElement(n);s=t.getElementsByTagName(n)[0];i.src='//www.google-analytics.com/analytics.js';s.parentNode.insertBefore(i,s)})(window,document,'script','ga');ga('create','UA-19387715-3');ga('send','pageview')</script>
     </head>
     <body>
         {% include nav.html %}
 
         {{ content }}
+        <script src='/assets/js/main.js'></script>
     </body>
 </html>

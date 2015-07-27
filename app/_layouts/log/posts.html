@@ -4,7 +4,7 @@ node: log
 return: '/'
 ---
 
-<main id="body" class="posts">
+<main id='body' class='posts' data-vs-controller='views.Posts'>
     {% if page.tag == nil %}
         <!-- Determine the source of the posts by the tag that is received. -->
         {% assign posts = paginator.posts %}
@@ -37,46 +37,46 @@ return: '/'
     {% endif %}
 
     <!-- Display number of posts. -->
-    <section class="results">
+    <section class='results'>
         <summary>
             {% if page.tag == nil %}
                 {% if num_posts == 1%}
-                    <p>Displaying post <a class="number-tag">{{ start_id | plus:1 }}</a></p>
+                    <p>Displaying post <a class='number-tag'>{{ start_id | plus:1 }}</a></p>
                 {% else %}
-                    <p>Displaying posts <a class="number-tag">{{ start_id | plus:1 }}</a> to <a class="number-tag">{{ end_id }}</a> out of <a class="number-tag">{{ paginator.total_posts }}</a>
+                    <p>Displaying posts <a class='number-tag'>{{ start_id | plus:1 }}</a> to <a class='number-tag'>{{ end_id }}</a> out of <a class='number-tag'>{{ paginator.total_posts }}</a>
                 {% endif %}
             {% else %}
                 {% if num_posts == 1 %}
-                    <p>Displaying {{ num_posts }} post for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
+                    <p>Displaying {{ num_posts }} post for <a class='hashtag state-active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
                 {% else %}
-                    <p>Displaying {{ num_posts }} posts for <a class="hashtag state-active" href="/log/{{ page.tag }}">#{{ page.tag }}</a></p>
+                    <p>Displaying {{ num_posts }} posts for <a class='hashtag state-active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
                 {% endif %}
-                <p><a class="reset" href="/log">Reset</a></p>
+                <p><a class='reset' href='/log'>Reset</a></p>
             {% endif %}
         </summary>
     </section>
 
-    <section class="posts">
+    <section class='posts'>
         {% capture id %}{{ start_id | plus:1 }}{% endcapture %}
         {% for post in posts %}
             {% if page.tag == nil or post.tags contains page.tag %}
-                <summary class="post">
-                    <a class="number-tag">{{ id }}</a>
+                <summary class='post'>
+                    <a class='number-tag'>{{ id }}</a>
                     <aside>
-                        <a class="fade" href="{{ post.url }}"><h1>{{ post.title | upcase }}{% if post.deprecated == true %}<span class="deprecated"></span>{% endif %}</h1></a>
-                        <span class="date">{{ post.date | date_to_long_string }}</span>
+                        <a class='fade' href='{{ post.url }}'><h1>{{ post.title | upcase }}{% if post.deprecated == true %}<span class='deprecated'></span>{% endif %}</h1></a>
+                        <span class='date'>{{ post.date | date_to_long_string }}</span>
 
                         {% include hashtags.html tags=post.tags %}
 
                         {% if post.cover != nil %}
-                            <a class="cover" href="{{ post.url }}"><figure class="cover" style="background-image:url({{ post.cover }});"></figure></a>
+                            <a class='cover' href='{{ post.url }}'><figure class='cover' style='background-image:url({{ post.cover }});'></figure></a>
                         {% endif %}
 
-                        <div class="content log-styles">
+                        <div class='content log-styles'>
                             {{ post.content | truncatewords:120 }}
                         </div>
                     </aside>
-                    <a class="read-more" href="{{ post.url }}">Continue reading</a>
+                    <a class='read-more' href='{{ post.url }}'>Continue reading</a>
                     <hr/>
                 </summary>
                 {% capture id %}{{ id | plus:1 }}{% endcapture %}
@@ -88,5 +88,3 @@ return: '/'
 {% if page.tag == nil %}
     {% include paginator.html %}
 {% endif %}
-
-<script src="/assets/js/posts.js"></script>

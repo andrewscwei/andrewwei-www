@@ -1,7 +1,7 @@
-<div class="hashtags">
+<div class='hashtags'>
     {% for tag in include.tags %}
         {% if site.data.hashtags contains tag %}
-            <a class="hashtag{% if tag == page.tag %} state-active{% endif %}" href="/log/{{ tag }}">#{{ tag }}</a>
+            <a class='hashtag{% if tag == page.tag %} state-active{% endif %}' href='/log/{{ tag }}'>#{{ tag }}</a>
         {% endif %}
     {% endfor %}
 </div>
