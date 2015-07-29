@@ -18,18 +18,21 @@ module.exports = (function()
             this.updateDelegate.responsive = true;
             this.refreshRate = 20.0;
 
+            var prev = this.getChild('prev');
+            var next = this.getChild('next');
+
             if (!utils.touchEnabled())
             {
-                if (this.children.prev)
+                if (prev)
                 {
-                    this.children.prev.element.addEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
-                    this.children.prev.element.addEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
+                    prev.addEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
+                    prev.addEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
                 }
 
-                if (this.children.next)
+                if (next)
                 {
-                    this.children.next.element.addEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
-                    this.children.next.element.addEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
+                    next.addEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
+                    next.addEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
                 }
             }
 
@@ -38,18 +41,21 @@ module.exports = (function()
 
         destroy()
         {
+            var prev = this.getChild('prev');
+            var next = this.getChild('next');
+
             if (!utils.touchEnabled())
             {
-                if (this.children.prev)
+                if (prev)
                 {
-                    this.children.prev.element.removeEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
-                    this.children.prev.element.removeEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
+                    prev.removeEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
+                    prev.removeEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
                 }
 
-                if (this.children.prev)
+                if (next)
                 {
-                    this.children.next.element.removeEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
-                    this.children.next.element.removeEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
+                    next.removeEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
+                    next.removeEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
                 }
             }
 
@@ -69,13 +75,13 @@ module.exports = (function()
                 {
                     if ((rect.bottom > rect.height) || (rect.bottom >= document.height))
                     {
-                        if (this.children.prev) vars.changeElementState(this.children.prev.children.newer, 'visible');
-                        if (this.children.next) vars.changeElementState(this.children.next.children.older, 'visible');
+                        vars.changeElementState(this.getChild('prev.newer'), 'visible');
+                        vars.changeElementState(this.getChild('next.older'), 'visible');
                     }
                     else
                     {
-                        if (this.children.prev) vars.changeElementState(this.children.prev.children.newer, 'hidden');
-                        if (this.children.next) vars.changeElementState(this.children.next.children.older, 'hidden');
+                        vars.changeElementState(this.getChild('prev.newer'), 'hidden');
+                        vars.changeElementState(this.getChild('next.older'), 'hidden');
                     }
                 }
             }
@@ -92,7 +98,7 @@ module.exports = (function()
          */
         _onPrevMouseOver(event)
         {
-            vars.changeElementState(this.children.prev.children.newest, 'visible');
+            vars.changeElementState(this.getChild('prev.newest'), 'visible');
         }
 
         /**
@@ -104,7 +110,7 @@ module.exports = (function()
          */
         _onPrevMouseOut(event)
         {
-            vars.changeElementState(this.children.prev.children.newest, 'hidden');
+            vars.changeElementState(this.getChild('prev.newest'), 'hidden');
         }
 
         /**
@@ -116,7 +122,7 @@ module.exports = (function()
          */
         _onNextMouseOver(event)
         {
-            vars.changeElementState(this.children.next.children.oldest, 'visible');
+            vars.changeElementState(this.getChild('next.oldest'), 'visible');
         }
 
         /**
@@ -128,7 +134,7 @@ module.exports = (function()
          */
         _onNextMouseOut(event)
         {
-            vars.changeElementState(this.children.next.children.oldest, 'hidden');
+            vars.changeElementState(this.getChild('next.oldest'), 'hidden');
         }
     }
 

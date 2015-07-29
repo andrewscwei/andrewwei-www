@@ -16,8 +16,6 @@ module.exports = (function()
             this.updateDelegate.responsive = true;
             this.updateDelegate.refreshRate = 10.0;
 
-            this.children.posts = this.element.querySelectorAll('.post');
-
             super.init();
         }
 
@@ -25,12 +23,12 @@ module.exports = (function()
         {
             if (this.updateDelegate.isDirty(vars.DirtyType.POSITION))
             {
-                var n = this.children.posts.length;
+                var n = this.getChild('posts').length;
                 var r = vars.getViewportRect();
 
                 for (var i = 0; i < n; i++)
                 {
-                    var post = this.children.posts[i];
+                    var post = this.getChild('posts')[i];
                     var rect = vars.getRect(post);
                     var intersect = vars.getIntersectRect(post);
 

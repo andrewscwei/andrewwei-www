@@ -5,11 +5,13 @@
 
 'use strict';
 
+var vars = require('vars');
+
 module.exports =
 {
     touchEnabled: function()
     {
-        var touch = document.documentElement.classList.contains('touch');
+        var touch = vars.elementHasClass(document.documentElement, 'touch');
         return touch;
     }
 };

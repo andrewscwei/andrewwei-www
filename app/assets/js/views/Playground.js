@@ -6,7 +6,6 @@
 'use strict';
 
 var vars = require('vars');
-var utils = require('../utils/utils');
 
 module.exports = (function()
 {
@@ -14,7 +13,7 @@ module.exports = (function()
     {
         init()
         {
-            vars.changeElementState(this.children.bio, 'active');
+            vars.changeElementState(this.getChild('bio'), 'active');
             super.init();
         }
     }

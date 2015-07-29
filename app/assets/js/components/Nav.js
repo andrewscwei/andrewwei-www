@@ -26,19 +26,19 @@ module.exports = (function()
         {
             if (utils.touchEnabled())
             {
-                this.children.controls.children.switch.element.addEventListener(vars.EventType.TOUCH.TOUCH_END, this._onSwitchActivate.bind(this));
+                this.getChild('controls.switch').addEventListener(vars.EventType.TOUCH.TOUCH_END, this._onSwitchActivate.bind(this));
             }
             else
             {
-                this.children.controls.children.switch.element.addEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchActivate.bind(this));
+                this.getChild('controls.switch').addEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchActivate.bind(this));
                 document.addEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchDeactivate.bind(this));
             }
 
             this.state = State.COLLAPSED;
 
-            if (this.children.controls.children.return)
+            if (this.getChild('controls.return'))
             {
-                vars.changeElementState(this.children.controls, 'returnable');
+                vars.changeElementState(this.getChild('controls'), 'returnable');
             }
 
             super.init();
@@ -51,11 +51,11 @@ module.exports = (function()
         {
             if (utils.touchEnabled())
             {
-                this.children.controls.children.switch.element.removeEventListener(vars.EventType.TOUCH.TOUCH_END, this._onSwitchActivate);
+                this.getChild('controls.switch').removeEventListener(vars.EventType.TOUCH.TOUCH_END, this._onSwitchActivate);
             }
             else
             {
-                this.children.controls.children.switch.element.removeEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchActivate);
+                this.getChild('controls.switch').removeEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchActivate);
                 document.removeEventListener(vars.EventType.MOUSE.CLICK, this._onSwitchDeactivate.bind(this));
             }
 
@@ -127,7 +127,7 @@ module.exports = (function()
                         case State.EXPANDED:
                         {
                             vars.changeElementState(this.element, 'expanded');
-                            vars.changeElementState(this.children.controls.children.switch, 'active');
+                            vars.changeElementState(this.getChild('controls.switch'), 'active');
                             vars.changeElementState(body, 'shifted');
                             break;
                         }
@@ -135,7 +135,7 @@ module.exports = (function()
                         default:
                         {
                             vars.changeElementState(this.element, 'collapsed');
-                            vars.changeElementState(this.children.controls.children.switch, 'inactive');
+                            vars.changeElementState(this.getChild('controls.switch'), 'inactive');
                             vars.changeElementState(body, 'unshifted');
                             break;
                         }
