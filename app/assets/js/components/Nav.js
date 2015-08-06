@@ -13,8 +13,8 @@ module.exports = (function()
 
     var State =
     {
-        COLLAPSED: 0,
-        EXPANDED: 1
+        COLLAPSED: 'collapsed',
+        EXPANDED: 'expanded'
     };
 
     class Nav extends vars.Element
@@ -63,6 +63,38 @@ module.exports = (function()
         }
 
         /**
+         * @inheritDoc
+         */
+        update()
+        {
+            if (this.updateDelegate.isDirty(vars.DirtyType.STATE))
+            {
+                var body = document.getElementById('body');
+
+                switch (this.state)
+                {
+                    case State.EXPANDED:
+                    {
+                        vars.changeElementState(this.element, 'expanded');
+                        vars.changeElementState(this.getChild('controls.switch'), 'active');
+                        vars.changeElementState(body, 'shifted');
+                        break;
+                    }
+
+                    default:
+                    {
+                        vars.changeElementState(this.element, 'collapsed');
+                        vars.changeElementState(this.getChild('controls.switch'), 'inactive');
+                        vars.changeElementState(body, 'unshifted');
+                        break;
+                    }
+                }
+            }
+
+            super.update();
+        }
+
+        /**
          * @private
          * Handler invoked whenever the menu button is activated.
          * @param  {Object} event
@@ -97,53 +129,6 @@ module.exports = (function()
             {
                 this.state = State.COLLAPSED;
             }
-        }
-
-        /**
-         * @inheritDoc
-         */
-        __define_properties()
-        {
-            /**
-             * @property
-             * Specifies the current state of this NavController instance.
-             * @type {Number}
-             */
-            Object.defineProperty(this, 'state',
-            {
-                get: function()
-                {
-                    return this._state || State.COLLAPSED;
-                },
-
-                set: function(value)
-                {
-                    this._state = value;
-
-                    var body = document.getElementById('body');
-
-                    switch (value)
-                    {
-                        case State.EXPANDED:
-                        {
-                            vars.changeElementState(this.element, 'expanded');
-                            vars.changeElementState(this.getChild('controls.switch'), 'active');
-                            vars.changeElementState(body, 'shifted');
-                            break;
-                        }
-
-                        default:
-                        {
-                            vars.changeElementState(this.element, 'collapsed');
-                            vars.changeElementState(this.getChild('controls.switch'), 'inactive');
-                            vars.changeElementState(body, 'unshifted');
-                            break;
-                        }
-                    }
-                }
-            });
-
-            super.__define_properties();
         }
     }
 

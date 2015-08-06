@@ -11,7 +11,7 @@ module.exports =
 {
     touchEnabled: function()
     {
-        var touch = vars.elementHasClass(document.documentElement, 'touch');
+        var touch = vars.hasClass(document.documentElement, 'touch');
         return touch;
     }
 };

@@ -47,9 +47,9 @@ return: '/'
                 {% endif %}
             {% else %}
                 {% if num_posts == 1 %}
-                    <p>Displaying {{ num_posts }} post for <a class='hashtag state-active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
+                    <p>Displaying {{ num_posts }} post for <a class='hashtag' data-vs-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
                 {% else %}
-                    <p>Displaying {{ num_posts }} posts for <a class='hashtag state-active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
+                    <p>Displaying {{ num_posts }} posts for <a class='hashtag' data-vs-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
                 {% endif %}
                 <p><a class='reset' href='/log'>Reset</a></p>
             {% endif %}

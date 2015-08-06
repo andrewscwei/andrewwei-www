@@ -15,7 +15,7 @@
         <ol>
             {% for node in site.data.nav %}
                 <a href='{{ node.url }}'>
-                    <li {% if node.name == page.node %}class='state-active'{% endif %}>{{ node.name | capitalize }}</li>
+                    <li {% if node.name == page.node %}data-vs-state='active'{% endif %}>{{ node.name | capitalize }}</li>
                 </a>
             {% endfor %}
         </ol>
