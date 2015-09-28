@@ -13,7 +13,7 @@ var $cache = require('gulp-cache');
 
 gulp.task('clean', function(callback)
 {
-    require('del')([config.paths.generated, config.paths.tmp, config.paths.build], function()
+    require('del')([config.paths.generated, config.paths.tmp, config.paths.build]).then(function(paths)
     {
         $cache.clearAll(callback);
     });
