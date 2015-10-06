@@ -2,122 +2,125 @@ source: app
 destination: public
 highlighter: pygments
 
-permalink: /:categories/:title/
+permalink: /log/:categories/:title/
 paginate: 6
 paginate_path: /log/page:num/
 
 kramdown:
-    input: GFM
+  input: GFM
 
 defaults:
-    -   scope:
-            path: ''
-            type: 'pages'
-        values:
-            description: 'Andrew Wei, codenamed mu, is a software engineer and experience designer. He is also pretty good with pencils.'
+  - scope:
+      path: ''
+      type: 'pages'
+    values:
+      description: 'Andrew Wei, codenamed mu, is a software engineer and experience designer. He is also pretty good with pencils.'
 
-    -   scope:
-            path: 'log'
-            type: 'posts'
-        values:
-            layout: 'log/post'
-            node: log
+  - scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'log/post'
+      node: log
 
-    -   scope:
-            path: 'log'
-            type: 'drafts'
-        values:
-            layout: 'log/post'
-            node: log
+  - scope:
+      path: ''
+      type: 'drafts'
+    values:
+      layout: 'log/post'
+      node: log
+
+exclude:
+  - _assets
 
 prose:
-    rooturl: 'app'
-    media: 'app/assets/images'
-    ignore:
-        -   index.html
-        -   404.html
-        -   500.html
-        -   _data
-        -   _includes
-        -   _layouts
-        -   apple-touch-icon-114x114.png
-        -   apple-touch-icon-57x57.png
-        -   apple-touch-icon-72x72.png
-        -   apple-touch-icon.png
-        -   favicon.ico
-        -   favicon.png
-        -   og-image.png
-        -   robots.txt
-        -   /app/assets/css
-        -   /app/assets/js
-        -   /app/assets/fonts
-        -   /app/assets/vendor
-        -   /app/assets/videos
-        -   /app/assets/images/raw
-        -   /app/log/algorithms
-        -   /app/log/arduino
-        -   /app/log/as3
-        -   /app/log/c++
-        -   /app/log/coding
-        -   /app/log/datastructures
-        -   /app/log/experiments
-        -   /app/log/hacks
-        -   /app/log/math
-        -   /app/log/mobile
-        -   /app/log/objc
-        -   /app/log/web
-        -   /app/log/systems
-    metadata:
-        app/log/_posts: &metadata
-            -   name: 'title'
-                field:
-                    element: 'text'
-                    label: 'Title'
-                    placeholder: 'Change the post title here'
-                    type: text
+  rooturl: 'app'
+  media: 'app/assets/images'
+  ignore:
+    - index.html
+    - 404.html
+    - 500.html
+    - _data
+    - _includes
+    - _layouts
+    - apple-touch-icon-114x114.png
+    - apple-touch-icon-57x57.png
+    - apple-touch-icon-72x72.png
+    - apple-touch-icon.png
+    - favicon.ico
+    - favicon.png
+    - og-image.png
+    - robots.txt
+    - /app/assets/css
+    - /app/assets/js
+    - /app/assets/fonts
+    - /app/assets/vendor
+    - /app/assets/videos
+    - /app/assets/images/raw
+    - /app/log/algorithms
+    - /app/log/arduino
+    - /app/log/as3
+    - /app/log/c++
+    - /app/log/coding
+    - /app/log/datastructures
+    - /app/log/experiments
+    - /app/log/hacks
+    - /app/log/math
+    - /app/log/mobile
+    - /app/log/objc
+    - /app/log/web
+    - /app/log/systems
+  metadata:
+    app/log/_posts: &metadata
+      - name: 'title'
+        field:
+          element: 'text'
+          label: 'Title'
+          placeholder: 'Change the post title here'
+          type: text
 
-            -   name: 'published'
-                field:
-                    element: 'checkbox'
-                    label: 'Published'
-                    value: true
+      - name: 'published'
+        field:
+          element: 'checkbox'
+          label: 'Published'
+          value: true
 
-            -   name: 'deprecated'
-                field:
-                    element: 'checkbox'
-                    label: 'Deprecated'
-                    value: false
+      - name: 'deprecated'
+        field:
+          element: 'checkbox'
+          label: 'Deprecated'
+          value: false
 
-            -   name: 'tags'
-                field:
-                    element: 'multiselect'
-                    label: 'Hashtags'
-                    options:
-                        -   name: 'arduino'
-                            value: 'arduino'
-                        -   name: 'algorithms'
-                            value: 'algorithms'
-                        -   name: 'as3'
-                            value: 'as3'
-                        -   name: 'c++'
-                            value: 'c++'
-                        -   name: 'coding'
-                            value: 'coding'
-                        -   name: 'datastructures'
-                            value: 'datastructures'
-                        -   name: 'experiments'
-                            value: 'experiments'
-                        -   name: 'hacks'
-                            value: 'hacks'
-                        -   name: 'math'
-                            value: 'math'
-                        -   name: 'mobile'
-                            value: 'mobile'
-                        -   name: 'objc'
-                            value: 'objc'
-                        -   name: 'systems'
-                            value: 'systems'
-                        -   name: 'web'
-                            value: 'web'
+      - name: 'tags'
+        field:
+          element: 'multiselect'
+          label: 'Hashtags'
+          options:
+            - name: 'arduino'
+              value: 'arduino'
+            - name: 'algorithms'
+              value: 'algorithms'
+            - name: 'as3'
+              value: 'as3'
+            - name: 'c++'
+              value: 'c++'
+            - name: 'coding'
+              value: 'coding'
+            - name: 'datastructures'
+              value: 'datastructures'
+            - name: 'experiments'
+              value: 'experiments'
+            - name: 'hacks'
+              value: 'hacks'
+            - name: 'math'
+              value: 'math'
+            - name: 'mobile'
+              value: 'mobile'
+            - name: 'objc'
+              value: 'objc'
+            - name: 'systems'
+              value: 'systems'
+            - name: 'web'
+              value: 'web'
 
-        app/log/_drafts: *metadata
+    app/log/_drafts: *metadata

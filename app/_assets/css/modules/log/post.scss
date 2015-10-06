@@ -1,0 +1,147 @@
+/**
+ * andrewwei.mu
+ * (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+main.post {
+  @include auto-fit();
+  padding: 0;
+
+  section.cover,
+  section.no-cover {
+    @include flex-block(center, bottom);
+    width: 100%;
+    text-align: left;
+
+    div.title {
+      width: 100%;
+
+      h1 {
+        margin: 0;
+        width: auto;
+        max-width: 100%;
+        text-align: left;
+        font-size: 2.25em;
+        line-height: 1.2em;
+        color: #fff;
+        display: block;
+        position: relative;
+        word-wrap: break-word;
+
+        @include screen(tablet) {
+          font-size: 3.75em;
+        }
+
+        @include screen(desktop) {
+          max-width: 80%;
+        }
+      }
+
+      span.date {
+        font-family: $font-family-content;
+        font-weight: $font-weight-header-normal;
+        font-size: 1em;
+        line-height: 1.2em;
+        color: #fff;
+        display: block;
+      }
+    }
+  }
+
+  section.no-cover {
+    padding-top: 100px;
+    padding-bottom: 0;
+    padding-left: screen-padding-left();
+    padding-right: screen-padding-right();
+    height: auto;
+
+    @include screen('phablet') {
+      padding-left: screen-padding-left('phablet');
+      padding-right: screen-padding-right('phablet');
+    }
+
+    @include screen('tablet') {
+      padding-left: screen-padding-left('tablet');
+      padding-right: screen-padding-right('tablet');
+    }
+  }
+
+  section.cover {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: screen-padding-left();
+    padding-right: screen-padding-right();
+    height: 100%;
+
+    @include screen('phablet') {
+      padding-left: screen-padding-left('phablet');
+      padding-right: screen-padding-right('phablet');
+    }
+
+    @include screen('tablet') {
+      padding-left: screen-padding-left('tablet');
+      padding-right: screen-padding-right('tablet');
+    }
+
+    @include screen('phablet', false, false, 'height') {
+      height: 80%;
+    }
+
+    figure.background {
+      @include abs-align();
+      @include auto-fit();
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @include screen('desktop') {
+        background-attachment: fixed;
+      }
+
+      &:before {
+        @include auto-fit();
+        background-color: rgba(34, 34, 34, 0.6);
+        content: '';
+        display: block;
+        position: relative;
+      }
+    }
+  }
+
+  section.body {
+    padding: screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left();
+    background-color: inherit;
+    z-index: 10;
+    position: relative;
+
+    @include screen('phablet') {
+      padding: screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet');
+    }
+
+    @include screen('tablet') {
+      padding: screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet');
+    }
+
+    div.content {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  }
+
+  section.comments {
+    padding: screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left();
+    background-color: inherit;
+    z-index: 10;
+    text-align: center;
+    position: relative;
+
+    @include screen('phablet') {
+      padding: screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet');
+    }
+
+    @include screen('tablet') {
+      padding: screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet');
+    }
+  }
+}

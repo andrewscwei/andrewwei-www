@@ -1,0 +1,29 @@
+/**
+ * andrewwei.mu
+ * (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+.log-styles {
+  img {
+    margin: 50px auto;
+    max-width: 98%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+
+    & + br + em {
+      margin: -60px auto 60px;
+      width: 90%;
+      font-family: $font-family-content;
+      font-weight: $font-weight-content-normal;
+      font-size: 0.875em;
+      line-height: 1.2em;
+      text-align: center;
+      color: #999;
+      display: block;
+      box-sizing: border-box;
+      position: relative;
+    }
+  }
+}

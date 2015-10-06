@@ -1,20 +1,17 @@
-/* jshint strict:false */
 /**
- *  andrewwei.mu
- *  (c) Andrew Wei <andrewscwei@gmail.com>
- *
- *  Cleans /.generated, /.tmp and /public
- *  directories.
+ * andrewwei.mu
+ * (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-var config = require('./config');
+var config = require('./.taskconfig');
+var del = require('del');
 var gulp = require('gulp');
-var $cache = require('gulp-cache');
 
-gulp.task('clean', function(callback)
-{
-    require('del')([config.paths.generated, config.paths.tmp, config.paths.build]).then(function(paths)
-    {
-        $cache.clearAll(callback);
-    });
+/**
+ * Cleans /.tmp and /public directories.
+ */
+gulp.task('clean', function(callback) {
+  del(config.clean.entry).then(function(paths) {
+    callback();
+  });
 });

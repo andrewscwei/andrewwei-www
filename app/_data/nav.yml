@@ -1,9 +1,8 @@
 ---
 
-# -   name: 'lab'
-#     title: 'mu\'
-#     url: '/'
-
--   name: 'log'
-    title: 'mu\ LOG'
-    url: '/log'
+# - name: 'lab'
+#   title: 'mu\'
+#   url: '/'
+- name: 'log'
+  title: 'mu\ LOG'
+  url: '/log'

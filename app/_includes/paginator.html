@@ -1,32 +1,32 @@
 <div id='paginator' data-vs-controller='components.Paginator'>
-    {% if paginator.previous_page != nil %}
-        <div class='prev' vs-instance='prev'>
-            <a class='paginator newer' vs-instance='newer' href='{{ paginator.previous_page_path }}'>
-                <span class='number'>{{ paginator.previous_page }}</span>
-                <span class='label'>
-                    {% include svgs/return.html %}
-                </span>
-            </a>
-            {% if paginator.previous_page > 1 %}
-                <a class='paginator newest' vs-instance='newest' href='/log'>
-                    <span class='label'>Newest</span>
-                </a>
-            {% endif %}
-        </div>
-    {% endif %}
-    {% if paginator.next_page != nil %}
-        <div class='next' vs-instance='next'>
-            {% if paginator.next_page < paginator.total_pages %}
-                <a class='paginator oldest' vs-instance='oldest' href='/log/page{{ paginator.total_pages }}'>
-                    <span class='label'>Oldest</span>
-                </a>
-            {% endif %}
-            <a class='paginator older' vs-instance='older' href='{{ paginator.next_page_path }}'>
-                <span class='label'>
-                    {% include svgs/return.html %}
-                </span>
-                <span class='number'>{{ paginator.next_page }}</span>
-            </a>
-        </div>
-    {% endif %}
+  {% if paginator.previous_page != nil %}
+    <div class='prev' vs-instance='prev'>
+      <a class='paginator newer' vs-instance='newer' href='{{ paginator.previous_page_path }}'>
+        <span class='number'>{{ paginator.previous_page }}</span>
+        <span class='label'>
+          {% include svgs/return.html %}
+        </span>
+      </a>
+      {% if paginator.previous_page > 1 %}
+        <a class='paginator newest' vs-instance='newest' href='/log'>
+          <span class='label'>Newest</span>
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if paginator.next_page != nil %}
+    <div class='next' vs-instance='next'>
+      {% if paginator.next_page < paginator.total_pages %}
+        <a class='paginator oldest' vs-instance='oldest' href='/log/page{{ paginator.total_pages }}'>
+          <span class='label'>Oldest</span>
+        </a>
+      {% endif %}
+      <a class='paginator older' vs-instance='older' href='{{ paginator.next_page_path }}'>
+        <span class='label'>
+          {% include svgs/return.html %}
+        </span>
+        <span class='number'>{{ paginator.next_page }}</span>
+      </a>
+    </div>
+  {% endif %}
 </div>

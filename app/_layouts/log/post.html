@@ -5,20 +5,20 @@ return: /log
 ---
 
 <main id='body' class='post' data-lang='{{ page.language }}'>
-    <section class='{% if page.cover != null %}cover{% else %}no-cover{% endif %}'>
-        {% if page.cover != null %}<figure class='background' style='background-image:url({{ page.cover }});'></figure>{% endif %}
-        <div class='title'>
-            <h1>{{ page.title | upcase }}{% if page.deprecated == true %} <span class='deprecated'></span>{% endif %}</h1>
-            <span class='date'>{{ page.date | date_to_long_string }}</span>
-            {% include hashtags.html tags=page.tags %}
-        </div>
-    </section>
-    <section class='body'>
-        <div class='content log-styles'>
-            {{ content }}
-        </div>
-    </section>
-    <section class='comments'>
-        <p>Tweet me at <a href='https://www.twitter.com/{{ site.data.social.twitter }}'>@andrewscwei</a> for any questions or comments.</p>
-    </section>
+  <section class='{% if page.cover != null %}cover{% else %}no-cover{% endif %}'>
+    {% if page.cover != null %}<figure class='background' style='background-image:url({{ page.cover }});'></figure>{% endif %}
+    <div class='title'>
+      <h1>{{ page.title | upcase }}{% if page.deprecated == true %} <span class='deprecated'></span>{% endif %}</h1>
+      <span class='date'>{{ page.date | date_to_long_string }}</span>
+      {% include hashtags.html tags=page.tags %}
+    </div>
+  </section>
+  <section class='body'>
+    <div class='content log-styles'>
+      {{ content }}
+    </div>
+  </section>
+  <section class='comments'>
+    <p>Tweet me at <a href='https://www.twitter.com/{{ site.data.social.twitter }}'>@andrewscwei</a> for any questions or comments.</p>
+  </section>
 </main>
