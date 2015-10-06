@@ -57,19 +57,7 @@ prose:
     - /app/assets/vendor
     - /app/assets/videos
     - /app/assets/images/raw
-    - /app/log/algorithms
-    - /app/log/arduino
-    - /app/log/as3
-    - /app/log/c++
-    - /app/log/coding
-    - /app/log/datastructures
-    - /app/log/experiments
-    - /app/log/hacks
-    - /app/log/math
-    - /app/log/mobile
-    - /app/log/objc
-    - /app/log/web
-    - /app/log/systems
+    - /app/log
   metadata:
     app/log/_posts: &metadata
       - name: 'title'
