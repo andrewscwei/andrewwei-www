@@ -1,10 +1,9 @@
 /**
- * vestigestory.com
- * (c) Vestige <http://vestigestory.com>
+ * andrewwei.mu
+ * (c) Andrew Wei <andrewscwei@gmail.com>
  *
  * This file only contains the default task. See ./tasks for individual sub-tasks. To add a new
- * sub-task, simply create a new file in ./tasks and it will be automatically included here. For
- * global config settings for Gulp tasks, see ./tasks/config.js.
+ * sub-task, create new file in ./tasks and require it here. For task configurations, see ./tasks/config.js.
  */
 
 // Require all gulp tasks.
