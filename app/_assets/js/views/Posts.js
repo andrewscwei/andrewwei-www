@@ -6,15 +6,14 @@
 'use strict';
 
 let vars = require('vars');
+let EventType = vars.EventType;
 
 class Posts extends vars.Element {
   /**
    * @see module:vars.Element#init
    */
   init() {
-    this.updateDelegate.responsive = true;
-    this.updateDelegate.refreshRate = 10.0;
-
+    this.respondsTo(10.0, EventType.OBJECT.SCROLL);
     super.init();
   }
 

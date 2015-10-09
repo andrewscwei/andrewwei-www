@@ -29,6 +29,10 @@ nav#nav {
 
     button.menu {
       z-index: 1;
+
+      svg {
+        pointer-events: none;
+      }
     }
 
     button.return {

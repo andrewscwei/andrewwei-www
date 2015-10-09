@@ -6,6 +6,7 @@
 'use strict';
 
 let vars = require('vars');
+let EventType = vars.EventType;
 let utils = require('../utils/utils');
 
 class Paginator extends vars.Element {
@@ -13,8 +14,7 @@ class Paginator extends vars.Element {
    * @see module:vars.Element#init
    */
   init() {
-    this.updateDelegate.responsive = true;
-    this.refreshRate = 20.0;
+    this.respondsTo(20.0, EventType.OBJECT.SCROLL);
 
     let prev = this.getChild('prev');
     let next = this.getChild('next');
