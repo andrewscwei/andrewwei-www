@@ -58,7 +58,7 @@ var patterns = {
   videos: '{ogv,mp4}',
   scripts: '{js,js.erb,coffee}',
   sourcemaps: '{css.map,js.map}',
-  styles: '{css,scss,sass,css.erb,scss.erb,sass.erb}',
+  styles: '{css,styl,css.erb}',
   templates: '{html,shtml,htm,html.erb,asp,php,md,jade}',
   data: '{json,yml,csv}',
   fonts: '{eot,svg,ttf,woff,woff2}'
@@ -116,9 +116,10 @@ var fonts = {
  */
 var styles = {
   entry: path.join(paths.src, '_assets', 'css', '*.' + patterns.styles),
-  sass: {
-    outputStyle: env.skipCSSMin ? 'nested' : 'compressed',
-    includePaths: [path.join(__dirname, '../', 'node_modules'), path.join(paths.src, '_assets', 'css')],
+  stylus: {
+    compress: !env.skipCSSMin,
+    'include css': true,
+    include: [path.join(__dirname, '../', 'node_modules'), path.join(paths.src, '_assets', 'css')],
   },
   autoprefixer: {
     browsers: ['last 2 version', 'ie 9']

@@ -1,0 +1,62 @@
+/**
+ * andrewwei.mu
+ * (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+$preformatted-background-color = #1d1f21
+
+.log-styles
+  code
+    padding: 3px
+    font-family: monospace
+    font-size: inherit
+    background-color: $preformatted-background-color
+    border-radius: 4px
+    word-break: break-all
+    display: inline-block
+    color: #fff
+    position: relative
+
+    span
+      font-family: inherit
+
+  pre
+    margin: 20px 0
+    font-size: 1em
+
+    +screen('desktop')
+      font-size: 1.125em
+
+    code
+      padding: 20px
+      width: 100%
+      word-wrap: normal
+      box-sizing: border-box
+      display: block
+      -webkit-overflow-scrolling: touch
+      overflow-x: auto
+
+  .MathJax
+    padding: 4px
+    background-color: $preformatted-background-color
+    border-radius: 4px
+
+    span
+      font-size: 16px
+      color: #fff
+
+      +screen('phablet')
+        font-size: 18px
+
+  .MathJax_Display
+    margin: 20px 0
+
+    .MathJax
+      padding: 20px
+      width: 100%
+      text-align: center
+      word-wrap: normal
+      box-sizing: border-box
+      display: block
+      -webkit-overflow-scrolling: touch
+      overflow-x: scroll

@@ -1,0 +1,61 @@
+/**
+ * andrewwei.mu
+ * (c) Andrew Wei <andrewscweigmail.com>
+ */
+
+screen-padding-top($screen='mobile')
+  if $screen == 'mobile'
+    return $menu-button-width
+  else if $screen == 'phablet'
+    return $menu-button-width
+  else
+    return 100px
+
+screen-padding-bottom($screen='mobile')
+  if $screen == 'mobile'
+    return $menu-button-width
+  else if $screen == 'phablet'
+    return $menu-button-width
+  else
+    return 100px
+
+screen-padding-left($screen='mobile')
+  if $screen == 'mobile'
+    return ($menu-button-width + 10px)
+  else if $screen == 'phablet'
+    return 10%
+  else
+    return 20%
+
+screen-padding-right($screen='mobile')
+  if $screen == 'mobile'
+    return 20px
+  else if $screen == 'phablet'
+    return 10%
+  else
+    return 20%
+
+html,
+body
+  auto-fit()
+  background-color: #161719
+
+main
+  width: 100%
+  height: auto
+  padding: screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left()
+
+  +screen('phablet')
+    padding: screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet')
+
+  +screen('tablet')
+    padding: screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet')
+
+  +transition()
+    transition: transform 0.2s ease-out
+
+  // state('unshifted', true)
+    // transform: translate3d(0, 0, 0)
+
+  +state('shifted')
+    transform: translate3d(($nav-width/2), 0, 0)

@@ -21,7 +21,7 @@ var $if = require('gulp-if');
 var $minifyHTML = require('gulp-minify-html');
 var $postcss = require('gulp-postcss');
 var $revAll = require('gulp-rev-all');
-var $sass = require('gulp-sass');
+var $stylus = require('gulp-stylus');
 var $size = require('gulp-size');
 var $sourcemaps = require('gulp-sourcemaps');
 var $uglify = require('gulp-uglify');
@@ -76,8 +76,8 @@ gulp.task('styles', function() {
   return merge(
     gulp.src(config.styles.entry)
     .pipe($if(config.env.cssSourcemaps, $sourcemaps.init()))
-    .pipe($sass(config.styles.sass).on('error', function(err) {
-      $util.log($util.colors.red('[sass] Error: ' + err.message));
+    .pipe($stylus(config.styles.stylus).on('error', function(err) {
+      $util.log($util.colors.red('[stylus] Error: ' + err.message));
       this.emit('end');
     }))
     .pipe($postcss([autoprefixer(config.styles.autoprefixer)]))

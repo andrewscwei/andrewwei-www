@@ -1,0 +1,273 @@
+/**
+ * andrewwei.mu
+ * (c) Andrew Wei <andrewscwei@gmail.com>
+ */
+
+a
+  &,
+  &.underline
+    font-family: inherit
+    font-weight: inherit
+    font-size: inherit
+    color: #20b684
+    text-align: inherit
+    line-height: inherit
+    text-decoration: none
+
+    +state('hover')
+      text-decoration: underline
+      cursor: pointer
+
+  &.fade
+    +transition()
+      transition: opacity 0.4s ease-out
+
+    +state('hover')
+      opacity: 0.4
+      text-decoration: none
+
+a.social
+  @extend a.fade
+  width: $social-anchor-diameter
+  height: $social-anchor-diameter
+  background-repeat: no-repeat
+  background-size: contain
+  background-position: center
+  display: inline-block
+  position: relative
+
+  &.github
+    background-image: url($base-path+'images/github-logo.svg')
+
+  &.twitter
+    background-image: url($base-path+'images/twitter-logo.svg')
+
+  &.linkedin
+    background-image: url($base-path+'images/linkedin-logo.svg')
+
+a.hashtag
+  @extend a.fade
+  padding: 8px 10px
+  width: auto
+  height: auto
+  font-family: $font-family-content
+  font-size: 14px
+  font-weight: $font-weight-content-bold
+  color: #666
+  background-color: #000
+  border-radius: 4px
+  line-height: 1em
+  display: inline-block
+  position: relative
+
+  +state('active')
+    color: #fff
+    background-color: #f92672
+
+a.read-more,
+a.reset
+  padding: 8px 10px
+  color: #000
+  width: auto
+  height: auto
+  font-family: $font-family-content
+  font-size: 16px
+  font-weight: $font-weight-content-normal
+  border-radius: 4px
+  line-height: 1em
+  background-color: #fff
+  display: inline-block
+  position: relative
+
+  +transition()
+    transition: background-color 0.2s ease-out, color 0.2s ease-out
+
+  +state('hover')
+    background-color: #000
+    color: #fff
+    text-decoration: none
+
+a.cover
+  margin: 20px 0
+  width: 100%
+  height: 150px
+  display: block
+  border-radius: 4px
+  overflow: hidden
+  position: relative
+
+  +screen('phablet')
+    height: 300px
+
+  figure.cover
+    width: 100%
+    height: 100%
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+    transform: scale(1)
+    position: relative
+
+    +transition()
+      transition: transform 0.4s ease-out
+
+    &:before
+      width: 100%
+      height: 100%
+      background-color: rgba(34, 34, 34, 0.4)
+      content: ''
+      display: block
+      position: relative
+
+      +transition()
+        transition: background-color 0.4s ease-out
+
+  +state('hover')
+    figure.cover
+      transform: scale(1.1)
+
+      &:before
+        background-color: rgba(34, 34, 34, 0.0)
+
+a.number-tag
+  diameter(25px)
+  text-align: center
+  font-family: $font-family-header
+  font-weight: $font-weight-header-normal
+  font-size: 16px
+  vertical-align: middle
+  line-height: 25px
+  border-radius: 4px
+  color: #333
+  background-color: #fff
+  display: inline-block
+  pointer-events: none
+
+span.deprecated
+  margin: 0 10px
+  padding: 0 10px
+  height: 30px
+  text-align: left
+  font-family: $font-family-content
+  font-weight: $font-weight-content-normal
+  font-size: 16px
+  line-height: 30px
+  vertical-align: middle
+  border-radius: 4px
+  color: #fff
+  background-color: #f92672
+  display: inline-block
+  pointer-events: none
+
+  &:after
+    content: 'Deprecated'
+
+a.paginator
+  bottom: $paginator-anchor-offset-y
+  margin: 0
+  padding: 0
+  width: auto
+  height: $paginator-anchor-height
+  font-family: $font-family-content
+  font-weight: $font-weight-content-normal
+  box-sizing: border-box
+  display: inline-block
+  position: fixed
+
+  span.number,
+  span.label
+    padding: 0 8px
+    height: 100%
+    font-family: inherit
+    font-size: 16px
+    font-weight: inherit
+    color: inherit
+    line-height: $paginator-anchor-height
+    vertical-align: top
+    box-sizing: border-box
+    display: block
+    float: left
+    position: relative
+
+  span.number
+    width: $paginator-anchor-number-width
+    color: #fff
+    background-color: #111
+
+  &.newer,
+  &.older
+    width: $paginator-anchor-number-width + $paginator-anchor-label-width
+    color: #333
+    background-color: #fff
+    z-index: 1
+
+    span.label
+      width: $paginator-anchor-label-width
+
+  &.newer
+    left: 0
+
+    span.number
+      text-align: right
+
+    span.label
+      text-align: left
+
+    +state('hidden', true)
+      transform: translate3d(-$paginator-anchor-number-width - $paginator-anchor-label-width, 0, 0)
+
+  &.older
+    right: 0
+
+    span.number
+      text-align: left
+
+    span.label
+      text-align: right
+
+    svg
+      transform: rotate(180deg)
+
+    +state(hidden, true)
+      transform: translate3d($paginator-anchor-number-width + $paginator-anchor-label-width, 0, 0)
+
+  &.newest,
+  &.oldest
+    width: $paginator-anchor-label-long-width
+    color: #fff
+    background-color: #000
+    z-index: 0
+
+    span.label
+      width: inherit
+
+  &.newest
+    left: $paginator-anchor-number-width + $paginator-anchor-label-width
+    text-align: left
+
+    +state(hidden, true)
+      transform: translate3d(-$paginator-anchor-label-long-width, 0, 0)
+
+  &.oldest
+    right: $paginator-anchor-number-width + $paginator-anchor-label-width
+    text-align: right
+
+    +state(hidden, true)
+      transform: translate3d($paginator-anchor-label-long-width, 0, 0)
+
+  +transition()
+    transition-property: transform, opacity
+    transition-duration: 0.2s
+    transition-timing-function: ease-out
+
+  +state('hidden', true)
+    opacity: 0.0
+    pointer-events: none
+
+  +state('visible')
+    opacity: 1.0
+    transform: translate3d(0, 0, 0)
+    pointer-events: auto
+
+  +state('hover')
+    opacity: 0.4
