@@ -3,7 +3,7 @@
  * (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-var autoprefixer = require('autoprefixer-core');
+var autoprefixer = require('autoprefixer');
 var babelify = require('babelify');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
