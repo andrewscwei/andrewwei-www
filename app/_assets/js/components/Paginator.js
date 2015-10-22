@@ -5,13 +5,15 @@
 
 'use strict';
 
-let vars = require('vars');
-let EventType = vars.EventType;
+let r = require('requiem');
+let DirtyType = r.DirtyType;
+let Element = r.Element;
+let EventType = r.EventType;
 let utils = require('../utils/utils');
 
-class Paginator extends vars.Element {
+class Paginator extends Element {
   /**
-   * @see module:vars.Element#init
+   * @see module:requiem.Element#init
    */
   init() {
     this.respondsTo(20.0, EventType.OBJECT.SCROLL);
@@ -21,13 +23,13 @@ class Paginator extends vars.Element {
 
     if (!utils.touchEnabled()) {
       if (prev) {
-        prev.addEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
-        prev.addEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
+        prev.addEventListener(EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
+        prev.addEventListener(EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
       }
 
       if (next) {
-        next.addEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
-        next.addEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
+        next.addEventListener(EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
+        next.addEventListener(EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
       }
     }
 
@@ -35,7 +37,7 @@ class Paginator extends vars.Element {
   }
 
   /**
-   * @see module:vars.Element#destroy
+   * @see module:requiem.Element#destroy
    */
   destroy() {
     let prev = this.getChild('prev');
@@ -43,13 +45,13 @@ class Paginator extends vars.Element {
 
     if (!utils.touchEnabled()) {
       if (prev) {
-        prev.removeEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
-        prev.removeEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
+        prev.removeEventListener(EventType.MOUSE.MOUSE_OVER, this._onPrevMouseOver.bind(this));
+        prev.removeEventListener(EventType.MOUSE.MOUSE_OUT, this._onPrevMouseOut.bind(this));
       }
 
       if (next) {
-        next.removeEventListener(vars.EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
-        next.removeEventListener(vars.EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
+        next.removeEventListener(EventType.MOUSE.MOUSE_OVER, this._onNextMouseOver.bind(this));
+        next.removeEventListener(EventType.MOUSE.MOUSE_OUT, this._onNextMouseOut.bind(this));
       }
     }
 
@@ -57,19 +59,19 @@ class Paginator extends vars.Element {
   }
 
   /**
-   * @see module:vars.Element#update
+   * @see module:requiem.Element#update
    */
   update() {
-    if (this.updateDelegate.isDirty(vars.DirtyType.POSITION)) {
-      let rect = vars.getViewportRect();
+    if (this.updateDelegate.isDirty(DirtyType.POSITION)) {
+      let rect = r.getViewportRect();
 
       if (rect.top >= 0) {
         if ((rect.bottom > rect.height) || (rect.bottom >= document.height)) {
-          vars.changeElementState(this.getChild('prev.newer'), 'visible');
-          vars.changeElementState(this.getChild('next.older'), 'visible');
+          r.changeElementState(this.getChild('prev.newer'), 'visible');
+          r.changeElementState(this.getChild('next.older'), 'visible');
         } else {
-          vars.changeElementState(this.getChild('prev.newer'), 'hidden');
-          vars.changeElementState(this.getChild('next.older'), 'hidden');
+          r.changeElementState(this.getChild('prev.newer'), 'hidden');
+          r.changeElementState(this.getChild('next.older'), 'hidden');
         }
       }
     }
@@ -83,7 +85,7 @@ class Paginator extends vars.Element {
    * @param  {Object} event
    */
   _onPrevMouseOver(event) {
-    vars.changeElementState(this.getChild('prev.newest'), 'visible');
+    r.changeElementState(this.getChild('prev.newest'), 'visible');
   }
 
   /**
@@ -92,7 +94,7 @@ class Paginator extends vars.Element {
    * @param  {Object} event
    */
   _onPrevMouseOut(event) {
-    vars.changeElementState(this.getChild('prev.newest'), 'hidden');
+    r.changeElementState(this.getChild('prev.newest'), 'hidden');
   }
 
   /**
@@ -101,7 +103,7 @@ class Paginator extends vars.Element {
    * @param  {Object} event
    */
   _onNextMouseOver(event) {
-    vars.changeElementState(this.getChild('next.oldest'), 'visible');
+    r.changeElementState(this.getChild('next.oldest'), 'visible');
   }
 
   /**
@@ -110,7 +112,7 @@ class Paginator extends vars.Element {
    * @param  {Object} event
    */
   _onNextMouseOut(event) {
-    vars.changeElementState(this.getChild('next.oldest'), 'hidden');
+    r.changeElementState(this.getChild('next.oldest'), 'hidden');
   }
 }
 

@@ -5,9 +5,9 @@
 
 'use strict';
 
-let vars = require('vars');
+let r = require('requiem');
 
-vars.initDOM({
+r.sightread({
   views: {
     Playground: require('./views/Playground'),
     Posts: require('./views/Posts')

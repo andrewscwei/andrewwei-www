@@ -5,11 +5,11 @@
 
 'use strict';
 
-let vars = require('vars');
+let r = require('requiem');
 
 module.exports = {
   touchEnabled: function() {
-    var touch = vars.hasClass(document.documentElement, 'touch');
+    var touch = r.hasClass(document.documentElement, 'touch');
     return touch;
   }
 };

@@ -1,5 +1,6 @@
 {
   "extends": "../.jshintrc",
   "strict": true,
-  "camelcase": false
+  "camelcase": false,
+  "predef": ["-Element"]
 }

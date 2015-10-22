@@ -5,12 +5,14 @@
 
 'use strict';
 
-let vars = require('vars');
-let EventType = vars.EventType;
+let r = require('requiem');
+let Element = r.Element;
+let DirtyType = r.DirtyType;
+let EventType = r.EventType;
 
-class Posts extends vars.Element {
+class Posts extends Element {
   /**
-   * @see module:vars.Element#init
+   * @see module:requiem.Element#init
    */
   init() {
     this.respondsTo(10.0, EventType.OBJECT.SCROLL);
@@ -18,22 +20,22 @@ class Posts extends vars.Element {
   }
 
   /**
-   * @see module:vars.Element#update
+   * @see module:requiem.Element#update
    */
   update() {
-    if (this.updateDelegate.isDirty(vars.DirtyType.POSITION)) {
+    if (this.updateDelegate.isDirty(DirtyType.POSITION)) {
       let n = this.getChild('posts').length;
-      let r = vars.getViewportRect();
+      let viewportRect = r.getViewportRect();
 
       for (let i = 0; i < n; i++) {
         let post = this.getChild('posts')[i];
-        let rect = vars.getRect(post);
-        let intersect = vars.getIntersectRect(post);
+        let rect = r.getRect(post);
+        let intersect = r.getIntersectRect(post);
 
-        if ((intersect.height > rect.height * 0.2) || (intersect.height > r.height * 0.2)) {
-          vars.changeElementState(post, 'visible');
+        if ((intersect.height > rect.height * 0.2) || (intersect.height > viewportRect.height * 0.2)) {
+          r.changeElementState(post, 'visible');
         } else {
-          // vars.changeElementState(post, 'hidden');
+          // r.changeElementState(post, 'hidden');
         }
       }
     }

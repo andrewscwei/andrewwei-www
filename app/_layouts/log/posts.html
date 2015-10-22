@@ -4,7 +4,7 @@ node: log
 return: '/'
 ---
 
-<main id='body' class='posts' data-vs-controller='views.Posts'>
+<main id='body' class='posts' data-r-controller='views.Posts'>
   {% if page.tag == nil %}
     <!-- Determine the source of the posts by the tag that is received. -->
     {% assign posts = paginator.posts %}
@@ -47,9 +47,9 @@ return: '/'
         {% endif %}
       {% else %}
         {% if num_posts == 1 %}
-          <p>Displaying {{ num_posts }} post for <a class='hashtag' data-vs-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
+          <p>Displaying {{ num_posts }} post for <a class='hashtag' data-r-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
         {% else %}
-          <p>Displaying {{ num_posts }} posts for <a class='hashtag' data-vs-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
+          <p>Displaying {{ num_posts }} posts for <a class='hashtag' data-r-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
         {% endif %}
         <p><a class='reset' href='/log'>Reset</a></p>
       {% endif %}
@@ -60,7 +60,7 @@ return: '/'
     {% capture id %}{{ start_id | plus:1 }}{% endcapture %}
     {% for post in posts %}
       {% if page.tag == nil or post.tags contains page.tag %}
-        <summary class='post' vs-instance='posts'>
+        <summary class='post' data-r-instance='posts'>
           <a class='number-tag'>{{ id }}</a>
           <aside>
             <a class='fade' href='{{ post.url }}'><h1>{{ post.title | upcase }}{% if post.deprecated == true %}<span class='deprecated'></span>{% endif %}</h1></a>

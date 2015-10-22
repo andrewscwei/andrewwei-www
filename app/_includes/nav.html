@@ -1,11 +1,11 @@
-<nav id='nav' data-vs-controller='components.Nav'>
-  <section class='controls' vs-instance='controls'>
-    <button class='menu' vs-instance='switch'>
+<nav id='nav' data-r-controller='components.Nav'>
+  <section class='controls' data-r-instance='controls'>
+    <button class='menu' data-r-instance='switch'>
       {% include svgs/logo.html %}
     </button>
     {% if page.return != nil %}
       <a href='{{ page.return }}'>
-        <button class='return' vs-instance='return'>
+        <button class='return' data-r-instance='return'>
           {% include svgs/return.html %}
         </button>
       </a>
@@ -15,7 +15,7 @@
     <ol>
       {% for node in site.data.nav %}
         <a href='{{ node.url }}'>
-          <li {% if node.name == page.node %}data-vs-state='active'{% endif %}>{{ node.name | capitalize }}</li>
+          <li {% if node.name == page.node %}data-r-state='active'{% endif %}>{{ node.name | capitalize }}</li>
         </a>
       {% endfor %}
     </ol>

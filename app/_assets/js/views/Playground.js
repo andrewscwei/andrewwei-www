@@ -5,14 +5,15 @@
 
 'use strict';
 
-let vars = require('vars');
+let r = require('requiem');
+let Element = r.Element;
 
-class Playground extends vars.Element {
+class Playground extends Element {
   /**
-   * @see module:vars.Element#init
+   * @see module:requiem.Element#init
    */
   init() {
-    vars.changeElementState(this.getChild('bio'), 'active');
+    r.changeElementState(this.getChild('bio'), 'active');
     super.init();
   }
 }
