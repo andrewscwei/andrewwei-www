@@ -5,15 +5,14 @@
 
 'use strict';
 
-let r = require('requiem');
-let Element = r.Element;
+import { utils, Element } from 'requiem';
 
 class Playground extends Element {
   /**
-   * @see module:requiem.Element#init
+   * @inheritdoc
    */
   init() {
-    r.changeElementState(this.getChild('bio'), 'active');
+    utils.changeElementState(this.getChild('bio'), 'active');
     super.init();
   }
 }

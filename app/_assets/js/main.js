@@ -5,15 +5,12 @@
 
 'use strict';
 
-let r = require('requiem');
+import { dom } from 'requiem';
 
-r.sightread({
-  views: {
-    Playground: require('./views/Playground'),
-    Posts: require('./views/Posts')
-  },
-  components: {
-    Nav: require('./components/Nav'),
-    Paginator: require('./components/Paginator')
-  }
+dom.ready(() => {
+  dom.namespace('views').Playground = require('./views/Playground');
+  dom.namespace('views').Posts = require('./views/Posts');
+  dom.namespace('components').Nav = require('./components/Nav');
+  dom.namespace('components').Paginator = require('./components/Paginator');
+  dom.sightread();
 });

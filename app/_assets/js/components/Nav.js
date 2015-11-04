@@ -5,11 +5,9 @@
 
 'use strict';
 
-let r = require('requiem');
-let DirtyType = r.DirtyType;
-let Element = r.Element;
-let EventType = r.EventType;
-let utils = require('../utils/utils');
+import { utils, Element, DirtyType, EventType } from 'requiem';
+
+let touchEnabled = require('../utils/touchEnabled');
 
 const State = {
   COLLAPSED: 'collapsed',
@@ -18,10 +16,10 @@ const State = {
 
 class Nav extends Element {
   /**
-   * @see module:requiem.Element#init
+   * @inheritdoc
    */
   init() {
-    if (utils.touchEnabled()) {
+    if (touchEnabled()) {
       this.getChild('controls.switch').addEventListener(EventType.TOUCH.TOUCH_END, this._onSwitchActivate.bind(this));
     }
     else {
@@ -32,17 +30,17 @@ class Nav extends Element {
     this.state = State.COLLAPSED;
 
     if (this.getChild('controls.return')) {
-      r.changeElementState(this.getChild('controls'), 'returnable');
+      utils.changeElementState(this.getChild('controls'), 'returnable');
     }
 
     super.init();
   }
 
   /**
-   * @see module:requiem.Element#destroy
+   * @inheritdoc
    */
   destroy() {
-    if (utils.touchEnabled()) {
+    if (touchEnabled()) {
       this.getChild('controls.switch').removeEventListener(EventType.TOUCH.TOUCH_END, this._onSwitchActivate);
     }
     else {
@@ -54,7 +52,7 @@ class Nav extends Element {
   }
 
   /**
-   * @see module:requiem.Element#update
+   * @inheritdoc
    */
   update() {
     if (this.updateDelegate.isDirty(DirtyType.STATE)) {
@@ -62,16 +60,16 @@ class Nav extends Element {
 
       switch (this.state) {
         case State.EXPANDED: {
-          r.changeElementState(this.element, 'expanded');
-          r.changeElementState(this.getChild('controls.switch'), 'active');
-          r.changeElementState(body, 'shifted');
+          utils.changeElementState(this.element, 'expanded');
+          utils.changeElementState(this.getChild('controls.switch'), 'active');
+          utils.changeElementState(body, 'shifted');
           break;
         }
 
         default: {
-          r.changeElementState(this.element, 'collapsed');
-          r.changeElementState(this.getChild('controls.switch'), 'inactive');
-          r.changeElementState(body, 'unshifted');
+          utils.changeElementState(this.element, 'collapsed');
+          utils.changeElementState(this.getChild('controls.switch'), 'inactive');
+          utils.changeElementState(body, 'unshifted');
           break;
         }
       }
@@ -81,12 +79,12 @@ class Nav extends Element {
   }
 
   /**
-   * @private
    * Handler invoked whenever the menu button is activated.
    * @param  {Object} event
+   * @private
    */
   _onSwitchActivate(event) {
-    if (!utils.touchEnabled() && this.state === State.EXPANDED) return;
+    if (!touchEnabled() && this.state === State.EXPANDED) return;
 
     if (this.state === State.EXPANDED) {
       this.state = State.COLLAPSED;
@@ -97,9 +95,9 @@ class Nav extends Element {
   }
 
   /**
-   * @private
    * Handler invoked whenever the menu button is deactivated.
    * @param  {Object} event
+   * @private
    */
   _onSwitchDeactivate(event) {
     if (this.state === State.COLLAPSED) return;
