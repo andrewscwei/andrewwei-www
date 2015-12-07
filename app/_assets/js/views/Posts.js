@@ -8,17 +8,13 @@
 import { utils, Element, DirtyType, EventType } from 'requiem';
 
 class Posts extends Element {
-  /**
-   * @inheritdoc
-   */
+  /** @inheritdoc */
   init() {
     this.respondsTo(10.0, EventType.OBJECT.SCROLL);
     super.init();
   }
 
-  /**
-   * @inheritdoc
-   */
+  /** @inheritdoc */
   update() {
     if (this.updateDelegate.isDirty(DirtyType.POSITION)) {
       let n = this.getChild('posts').length;
@@ -30,9 +26,9 @@ class Posts extends Element {
         let intersect = utils.getIntersectRect(post);
 
         if ((intersect.height > rect.height * 0.2) || (intersect.height > viewportRect.height * 0.2)) {
-          utils.changeElementState(post, 'visible');
+          post.state = 'visible';
         } else {
-          // utils.changeElementState(post, 'hidden');
+          // post.state = 'hidden';
         }
       }
     }

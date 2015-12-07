@@ -5,14 +5,12 @@
 
 'use strict';
 
-import { utils, Element } from 'requiem';
+import { Element } from 'requiem';
 
 class Playground extends Element {
-  /**
-   * @inheritdoc
-   */
+  /** @inheritdoc */
   init() {
-    utils.changeElementState(this.getChild('bio'), 'active');
+    this.getChild('bio').state = 'active';
     super.init();
   }
 }

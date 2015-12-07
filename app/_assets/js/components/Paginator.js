@@ -5,7 +5,7 @@
 
 'use strict';
 
-import { Element, DirtyType, EventType } from 'requiem';
+import { utils, Element, DirtyType, EventType } from 'requiem';
 
 let touchEnabled = require('../utils/touchEnabled');
 

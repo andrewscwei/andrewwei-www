@@ -5,12 +5,12 @@
 
 'use strict';
 
-import { dom } from 'requiem';
+import Requiem, { dom } from 'requiem';
 
 dom.ready(() => {
-  dom.namespace('views').Playground = require('./views/Playground');
-  dom.namespace('views').Posts = require('./views/Posts');
-  dom.namespace('components').Nav = require('./components/Nav');
-  dom.namespace('components').Paginator = require('./components/Paginator');
-  dom.sightread();
+  Requiem.register(require('./views/Playground'));
+  Requiem.register(require('./views/Posts'));
+  Requiem.register(require('./components/Nav'));
+  Requiem.register(require('./components/Paginator'));
+  Requiem.sightread();
 });
