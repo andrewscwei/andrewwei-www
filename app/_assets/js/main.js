@@ -6,11 +6,14 @@
 'use strict';
 
 import Requiem, { dom } from 'requiem';
+import Playground from './views/Playground';
+import Posts from './views/Posts';
+import Nav from './components/Nav';
+import Paginator from './components/Paginator';
 
-dom.ready(() => {
-  Requiem.register(require('./views/Playground'));
-  Requiem.register(require('./views/Posts'));
-  Requiem.register(require('./components/Nav'));
-  Requiem.register(require('./components/Paginator'));
-  Requiem.sightread();
-});
+Requiem.register(Playground, 'Playground');
+Requiem.register(Posts, 'Posts');
+Requiem.register(Nav, 'Nav');
+Requiem.register(Paginator, 'Paginator');
+
+dom.ready(() => Requiem.sightread());
