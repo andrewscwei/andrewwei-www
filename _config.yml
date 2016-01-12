@@ -14,7 +14,7 @@ defaults:
       path: ''
       type: 'pages'
     values:
-      description: 'Andrew Wei, codenamed mu, is a software engineer and experience designer. He is also pretty good with pencils.'
+      description: 'Andrew Wei, codenamed mu, is a software engineer and experience designer.'
 
   - scope:
       path: ''
