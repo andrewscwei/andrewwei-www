@@ -1,6 +1,6 @@
 {
   "name": "andrewwei.mu",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "private": true,
   "repository": {
     "type": "git",
@@ -18,9 +18,8 @@
     "compression": "^1.4.4",
     "express": "^4.12.3",
     "mathjax": "^2.5.1",
-    "requiem": "git+https://github.com/VARIANTE/requiem.git",
-    "requiem-styles": "git+https://github.com/VARIANTE/requiem-styles.git",
-    "vars": "git+https://github.com/VARIANTE/vars.js.git"
+    "requiem": "^0.28.1",
+    "requiem-styles": "^0.12.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.3",
