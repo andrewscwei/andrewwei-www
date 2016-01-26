@@ -5,7 +5,7 @@
 
 main.post
   auto-fit()
-  padding: 0
+  padding(0)
 
   section.cover,
   section.no-cover
@@ -17,7 +17,7 @@ main.post
       width: 100%
 
       h1
-        margin: 0
+        margin(0)
         width: auto
         max-width: 100%
         text-align: left
@@ -93,16 +93,16 @@ main.post
         position: relative
 
   section.body
-    padding: screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left()
+    padding(screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left())
     background-color: inherit
     z-index: 10
     position: relative
 
     +screen('phablet')
-      padding: screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet')
+      padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
 
     +screen('tablet')
-      padding: screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet')
+      padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))
 
     div.content
       width: 100%
@@ -110,14 +110,14 @@ main.post
       position: relative
 
   section.comments
-    padding: screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left()
+    padding(screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left())
     background-color: inherit
     z-index: 10
     text-align: center
     position: relative
 
     +screen('phablet')
-      padding: screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet')
+      padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
 
     +screen('tablet')
-      padding: screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet')
+      padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))

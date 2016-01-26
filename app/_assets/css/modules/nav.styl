@@ -4,14 +4,11 @@
  */
 
 nav#nav
-  fixed-align()
-  width: auto
-  height: 100%
+  align('left', 'top', 'fixed')
+  size(auto 100%)
+  transition(transform, 0.2s, ease-out)
   background-color: transparent
   z-index: 20
-
-  +transition()
-    transition: transform 0.2s ease-out
 
   +state('collapsed', true)
     transform: translate3d(-($nav-width), 0, 0)
@@ -20,15 +17,14 @@ nav#nav
     transform: translate3d(0, 0, 0)
 
   section.controls
-    abs-align('left' $nav-width, 'top' $nav-offset-y)
-    width: $menu-button-width
-    height: auto
+    align('left' $nav-width null, 'top' $nav-offset-y null, 'absolute')
+    size($menu-button-width auto)
 
     button.menu
       z-index: 1
 
       svg
-        pointer-events: none
+        pointable(false)
 
     button.return
       transform: translate3d(-$menu-button-width, 0, 0)
@@ -41,29 +37,24 @@ nav#nav
         opacity: 1.0
 
   section.panel
-    abs-align('left', 'top')
-    width: $nav-width
-    height: 100%
+    align('left', 'top', 'absolute')
+    size($nav-width 100%)
     background-color: #fff
 
     ol
-      abs-align(left, top)
-      padding: 60px 0
-      width: 100%
-      height: auto
+      align('left', 'top', 'absolute')
+      size(100% auto)
+      padding(60px 0)
 
       li
-        padding: 5px 20px
-        width: 100%
-        font-weight: $font-weight-content-normal
-        font-size: 1em
+        padding(5px 20px)
+        size(100% null)
+        font(null, 1em, $font-weight-content-normal)
+        transition(opacity, border-left-color, 0.2s, ease-out)
         color: #000
         border-left: 4px inset rgba(0, 0, 0, 0)
         display: block
         position: relative
-
-        +transition()
-          transition: opacity 0.2s ease-out, border-left-color 0.2s ease-out
 
         +state('active')
           border-left: 4px inset rgba(0, 0, 0, 1)
@@ -76,20 +67,19 @@ nav#nav
             opacity: 0.6
 
     aside
-      abs-align('left', 'bottom')
-      padding: 40px 30px
-      width: 100%
-      height: auto
+      align('left', 'bottom', 'absolute')
+      padding(40px 30px)
+      size(100% auto)
 
       img.gravatar
-        diameter(60px, true)
-        margin: 10px 10px 10px 0
+        margin(10px '' '' 0)
+        size(60px, true)
         display: inline-block
         position: relative
 
       a
         &.social
-          margin: 10px 0
+          margin(10px 0)
 
           &:not(:last-child)
             margin-right: 8px

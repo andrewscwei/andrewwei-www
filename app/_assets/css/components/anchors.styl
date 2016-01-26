@@ -6,9 +6,7 @@
 a
   &,
   &.underline
-    font-family: inherit
-    font-weight: inherit
-    font-size: inherit
+    font(inherit, inherit, inherit)
     color: #20b684
     text-align: inherit
     line-height: inherit
@@ -19,8 +17,7 @@ a
       cursor: pointer
 
   &.fade
-    +transition()
-      transition: opacity 0.4s ease-out
+    transition(opacity, 0.4s, ease-out)
 
     +state('hover')
       opacity: 0.4
@@ -28,8 +25,7 @@ a
 
 a.social
   @extend a.fade
-  width: $social-anchor-diameter
-  height: $social-anchor-diameter
+  size($social-anchor-diameter)
   background-repeat: no-repeat
   background-size: contain
   background-position: center
@@ -47,12 +43,9 @@ a.social
 
 a.hashtag
   @extend a.fade
-  padding: 8px 10px
-  width: auto
-  height: auto
-  font-family: $font-family-content
-  font-size: 14px
-  font-weight: $font-weight-content-bold
+  padding(8px 10px)
+  size(auto);
+  font($font-family-content, 14px, $font-weight-content-bold)
   color: #666
   background-color: #000
   border-radius: 4px
@@ -66,21 +59,16 @@ a.hashtag
 
 a.read-more,
 a.reset
-  padding: 8px 10px
+  padding(8px 10px)
+  size(auto)
+  font($font-family-content, 16px, $font-weight-content-normal)
+  transition(background-color color, 0.2s ease-out)
   color: #000
-  width: auto
-  height: auto
-  font-family: $font-family-content
-  font-size: 16px
-  font-weight: $font-weight-content-normal
   border-radius: 4px
   line-height: 1em
   background-color: #fff
   display: inline-block
   position: relative
-
-  +transition()
-    transition: background-color 0.2s ease-out, color 0.2s ease-out
 
   +state('hover')
     background-color: #000
@@ -88,39 +76,32 @@ a.reset
     text-decoration: none
 
 a.cover
-  margin: 20px 0
-  width: 100%
-  height: 150px
+  size(100% 150px)
+  overflow(hidden)
+  margin(20px 0)
   display: block
   border-radius: 4px
-  overflow: hidden
   position: relative
 
   +screen('phablet')
     height: 300px
 
   figure.cover
-    width: 100%
-    height: 100%
+    size(100%)
+    transition(transform, 0.4s, ease-out)
     background-repeat: no-repeat
     background-size: cover
     background-position: center
     transform: scale(1)
     position: relative
 
-    +transition()
-      transition: transform 0.4s ease-out
-
     &:before
-      width: 100%
-      height: 100%
+      size(100%)
+      transition(background-color, 0.4s, ease-out)
       background-color: rgba(34, 34, 34, 0.4)
       content: ''
       display: block
       position: relative
-
-      +transition()
-        transition: background-color 0.4s ease-out
 
   +state('hover')
     figure.cover
@@ -130,11 +111,9 @@ a.cover
         background-color: rgba(34, 34, 34, 0.0)
 
 a.number-tag
-  diameter(25px)
+  size(25px)
+  font($font-family-header, 16px, $font-weight-header-normal)
   text-align: center
-  font-family: $font-family-header
-  font-weight: $font-weight-header-normal
-  font-size: 16px
   vertical-align: middle
   line-height: 25px
   border-radius: 4px
@@ -144,13 +123,11 @@ a.number-tag
   pointer-events: none
 
 span.deprecated
-  margin: 0 10px
-  padding: 0 10px
-  height: 30px
+  margin(0 10px)
+  padding(0 10px)
+  size(null 30px)
+  font($font-family-content, 16px, $font-weight-content-normal)
   text-align: left
-  font-family: $font-family-content
-  font-weight: $font-weight-content-normal
-  font-size: 16px
   line-height: 30px
   vertical-align: middle
   border-radius: 4px
@@ -163,9 +140,9 @@ span.deprecated
     content: 'Deprecated'
 
 a.paginator
+  margin(0)
+  padding(0)
   bottom: $paginator-anchor-offset-y
-  margin: 0
-  padding: 0
   width: auto
   height: $paginator-anchor-height
   font-family: $font-family-content
@@ -176,7 +153,7 @@ a.paginator
 
   span.number,
   span.label
-    padding: 0 8px
+    padding(0 8px)
     height: 100%
     font-family: inherit
     font-size: 16px
@@ -255,10 +232,7 @@ a.paginator
     +state(hidden, true)
       transform: translate3d($paginator-anchor-label-long-width, 0, 0)
 
-  +transition()
-    transition-property: transform, opacity
-    transition-duration: 0.2s
-    transition-timing-function: ease-out
+  transition(transform opacity, 0.2s, ease-out)
 
   +state('hidden', true)
     opacity: 0.0

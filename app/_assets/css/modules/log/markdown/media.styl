@@ -5,7 +5,7 @@
 
 .log-styles
   img
-    margin: 50px auto
+    margin(50px auto)
     max-width: 98%
     height: auto
     border-radius: 4px
@@ -13,11 +13,9 @@
     position: relative
 
     & + br + em
-      margin: -60px auto 60px
-      width: 90%
-      font-family: $font-family-content
-      font-weight: $font-weight-content-normal
-      font-size: 0.875em
+      margin(-60px auto 60px)
+      size(90% null)
+      font($font-family-content, 0.875em, $font-weight-content-normal)
       line-height: 1.2em
       text-align: center
       color: #999

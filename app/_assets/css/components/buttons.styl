@@ -4,6 +4,7 @@
  */
 
 button.menu
+  transition(background-color, 0.2s, ease-out)
   width: $menu-button-width
   height: $menu-button-height
   background-color: #000
@@ -15,11 +16,8 @@ button.menu
     circle
       fill: #fff
 
-  +transition()
-    transition: background-color 0.2s ease-out
-
     svg circle
-      transition: fill 0.2s ease-out
+      transition(fill, 0.2s, ease-out)
 
   +state(active hover)
     background-color: #fff
@@ -28,8 +26,8 @@ button.menu
       fill: #000
 
 button.return
-  width: $menu-button-width
-  height: $menu-button-height
+  size($menu-button-width $menu-button-height)
+  transition(opacity transform background-color, 0.2s, ease-out)
   background-color: #fff
   text-align: center
   display: inline-block
@@ -38,13 +36,8 @@ button.return
   svg rect
     fill: #000
 
-  +transition()
-    transition-property: opacity, transform, background-color
-    transition-duration: 0.2s
-    transition-timing-function: ease-out
-
     svg rect
-      transition: fill 0.2s ease-out
+      transition(fill, 0.2s, ease-out)
 
   +state('hover')
     background-color: #000

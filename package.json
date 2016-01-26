@@ -1,6 +1,6 @@
 {
   "name": "andrewwei.mu",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -15,18 +15,18 @@
     "npm": ">=2.7.3"
   },
   "dependencies": {
-    "compression": "^1.4.4",
+    "compression": "^1.6.1",
     "express": "^4.12.3",
     "mathjax": "^2.5.1",
-    "requiem": "^0.28.1",
-    "requiem-styles": "^0.12.0"
+    "requiem": "^0.30.0",
+    "requiem-styles": "^0.17.5"
   },
   "devDependencies": {
-    "autoprefixer": "^6.2.3",
+    "autoprefixer": "^6.3.1",
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
-    "browser-sync": "^2.11.0",
-    "browserify": "^12.0.1",
+    "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
     "del": "^2.2.0",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
@@ -45,7 +45,7 @@
     "through2": "^2.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.6.1",
+    "watchify": "^3.7.0",
     "yamlify": "^0.1.2"
   }
 }
