@@ -10,18 +10,18 @@ main.post
   section.cover,
   section.no-cover
     flex-block(center, bottom)
-    width: 100%
+    size(100% null)
     text-align: left
 
     div.title
-      width: 100%
+      size(100% null)
 
       h1
         margin(0)
-        width: auto
-        max-width: 100%
+        size(auto null)
+        max-size(100% null)
+        font($size:2.25em)
         text-align: left
-        font-size: 2.25em
         line-height: 1.2em
         color: #fff
         display: block
@@ -29,51 +29,39 @@ main.post
         word-wrap: break-word
 
         +screen('tablet')
-          font-size: 3.75em
+          font($size:3.75em)
 
         +screen('desktop')
-          max-width: 80%
+          max-size(80% null)
 
       span.date
-        font-family: $font-family-content
-        font-weight: $font-weight-header-normal
-        font-size: 1em
+        font($font-family-content, 1em, $font-weight-header-normal)
         line-height: 1.2em
         color: #fff
         display: block
 
   section.no-cover
-    padding-top: 100px
-    padding-bottom: 0
-    padding-left: screen-padding-left()
-    padding-right: screen-padding-right()
-    height: auto
+    padding(100px screen-padding-right() 0 screen-padding-left())
+    size(null auto)
 
     +screen('phablet')
-      padding-left: screen-padding-left('phablet')
-      padding-right: screen-padding-right('phablet')
+      padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
 
     +screen('tablet')
-      padding-left: screen-padding-left('tablet')
-      padding-right: screen-padding-right('tablet')
+      padding(screen-padding-right('tablet') screen-padding-left('tablet'))
 
   section.cover
-    padding-top: 40px
-    padding-bottom: 40px
-    padding-left: screen-padding-left()
-    padding-right: screen-padding-right()
-    height: 100%
+    padding(40px screen-padding-right() 40px screen-padding-left())
+    size(null 100%)
 
     +screen('phablet')
-      padding-left: screen-padding-left('phablet')
-      padding-right: screen-padding-right('phablet')
+      padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
 
     +screen('tablet')
-      padding-left: screen-padding-left('tablet')
-      padding-right: screen-padding-right('tablet')
+      padding(null screen-padding-right('tablet') null screen-padding-left('tablet'))
 
     +screen('phablet', false, false, 'height')
-      height: 80%
+      size(null 80%)
 
     figure.background
       abs-align()
@@ -105,8 +93,7 @@ main.post
       padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))
 
     div.content
-      width: 100%
-      height: auto
+      size(100% auto)
       position: relative
 
   section.comments

@@ -6,10 +6,8 @@
 .log-styles
   h1
     margin(60px 0 15px)
-    width: auto
-    font-family: $font-family-header
-    font-size: 3.125em
-    font-weight: $font-weight-header-light
+    size(auto null)
+    font($font-family-header, 3.125em, $font-weight-header-light)
     line-height: 1.2em
     text-align: left
     color: #fff
@@ -18,9 +16,7 @@
 
   h2
     margin(30px 0 15px)
-    font-family: $font-family-header
-    font-size: 1.625em
-    font-weight: $font-weight-header-light
+    font($font-family-header, 1.625em, $font-weight-header-light)
     text-align: left
     line-height: 1.2em
     color: #fff
@@ -29,13 +25,11 @@
 
     +screen('phablet')
       margin(50px 0 15px)
-      font-size: 2.25em
+      font($size:2.25em)
 
   h3
     margin(40px 0 10px)
-    font-family: $font-family-header
-    font-weight: $font-weight-header-normal
-    font-size: 1.5em
+    font($font-family-header, 1.5em, $font-weight-header-normal)
     text-align: left
     line-height: 1.2em
     color: #fff
@@ -44,9 +38,7 @@
 
   h4
     margin(40px 0 10px)
-    font-family: $font-family-header
-    font-size: 1.25em
-    font-weight: $font-weight-header-bold
+    font($font-family-header, 1.25em, $font-weight-header-bold)
     text-align: left
     color: #fff
     line-height: 1.2em
@@ -55,10 +47,8 @@
 
   h5
     margin(30px 0 10px)
-    padding-left: 20px
-    font-family: $font-family-header
-    font-size: 1.125em
-    font-weight: $font-weight-header-bold
+    padding(null null null 20px)
+    font($font-family-header, 1.125em, $font-weight-header-bold)
     color: #fff
     line-height: 1.2em
     border-left: 4px solid #fff
@@ -68,10 +58,8 @@
 
   h6
     margin(30px 0 10px)
-    padding-left: 20px
-    font-family: $font-family-header
-    font-size: 1em
-    font-weight: $font-weight-header-bold
+    padding(null null null 20px)
+    font($font-family-header, 1em, $font-weight-header-bold)
     line-height: 1.4em
     color: #ccc
     text-align: left
@@ -79,29 +67,25 @@
     position: relative
 
   p
-    font-family: $font-family-content
-    font-weight: $font-weight-content-normal
-    font-size: 1em
+    font($font-family-content, 1em, $font-weight-content-normal)
     line-height: 1.4em
     color: #ccc
 
     +screen('desktop')
-      font-size: 18px
+      font($size:18px)
 
   p,
   ol,
   ul
     & + p
-      margin-top: 20px
+      margin(20px null null null)
 
   em
-    font-size: inherit
-    font-weight: inherit
+    font(null, inherit, inherit)
     font-style: italic
 
   strong
-    font-size: inherit
-    font-weight: $font-weight-content-bold
+    font(null, inherit, $font-weight-content-bold)
     font-style: none
 
   a
@@ -122,9 +106,9 @@
       margin(20px 40px)
 
     p
-      font-size: 0.875em
+      font($size:0.875em)
       line-height: 1.4em
       color: #000
 
       +screen('desktop')
-        font-size: 1em
+        font($size:1em)

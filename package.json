@@ -19,7 +19,7 @@
     "express": "^4.12.3",
     "mathjax": "^2.5.1",
     "requiem": "^0.30.0",
-    "requiem-styles": "^0.17.5"
+    "requiem-styles": "^0.17.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",

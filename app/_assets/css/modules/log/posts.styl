@@ -17,12 +17,10 @@ section.results
 
 section.posts
   summary.post
-    transition(transform opacity, 0.4s, ease-out)
     margin(40px auto)
-    width: 100%
-    max-width: 980px
-    display: block
-    position: relative
+    size(100% null)
+    max-size(980px null)
+    transition(transform opacity, 0.4s, ease-out)
 
     +state('hidden', true)
       transform: translate3d(0, 30px, 0)
@@ -33,16 +31,13 @@ section.posts
       opacity: 1.0
 
     a.number-tag
-      edge(0 null null -40px)
-      position: absolute
+      align('left' -40px null, 'top', 'absolute')
 
     h1
       margin(0 0 15px)
-      width: auto
-      max-width: 100%
-      font-family: $font-family-header
-      font-size: 2.25em
-      font-weight: $font-weight-header-light
+      size(auto null)
+      max-size(100% null)
+      font($font-family-header, 2.25em, $font-weight-header-light)
       line-height: 1.2em
       text-align: left
       color: #fff
@@ -50,23 +45,20 @@ section.posts
       position: relative
 
       +screen('tablet')
-        max-width: 80%
-        font-size: 3.125em
+        max-size(80% null)
+        font($size:3.125em)
 
     .content
       margin(20px 0)
 
   hr
     margin(60px 0)
-    width: 40%
+    size(40% 1px)
     border: 0
-    height: 1px
     background: rgba(255, 255, 255, 0.03)
 
   span.date
-    font-family: $font-family-content
-    font-weight: $font-weight-header-normal
-    font-size: 1em
+    font($font-family-content, 1em, $font-weight-header-normal)
     color: #666
     display: block
     line-height: 1.2em

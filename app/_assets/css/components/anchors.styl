@@ -111,75 +111,71 @@ a.cover
         background-color: rgba(34, 34, 34, 0.0)
 
 a.number-tag
+  align('center', 'center', 'inline')
   size(25px)
   font($font-family-header, 16px, $font-weight-header-normal)
+  pointable(false)
   text-align: center
-  vertical-align: middle
   line-height: 25px
   border-radius: 4px
   color: #333
   background-color: #fff
   display: inline-block
-  pointer-events: none
 
 span.deprecated
+  align('center', 'center', 'inline')
   margin(0 10px)
   padding(0 10px)
   size(null 30px)
   font($font-family-content, 16px, $font-weight-content-normal)
+  pointable(false)
   text-align: left
   line-height: 30px
-  vertical-align: middle
   border-radius: 4px
   color: #fff
   background-color: #f92672
   display: inline-block
-  pointer-events: none
 
   &:after
     content: 'Deprecated'
 
 a.paginator
+  edge(null null $paginator-anchor-offset-y null)
   margin(0)
   padding(0)
-  bottom: $paginator-anchor-offset-y
-  width: auto
-  height: $paginator-anchor-height
-  font-family: $font-family-content
-  font-weight: $font-weight-content-normal
+  size(auto $paginator-anchor-height)
+  font($font-family-content, null, $font-weight-content-normal)
   box-sizing: border-box
   display: inline-block
   position: fixed
 
   span.number,
   span.label
+    align('center', 'top', 'inline')
     padding(0 8px)
-    height: 100%
-    font-family: inherit
-    font-size: 16px
-    font-weight: inherit
+    size(null 100%)
+    font(inherit, 16px, inherit)
     color: inherit
     line-height: $paginator-anchor-height
-    vertical-align: top
     box-sizing: border-box
     display: block
     float: left
     position: relative
 
   span.number
-    width: $paginator-anchor-number-width
+    size($paginator-anchor-number-width null)
     color: #fff
     background-color: #111
 
   &.newer,
   &.older
-    width: $paginator-anchor-number-width + $paginator-anchor-label-width
+    size(($paginator-anchor-number-width + $paginator-anchor-label-width) null)
     color: #333
     background-color: #fff
     z-index: 1
 
     span.label
-      width: $paginator-anchor-label-width
+      size($paginator-anchor-label-width null)
 
   &.newer
     left: 0
@@ -210,7 +206,7 @@ a.paginator
 
   &.newest,
   &.oldest
-    width: $paginator-anchor-label-long-width
+    size($paginator-anchor-label-long-width null)
     color: #fff
     background-color: #000
     z-index: 0

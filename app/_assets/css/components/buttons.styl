@@ -4,14 +4,13 @@
  */
 
 button.menu
+  size($menu-button-width $menu-button-height)
   transition(background-color, 0.2s, ease-out)
-  width: $menu-button-width
-  height: $menu-button-height
   background-color: #000
   text-align: center
 
   svg
-    vertical-align: middle
+    align('center', 'center', 'inline')
 
     circle
       fill: #fff
