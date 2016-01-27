@@ -28,10 +28,10 @@ main.post
         position: relative
         word-wrap: break-word
 
-        +screen('tablet')
+        +screen('>=tablet')
           font($size:3.75em)
 
-        +screen('desktop')
+        +screen('>=desktop')
           max-size(80% null)
 
       span.date
@@ -44,23 +44,23 @@ main.post
     padding(100px screen-padding-right() 0 screen-padding-left())
     size(null auto)
 
-    +screen('phablet')
+    +screen('>=phablet')
       padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
 
-    +screen('tablet')
+    +screen('>=tablet')
       padding(screen-padding-right('tablet') screen-padding-left('tablet'))
 
   section.cover
     padding(40px screen-padding-right() 40px screen-padding-left())
     size(null 100%)
 
-    +screen('phablet')
+    +screen('>=phablet')
       padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
 
-    +screen('tablet')
+    +screen('>=tablet')
       padding(null screen-padding-right('tablet') null screen-padding-left('tablet'))
 
-    +screen('phablet', false, false, 'height')
+    +screen('h>=phablet')
       size(null 80%)
 
     figure.background
@@ -70,7 +70,7 @@ main.post
       background-size: cover
       background-position: center
 
-      +screen('desktop')
+      +screen('>=desktop')
         background-attachment: fixed
 
       &:before
@@ -86,10 +86,10 @@ main.post
     z-index: 10
     position: relative
 
-    +screen('phablet')
+    +screen('>=phablet')
       padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
 
-    +screen('tablet')
+    +screen('>=tablet')
       padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))
 
     div.content
@@ -103,8 +103,8 @@ main.post
     text-align: center
     position: relative
 
-    +screen('phablet')
+    +screen('>=phablet')
       padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
 
-    +screen('tablet')
+    +screen('>=tablet')
       padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))

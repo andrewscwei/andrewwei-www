@@ -8,7 +8,7 @@
     font($font-family-content, 1em, $font-weight-content-normal)
     color: #ccc
 
-    +screen('desktop')
+    +screen('>=desktop')
       font($size:1.125em)
 
   ol,
@@ -17,10 +17,10 @@
     padding(0 0 0 20px)
     list-style: decimal
 
-    +screen('tablet')
+    +screen('>=tablet')
       padding(0 20px)
 
-    +screen('desktop')
+    +screen('>=desktop')
       padding(0 40px)
 
     ol,

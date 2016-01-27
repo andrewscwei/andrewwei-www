@@ -49,10 +49,10 @@ main
   transition(transform, 0.2s, ease-out)
   padding(screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left())
 
-  +screen('phablet')
+  +screen('>=phablet')
     padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
 
-  +screen('tablet')
+  +screen('>=tablet')
     padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))
 
 

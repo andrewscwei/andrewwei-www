@@ -23,7 +23,7 @@
     display: block
     position: relative
 
-    +screen('phablet')
+    +screen('>=phablet')
       margin(50px 0 15px)
       font($size:2.25em)
 
@@ -71,7 +71,7 @@
     line-height: 1.4em
     color: #ccc
 
-    +screen('desktop')
+    +screen('>=desktop')
       font($size:18px)
 
   p,
@@ -102,7 +102,7 @@
     display: block
     box-sizing: border-box
 
-    +screen('tablet')
+    +screen('>=tablet')
       margin(20px 40px)
 
     p
@@ -110,5 +110,5 @@
       line-height: 1.4em
       color: #000
 
-      +screen('desktop')
+      +screen('>=desktop')
         font($size:1em)

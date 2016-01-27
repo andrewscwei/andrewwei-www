@@ -1,6 +1,6 @@
 {
   "name": "andrewwei.mu",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "express": "^4.12.3",
     "mathjax": "^2.5.1",
     "requiem": "^0.30.0",
-    "requiem-styles": "^0.17.6"
+    "requiem-styles": "^0.18.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
