@@ -6,16 +6,14 @@
  * sub-task, create new file in ./tasks and require it here. For task configurations, see ./tasks/config.js.
  */
 
-// Require all gulp tasks.
-require('./tasks/clean');
-require('./tasks/generate');
-require('./tasks/build');
-require('./tasks/serve');
+import config from './tasks/.taskconfig';
+import gulp from 'gulp';
+import sequence from 'run-sequence';
 
-// Import packages.
-var config = require('./tasks/.taskconfig');
-var gulp = require('gulp');
-var sequence = require('run-sequence');
+import './tasks/clean';
+import './tasks/generate';
+import './tasks/build';
+import './tasks/serve';
 
 /**
  * Default Gulp task. This is the task that gets executed when you run the shell command 'gulp'.
@@ -32,10 +30,9 @@ var sequence = require('run-sequence');
  * @param {Number}  port
  * @param {Boolean} watch
  */
-gulp.task('default', function(callback) {
-  var seq = ['clean', 'generate', 'build'];
+gulp.task('default', (callback) => {
+  let seq = ['clean', 'generate', 'build'];
   if (config.env.serve) seq.push('serve');
   seq.push(callback);
-
   sequence.apply(null, seq);
 });

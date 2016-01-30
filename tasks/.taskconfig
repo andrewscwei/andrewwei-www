@@ -5,8 +5,8 @@
  * This file contains all config settings for Gulp tasks.
  */
 
-var path = require('path');
-var $env = require('gulp-util').env;
+import path from 'path';
+import { env as $env } from 'gulp-util';
 
 /**
  * Specifies whether a task should be executed in the debug environment. Tasks may perform differently
@@ -14,7 +14,7 @@ var $env = require('gulp-util').env;
  *
  * @type {Boolean}  --debug, --d, NODE_ENV = 'development' in env, GULP_CONFIG_DEBUG is present in env
  */
-var debug = $env['debug'] || $env['d'] || process.env.NODE_ENV === 'development' || process.env.GULP_CONFIG_DEBUG;
+let debug = $env['debug'] || $env['d'] || process.env.NODE_ENV === 'development' || process.env.GULP_CONFIG_DEBUG;
 
 /**
  * Supported options specified through CLI params when executing Gulp tasks. Note that if debug is true,
@@ -37,7 +37,7 @@ var debug = $env['debug'] || $env['d'] || process.env.NODE_ENV === 'development'
  *                                         into their corresponding compile tasks and will trigger a browser refresh on
  *                                         complete.
  */
-var env = {
+let env = {
   cache: $env['cache'] || $env['c'],
   cssSourcemaps: $env['css-sourcemaps'] || $env['csm'],
   jsSourcemaps: $env['js-sourcemaps'] || $env['jsm'] || debug,
@@ -53,7 +53,7 @@ var env = {
 /**
  * Common extensions per file type for glob patterns.
  */
-var patterns = {
+let patterns = {
   images: '{jpg,jpeg,gif,png,svg}',
   videos: '{ogv,mp4}',
   scripts: '{js,js.erb,coffee}',
@@ -67,7 +67,7 @@ var patterns = {
 /**
  * Common paths used throughout the Gulp pipeline.
  */
-var paths = {
+let paths = {
   src: path.join(__dirname, '../', 'app'),
   tmp: path.join(__dirname, '../', '.tmp'),
   build: path.join(__dirname, '../', 'public')
@@ -76,100 +76,78 @@ var paths = {
 /**
  * Configuration for the 'clean' task.
  */
-var clean = {
+let clean = {
   entry: [paths.tmp, paths.build]
 };
 
 /**
- * Configuration for the 'images' task.
+ * Configuration for the 'build' tasks.
  */
-var images = {
-  entry: path.join(paths.src, '_assets', '**', '*.' + patterns.images),
-  output: path.join(paths.build, 'assets'),
-  imagemin: {
-    progressive: true,
-    interlaced: true,
-    svgoPlugins: [{
-      cleanupIDs: false
-    }]
-  }
-};
-
-/**
- * Configuration for the 'videos' task.
- */
-var videos = {
-  entry: path.join(paths.src, '_assets', '**', '*.' + patterns.videos),
-  output: path.join(paths.build, 'assets')
-};
-
-/**
- * Configuration for the 'fonts' task.
- */
-var fonts = {
-  entry: path.join(paths.src, '_assets', '**', '*.' + patterns.fonts),
-  output: path.join(paths.build, 'assets')
-};
-
-/**
- * Configuration for the 'styles' task.
- */
-var styles = {
-  entry: path.join(paths.src, '_assets', 'css', '*.' + patterns.styles),
-  stylus: {
-    compress: !env.skipCSSMin,
-    'include css': true,
-    include: [path.join(__dirname, '../', 'node_modules'), path.join(paths.src, '_assets', 'css')],
+let build = {
+  images: {
+    entry: path.join(paths.src, '_assets', '**', '*.' + patterns.images),
+    output: path.join(paths.build, 'assets'),
+    imagemin: {
+      progressive: true,
+      interlaced: true,
+      svgoPlugins: [{
+        cleanupIDs: false
+      }]
+    }
   },
-  autoprefixer: {
-    browsers: ['last 2 version', 'ie 9']
+  videos: {
+    entry: path.join(paths.src, '_assets', '**', '*.' + patterns.videos),
+    output: path.join(paths.build, 'assets')
   },
-  output: path.join(paths.build, 'assets/css'),
-  vendorFileName: 'vendor.css',
-  vendorEntry: path.join(paths.src, '_assets', 'vendor', '**', '*.' + patterns.styles),
-  vendorOutput: path.join(paths.build, 'assets', 'vendor')
-};
-
-/**
- * Configuration for the 'scripts' task.
- */
-var scripts = {
-  entry: path.join(paths.src, '_assets', 'js', '*.' + patterns.scripts),
-  output: path.join(paths.build, 'assets', 'js'),
-  vendorFileName: 'vendor.js',
-  vendorEntry: path.join(paths.src, '_assets', 'vendor', '**', '*.' + patterns.scripts),
-  vendorOutput: path.join(paths.build, 'assets', 'vendor')
-};
-
-/**
- * Configuration for the 'templates' task.
- */
-var templates = {
-  entry: path.join(paths.tmp, '**', '*.' + patterns.templates),
-  output: paths.build,
-  minifyHTML: {
-    empty: true,
-    conditionals: true,
-    loose: true
-  }
-};
-
-/**
- * Configuration for the 'build' task.
- */
-var build = {
-  entry: path.join(paths.build, '**', '*'),
-  output: paths.build,
-  revAll: {
-    dontGlobal: [/favicon.*$/g, /og-image.*$/g, /rev-manifest.*$/g],
-    dontRenameFile: patterns.templates.replace(/\{|\}/g, '').replace(/^/g, '.').replace(/\,/g, ',.').split(',')
+  fonts: {
+    entry: path.join(paths.src, '_assets', '**', '*.' + patterns.fonts),
+    output: path.join(paths.build, 'assets')
+  },
+  styles: {
+    entry: path.join(paths.src, '_assets', 'css', '*.' + patterns.styles),
+    stylus: {
+      compress: !env.skipCSSMin,
+      'include css': true,
+      include: [path.join(__dirname, '../', 'node_modules'), path.join(paths.src, '_assets', 'css')],
+    },
+    autoprefixer: {
+      browsers: ['last 2 version', 'ie 9']
+    },
+    output: path.join(paths.build, 'assets/css'),
+    vendorFileName: 'vendor.css',
+    vendorEntry: path.join(paths.src, '_assets', 'vendor', '**', '*.' + patterns.styles),
+    vendorOutput: path.join(paths.build, 'assets', 'vendor')
+  },
+  scripts: {
+    entry: path.join(paths.src, '_assets', 'js', '*.' + patterns.scripts),
+    output: path.join(paths.build, 'assets', 'js'),
+    vendorFileName: 'vendor.js',
+    vendorEntry: path.join(paths.src, '_assets', 'vendor', '**', '*.' + patterns.scripts),
+    vendorOutput: path.join(paths.build, 'assets', 'vendor')
+  },
+  templates: {
+    entry: path.join(paths.tmp, '**', '*.' + patterns.templates),
+    output: paths.build,
+    minifyHTML: {
+      empty: true,
+      conditionals: true,
+      loose: true
+    }
+  },
+  build: {
+    entry: path.join(paths.build, '**', '*'),
+    output: paths.build,
+    revAll: {
+      dontGlobal: [/favicon.*$/g, /og-image.*$/g, /rev-manifest.*$/g],
+      dontRenameFile: patterns.templates.replace(/\{|\}/g, '').replace(/^/g, '.').replace(/\,/g, ',.').split(',')
+    }
   }
 };
 
 /**
  * Configuration for the 'serve' task.
  */
-var serve = {
+let serve = {
   browserSync: {
     server: {
       baseDir: paths.build
@@ -184,7 +162,7 @@ var serve = {
 /**
  * Configuration for file watching.
  */
-var watch = {
+let watch = {
   entries: [{
     files: path.join(paths.src, '_assets', '**', '*.' + patterns.images),
     tasks: ['images']
@@ -202,18 +180,12 @@ var watch = {
   }]
 };
 
-module.exports = {
+export default {
   debug: debug,
   env: env,
   patterns: patterns,
   paths: paths,
   clean: clean,
-  images: images,
-  videos: videos,
-  fonts: fonts,
-  styles: styles,
-  scripts: scripts,
-  templates: templates,
   build: build,
   serve: serve,
   watch: watch

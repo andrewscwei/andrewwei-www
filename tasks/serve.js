@@ -3,10 +3,10 @@
  * (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-var browserSync = require('browser-sync');
-var config = require('./.taskconfig');
-var gulp = require('gulp');
-var $util = require('gulp-util');
+import browserSync from 'browser-sync';
+import config from './.taskconfig';
+import gulp from 'gulp';
+import $util from 'gulp-util';
 
 /**
  * Serves the app locally. In production, watch option is not supported. This is meant for
@@ -16,7 +16,7 @@ var $util = require('gulp-util');
  * @param {Number}  port
  * @param {Boolean} watch
  */
-gulp.task('serve', function() {
+gulp.task('serve', () => {
   if (config.env.watch && !config.debug) {
     $util.log($util.colors.yellow('Watch is not supported in production. Please specify ') + '--debug' + $util.colors.yellow(' instead.'));
     return;

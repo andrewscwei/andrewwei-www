@@ -3,11 +3,12 @@
  * (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-var config = require('./.taskconfig');
-var gulp = require('gulp');
-var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
-var spawn = require('child_process').spawn;
-var $util = require('gulp-util');
+import config from './.taskconfig';
+import gulp from 'gulp';
+import $util from 'gulp-util';
+import { spawn } from 'child_process';
+
+const JEKYLL = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
 /**
  * Runs the Jekyll build taks to generate all the templates. These files are generated to the
@@ -16,18 +17,18 @@ var $util = require('gulp-util');
  * @param {Boolean} debug
  * @param {Boolean} watch
  */
-gulp.task('generate', function(callback) {
-  var proc;
-  var callbackGuard = false;
+gulp.task('generate', (callback) => {
+  let proc;
+  let callbackGuard = false;
 
   if (config.debug) {
     if (config.env.watch) {
-      proc = spawn(jekyll, ['build', '--drafts', '--watch', '--destination=' + config.paths.tmp]);
+      proc = spawn(JEKYLL, ['build', '--drafts', '--watch', '--destination=' + config.paths.tmp]);
     } else {
-      proc = spawn(jekyll, ['build', '--drafts', '--destination=' + config.paths.tmp]);
+      proc = spawn(JEKYLL, ['build', '--drafts', '--destination=' + config.paths.tmp]);
     }
   } else {
-    proc = spawn(jekyll, ['build', '--destination=' + config.paths.tmp]);
+    proc = spawn(JEKYLL, ['build', '--destination=' + config.paths.tmp]);
   }
 
   proc.stdout.setEncoding('utf8');

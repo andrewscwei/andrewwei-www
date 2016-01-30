@@ -3,66 +3,66 @@
  * (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-var autoprefixer = require('autoprefixer');
-var babelify = require('babelify');
-var browserify = require('browserify');
-var buffer = require('vinyl-buffer');
-var config = require('./.taskconfig');
-var del = require('del');
-var gulp = require('gulp');
-var merge = require('merge-stream');
-var source = require('vinyl-source-stream');
-var through2 = require('through2');
-var watchify = require('watchify');
-var yamlify = require('yamlify');
-var $concat = require('gulp-concat');
-var $csso = require('gulp-csso');
-var $if = require('gulp-if');
-var $minifyHTML = require('gulp-minify-html');
-var $postcss = require('gulp-postcss');
-var $revAll = require('gulp-rev-all');
-var $stylus = require('gulp-stylus');
-var $size = require('gulp-size');
-var $sourcemaps = require('gulp-sourcemaps');
-var $uglify = require('gulp-uglify');
-var $util = require('gulp-util');
+import autoprefixer from 'autoprefixer';
+import babelify from 'babelify';
+import browserify from 'browserify';
+import buffer from 'vinyl-buffer';
+import config from './.taskconfig';
+import del from 'del';
+import gulp from 'gulp';
+import merge from 'merge-stream';
+import source from 'vinyl-source-stream';
+import through2 from 'through2';
+import watchify from 'watchify';
+import yamlify from 'yamlify';
+import $concat from 'gulp-concat';
+import $csso from 'gulp-csso';
+import $if from 'gulp-if';
+import $minifyHTML from 'gulp-minify-html';
+import $postcss from 'gulp-postcss';
+import $revAll from 'gulp-rev-all';
+import $stylus from 'gulp-stylus';
+import $size from 'gulp-size';
+import $sourcemaps from 'gulp-sourcemaps';
+import $uglify from 'gulp-uglify';
+import $util from 'gulp-util';
 
 /**
  * Compiles and deploys images.
  *
  * @param {Boolean} debug
  */
-gulp.task('images', function() {
-  return gulp.src(config.images.entry)
+gulp.task('images', () => {
+  return gulp.src(config.build.images.entry)
     .pipe($size({
       title: '[images]',
       gzip: true
     }))
-    .pipe(gulp.dest(config.images.output));
+    .pipe(gulp.dest(config.build.images.output));
 });
 
 /**
  * Compiles and deploys videos.
  */
-gulp.task('videos', function() {
-  return gulp.src(config.videos.entry)
+gulp.task('videos', () => {
+  return gulp.src(config.build.videos.entry)
     .pipe($size({
       title: '[videos]',
       gzip: true
     }))
-    .pipe(gulp.dest(config.videos.output));
+    .pipe(gulp.dest(config.build.videos.output));
 });
 
 /**
  * Compiles and deploys fonts.
  */
-gulp.task('fonts', function() {
-  return gulp.src(config.fonts.entry)
+gulp.task('fonts', () => {
+  return gulp.src(config.build.fonts.entry)
     .pipe($size({
       title: '[fonts]',
       gzip: true
     }))
-    .pipe(gulp.dest(config.fonts.output));
+    .pipe(gulp.dest(config.build.fonts.output));
 });
 
 /**
@@ -72,29 +72,29 @@ gulp.task('fonts', function() {
  * @param {Boolean} debug
  * @param {Boolean} skip-css-min
  */
-gulp.task('styles', function() {
+gulp.task('styles', () => {
   return merge(
-    gulp.src(config.styles.entry)
+    gulp.src(config.build.styles.entry)
     .pipe($if(config.env.cssSourcemaps, $sourcemaps.init()))
-    .pipe($stylus(config.styles.stylus).on('error', function(err) {
+    .pipe($stylus(config.build.styles.stylus).on('error', function(err) {
       $util.log($util.colors.red('[stylus] Error: ' + err.message));
       this.emit('end');
     }))
-    .pipe($postcss([autoprefixer(config.styles.autoprefixer)]))
+    .pipe($postcss([autoprefixer(config.build.styles.autoprefixer)]))
     .pipe($if(config.env.cssSourcemaps, $sourcemaps.write()))
     .pipe($size({
       title: '[styles:app]',
       gzip: true
     }))
-    .pipe(gulp.dest(config.styles.output)),
-    gulp.src(config.styles.vendorEntry)
-    .pipe($concat(config.styles.vendorFileName))
+    .pipe(gulp.dest(config.build.styles.output)),
+    gulp.src(config.build.styles.vendorEntry)
+    .pipe($concat(config.build.styles.vendorFileName))
     .pipe($if(!config.env.skipCSSMin, $csso()))
     .pipe($size({
       title: '[styles:vendor]',
       gzip: true
     }))
-    .pipe(gulp.dest(config.styles.vendorOutput))
+    .pipe(gulp.dest(config.build.styles.vendorOutput))
   );
 });
 
@@ -108,7 +108,7 @@ gulp.task('styles', function() {
  * @param {Boolean} skip-js-min
  * @param {Boolean} watch
  */
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
   function bundle(bundler, output, next) {
     return bundler.bundle()
       .on('error', function(err) {
@@ -127,19 +127,19 @@ gulp.task('scripts', function() {
       })))
       .pipe($if(!config.env.skipJSMin, $uglify())).on('error', $util.log)
       .pipe($if(config.env.jsSourcemaps, $sourcemaps.write('./')))
-      .pipe(gulp.dest(config.scripts.output));
+      .pipe(gulp.dest(config.build.scripts.output));
   }
 
   return merge(
-    gulp.src(config.scripts.entry)
+    gulp.src(config.build.scripts.entry)
     .pipe(through2.obj(function(file, enc, next) {
-      var opts = {
+      let opts = {
         entries: [file.path],
         debug: config.debug,
         transform: [babelify, yamlify]
       };
-      var bundler = (config.env.watch) ? watchify(browserify(opts)) : browserify(opts);
-      var output = file.path.replace(file.base, '');
+      let bundler = (config.env.watch) ? watchify(browserify(opts)) : browserify(opts);
+      let output = file.path.replace(file.base, '');
 
       if (config.env.watch) {
         bundler.on('time', function(time) {
@@ -156,8 +156,8 @@ gulp.task('scripts', function() {
           next(null, file);
         });
     })),
-    gulp.src(config.scripts.vendorEntry)
-    .pipe($concat(config.scripts.vendorFileName))
+    gulp.src(config.build.scripts.vendorEntry)
+    .pipe($concat(config.build.scripts.vendorFileName))
     .pipe($if(!config.env.skipJSMin, $uglify()))
     .on('error', function(err) {
       $util.log($util.colors.red('Vendor scripts error: ' + err.message));
@@ -168,7 +168,7 @@ gulp.task('scripts', function() {
       title: '[scripts:vendor]',
       gzip: true
     }))
-    .pipe(gulp.dest(config.scripts.vendorOutput))
+    .pipe(gulp.dest(config.build.scripts.vendorOutput))
   );
 });
 
@@ -190,14 +190,14 @@ gulp.task('static', ['images', 'videos', 'fonts', 'styles', 'scripts']);
  * @param {Boolean} debug
  * @param {Boolean} skip-html-min
  */
-gulp.task('templates', function() {
-  return gulp.src(config.templates.entry)
-    .pipe($if(!config.env.skipHTMLMin, $minifyHTML(config.templates.minifyHTML)))
+gulp.task('templates', () => {
+  return gulp.src(config.build.templates.entry)
+    .pipe($if(!config.env.skipHTMLMin, $minifyHTML(config.build.templates.minifyHTML)))
     .pipe($size({
       title: '[templates]',
       gzip: true
     }))
-    .pipe(gulp.dest(config.templates.output));
+    .pipe(gulp.dest(config.build.templates.output));
 });
 
 
@@ -207,27 +207,27 @@ gulp.task('templates', function() {
  * @param {Boolean} debug
  * @param {Boolean} skip-rev
  */
-gulp.task('build', ['templates', 'static'], function(callback) {
+gulp.task('build', ['templates', 'static'], (callback) => {
   if (config.env.skipRev) {
     callback();
     return;
   }
 
-  var revAll = new $revAll(config.build.revAll);
-  var stream = gulp.src(config.build.entry)
+  let revAll = new $revAll(config.build.build.revAll);
+  let stream = gulp.src(config.build.build.entry)
     .pipe(revAll.revision())
-    .pipe(gulp.dest(config.build.output))
+    .pipe(gulp.dest(config.build.build.output))
     .pipe(revAll.manifestFile())
-    .pipe(gulp.dest(config.build.output));
+    .pipe(gulp.dest(config.build.build.output));
 
   stream.on('end', function() {
-    var manifestFile = config.build.output + '/rev-manifest.json';
-    var manifest = require(manifestFile);
-    var arr = [];
+    let manifestFile = config.build.build.output + '/rev-manifest.json';
+    let manifest = require(manifestFile);
+    let arr = [];
 
-    for (var f in manifest) {
+    for (let f in manifest) {
       if (f !== manifest[f]) {
-        arr.push(config.build.output + '/' + f);
+        arr.push(config.build.build.output + '/' + f);
       }
     }
 

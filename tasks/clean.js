@@ -3,15 +3,13 @@
  * (c) Andrew Wei <andrewscwei@gmail.com>
  */
 
-var config = require('./.taskconfig');
-var del = require('del');
-var gulp = require('gulp');
+import config from './.taskconfig';
+import del from 'del';
+import gulp from 'gulp';
 
 /**
  * Cleans /.tmp and /public directories.
  */
-gulp.task('clean', function(callback) {
-  del(config.clean.entry).then(function(paths) {
-    callback();
-  });
+gulp.task('clean', (callback) => {
+  del(config.clean.entry).then((paths) => callback());
 });

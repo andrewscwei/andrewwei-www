@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node server",
-    "postinstall": "gulp"
+    "postinstall": "gulp",
+    "update": "npm install --ignore-scripts"
   },
   "engines": {
     "node": ">=0.12.0",
@@ -16,10 +17,10 @@
   },
   "dependencies": {
     "compression": "^1.6.1",
-    "express": "^4.12.3",
+    "express": "^4.13.4",
     "mathjax": "^2.5.1",
-    "requiem": "^0.30.0",
-    "requiem-styles": "^0.18.1"
+    "requiem": "^0.30.1",
+    "requiem-styles": "^0.18.8"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
@@ -34,10 +35,12 @@
     "gulp-if": "^2.0.0",
     "gulp-minify-html": "^1.0.5",
     "gulp-postcss": "^6.0.1",
+    "gulp-replace": "^0.5.4",
+    "gulp-rev": "^6.0.1",
     "gulp-rev-all": "^0.8.22",
     "gulp-size": "^2.0.0",
     "gulp-sourcemaps": "^1.5.0",
-    "gulp-stylus": "^2.2.0",
+    "gulp-stylus": "^2.3.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "merge-stream": "^1.0.0",

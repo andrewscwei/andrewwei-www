@@ -17,24 +17,27 @@ nav#nav
     transform: translate3d(0, 0, 0)
 
   section.controls
-    align('left' $nav-width null, 'top' $nav-offset-y null, 'absolute')
+    align('left', 'top')
+    edge($nav-offset-y null null $nav-width)
     size($menu-button-width auto)
 
-    button.menu
-      z-index: 1
+    +buttons()
+      &.menu
+        z-index: 1
 
-      svg
-        pointable(false)
+        svg
+          pointable(false)
 
-    button.return
-      transform: translate3d(-$menu-button-width, 0, 0)
-      opacity: 0.0
-      z-index: 0
+      &.return
+        transform: translate3d(-$menu-button-width, 0, 0)
+        opacity: 0
+        z-index: 0
 
     +state('returnable')
-      button.return
-        transform: translate3d(0, 0, 0)
-        opacity: 1.0
+      +buttons()
+        &.return
+          transform: translate3d(0, 0, 0)
+          opacity: 1.0
 
   section.panel
     align('left', 'top', 'absolute')
@@ -50,7 +53,7 @@ nav#nav
         padding(5px 20px)
         size(100% null)
         font(null, 1em, $font-weight-content-normal)
-        transition(opacity, border-left-color, 0.2s, ease-out)
+        transition(opacity border-left-color, 0.2s, ease-out)
         color: #000
         border-left: 4px inset rgba(0, 0, 0, 0)
         display: block
@@ -61,8 +64,6 @@ nav#nav
 
       a
         +state('hover')
-          text-decoration: none
-
           li
             opacity: 0.6
 
