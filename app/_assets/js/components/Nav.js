@@ -30,7 +30,7 @@ class Nav extends Element {
     this.state = State.COLLAPSED;
 
     if (this.getChild('controls.return')) {
-      utils.changeElementState(this.getChild('controls'), 'returnable');
+      this.getChild('controls').state = 'returnable';
     }
 
     super.init();
