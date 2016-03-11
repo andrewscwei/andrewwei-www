@@ -20,7 +20,7 @@ gulp.task('generate', (callback) => {
 
   if (config.debug) {
     if (config.env.watch) {
-      proc = spawn('bundle', ['exec' 'jekyll', 'build', '--drafts', '--watch', '--destination=' + config.paths.tmp]);
+      proc = spawn('bundle', ['exec', 'jekyll', 'build', '--drafts', '--watch', '--destination=' + config.paths.tmp]);
     } else {
       proc = spawn('bundle', ['exec', 'jekyll', 'build', '--drafts', '--destination=' + config.paths.tmp]);
     }
