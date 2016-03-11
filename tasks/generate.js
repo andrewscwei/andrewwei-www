@@ -7,8 +7,6 @@ import gulp from 'gulp';
 import $util from 'gulp-util';
 import { spawn } from 'child_process';
 
-const JEKYLL = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
-
 /**
  * Runs the Jekyll build taks to generate all the templates. These files are generated to the
  * /.tmp directory. Drafts are automatically built in debug environment.
@@ -22,12 +20,12 @@ gulp.task('generate', (callback) => {
 
   if (config.debug) {
     if (config.env.watch) {
-      proc = spawn(JEKYLL, ['build', '--drafts', '--watch', '--destination=' + config.paths.tmp]);
+      proc = spawn('bundle', ['exec' 'jekyll', 'build', '--drafts', '--watch', '--destination=' + config.paths.tmp]);
     } else {
-      proc = spawn(JEKYLL, ['build', '--drafts', '--destination=' + config.paths.tmp]);
+      proc = spawn('bundle', ['exec', 'jekyll', 'build', '--drafts', '--destination=' + config.paths.tmp]);
     }
   } else {
-    proc = spawn(JEKYLL, ['build', '--destination=' + config.paths.tmp]);
+    proc = spawn('bundle', ['exec', 'jekyll', 'build', '--destination=' + config.paths.tmp]);
   }
 
   proc.stdout.setEncoding('utf8');
