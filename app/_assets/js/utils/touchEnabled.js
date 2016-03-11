@@ -1,6 +1,5 @@
 /**
- * andrewwei.mu
- * (c) Andrew Wei <andrewscwei@gmail.com>
+ * (c) Andrew Wei
  */
 
 'use strict';

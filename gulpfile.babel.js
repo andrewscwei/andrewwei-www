@@ -1,6 +1,5 @@
 /**
- * andrewwei.mu
- * (c) Andrew Wei <andrewscwei@gmail.com>
+ * (c) Andrew Wei
  *
  * This file only contains the default task. See ./tasks for individual sub-tasks. To add a new
  * sub-task, create new file in ./tasks and require it here. For task configurations, see ./tasks/config.js.
