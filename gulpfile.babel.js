@@ -132,12 +132,12 @@ gulp.task('rev', (callback) => {
       removables.push(manifestFile);
 
       rimraf(`{${removables.join(',')}}`, () => {
-        if (!_.isEmpty(config.paths.cdn)) {
+        if (!_.isEmpty(config.cdn)) {
           gulp.src(config.rev.replace)
             .pipe($replace(new RegExp(`((?:\\.?\\.\\/?)+)?([\\/\\da-z\\.-]+)(${pattern})`, 'gi'), (m) => {
               let k = m.match(new RegExp(pattern, 'i'))[0];
               let v = manifest[k];
-              return m.replace(k, v).replace(/^((?:\.?\.?\/?)+)?/, _.endsWith(config.paths.cdn, '/') ? config.paths.cdn : `${config.paths.cdn}/`);
+              return m.replace(k, v).replace(/^((?:\.?\.?\/?)+)?/, _.endsWith(config.cdn, '/') ? config.cdn : `${config.cdn}/`);
             }))
             .pipe(gulp.dest(config.rev.output))
             .on('end', callback)

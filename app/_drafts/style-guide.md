@@ -41,5 +41,5 @@ __\*\*This is in bold:\*\*__ Lorem ipsum dolor sit amet, consectetur adipiscing 
 
 > \> This is another quote: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-![](/assets/images/journal/2015/02/origami-top.jpg)
+![](/assets/images/log/2014/03/xcode-custom-key-bindings.jpg)
 *\*This is a caption. Wrap caption text in \* and put it directly underneath the image **WITHOUT** a inserting new line.\**

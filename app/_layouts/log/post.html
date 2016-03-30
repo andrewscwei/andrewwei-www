@@ -1,11 +1,9 @@
 ---
 layout: default
-node: log
-return: /log
 ---
 
 {% if page.cover != null %}<figure id='cover' class='background' style='background-image:url({{ page.cover }});'></figure>{% endif %}
-<main id='body' class='post' data-lang='{{ page.language }}'>
+<main id='page' class='post' data-lang='{{ page.language }}' data-instance='body'>
   <section class='{% if page.cover != null %}cover{% else %}no-cover{% endif %}'>
     <div class='title'>
       <h1>{{ page.title | upcase }}{% if page.deprecated == true %} <span class='deprecated'></span>{% endif %}</h1>

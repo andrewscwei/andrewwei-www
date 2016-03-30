@@ -6,7 +6,8 @@ layout: compress
   <head>
     {% capture title %}mu\{% endcapture %}
     {% if page.node != nil %}{% capture title %}{{ title }} {{ page.node | upcase }}{% endcapture %}{% endif %}
-    {% if page.title != nil %}{% capture title %}{{ title }}\ {{ page.title }}{% endcapture %}{% endif %}
+    {% if page.node != nil and page.title != nil %}{% capture title %}{{ title }}\{% endcapture %}{% endif %}
+    {% if page.title != nil %}{% capture title %}{{ title }} {{ page.title }}{% endcapture %}{% endif %}
 
     <title>{{ title }}</title>
 
@@ -58,6 +59,8 @@ layout: compress
   <body>
     {% include global-nav.html %}
     {{ content }}
-    <script src='/assets/javascripts/main.js'></script>
+    {% if page.module != nil %}
+      <script src='/assets/javascripts/{{ page.module }}.js'></script>
+    {% endif %}
   </body>
 </html>

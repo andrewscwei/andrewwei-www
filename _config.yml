@@ -28,7 +28,7 @@ defaults:
     values:
       layout: 'log/posts'
       node: log
-      return: /log
+      module: posts
   - scope:
       path: ''
       type: 'posts'

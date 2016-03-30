@@ -1,10 +1,8 @@
 ---
 layout: default
-node: log
-return: "/"
 ---
 
-<main id='body' class='posts' data-class='Posts'>
+<main id='posts' class='posts' data-class='Posts' data-instance='body'>
   {% if page.tag == nil %}
     <!-- Determine the source of the posts by the tag that is received. -->
     {% assign posts = paginator.posts %}
