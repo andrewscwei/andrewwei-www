@@ -1,14 +1,6 @@
 // (c) Andrew Wei
 
-$font-family-header = 'proxima-nova', sans-serif
-$font-weight-header-light = 100
-$font-weight-header-normal = 300
-$font-weight-header-bold = 600
-
-$font-family-content = 'proxima-nova', sans-serif
-$font-weight-content-light = 100
-$font-weight-content-normal = 300
-$font-weight-content-bold = 600
+$base-path = '../../assets'
 
 $social-anchor-diameter = 20px
 $paginator-anchor-height = 30px
@@ -20,5 +12,14 @@ $paginator-anchor-offset-y = 0
 $menu-button-width = 56px
 $menu-button-height = 46px
 
-$nav-width = 230px
-$nav-offset-y = 0
+get-z($index='base')
+  if $index == 'base'
+    return 0;
+  else if $index == 'content'
+    return 1
+  else if $index == 'local-nav'
+    return 10
+  else if $index == 'global-nav'
+    return 100
+  else
+    return $index

@@ -1,52 +1,51 @@
 // (c) Andrew Wei
 
-main.playground
-  flex-block('center', 'center', row, true)
-  padding(50px)
-  size(100%)
+#page-playground
+  flex-block($wrap:true)
+  padding: 50px
+  size: 100%
 
   section.bio
-    max-size(none 400px)
-    text-align: left
-
-    h1,
-    h2
-      transition(opacity transform, 0.4s, ease-out, 0.2s 0s)
+    +label-class('title')
+      set-font('sans-serif', 'l', 'light')
+      color: get-color('true-white')
+      display: inline
+      line-height: 1.6em
+      opacity: 0
       transform: translate3d(0, 30px, 0)
-      opacity: 0.0
-
-    h3
-      transition(opacity transform, 0.4s, ease-out)
-      transform: translate3d(0, 30px, 0)
-      opacity: 0.0
-
-    aside
-      margin(10px 0)
-      transition(opacity, 0.4s, ease-out, 0.6s)
-      opacity: 0.0
-
-    +state('active')
-      h1,
-      h2,
-      h3,
-      aside
-        transform: translate3d(0, 0, 0)
-        opacity: 1.0
-
-    h2
-      font($font-family-header, 2.5em, $font-weight-header-light)
-      line-height: 1.0em
-      text-align: left
-      color: #fff
-      display: inline-block
+      transition (opacity transform) .4s ease-out (.2s 0s)
 
       +screen('>=tablet')
-        font($size:3.75em)
-        line-height: 1.2em
+        set-font('sans-serif', 'xl', 'light')
 
-    h3
-      font($font-family-header, 2.25em, $font-weight-header-normal)
+    +label-class('sub-title')
+      color: get-color('dark-grey')
+      opacity: 0
       text-align: left
-      line-height: 1.2em
-      color: #666
-      display: block
+      transform: translate3d(0, 30px, 0)
+      transition: (opacity transform) .4s ease-out
+
+    +state('active')
+      +label-class('title')
+        opacity: 1.0
+        transform: translate3d(0, 0, 0)
+
+      +label-class('sub-title')
+        opacity: 1.0
+        transform: translate3d(0, 0, 0)
+
+      aside
+        opacity: 1.0
+        transform: translate3d(0, 0, 0)
+
+    aside
+      margin: 10px 0
+      max-size: 400px none
+      opacity: 0
+      size: 80% auto
+      transition: opacity .4s ease-out .6s
+
+      &.social
+        +button-class('social')
+          &:not(:last-child)
+            margin-right: 10px

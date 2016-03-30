@@ -1,7 +1,7 @@
 ---
-layout: 'default'
+layout: default
 node: log
-return: '/'
+return: "/"
 ---
 
 <main id='body' class='posts' data-class='Posts'>
@@ -41,17 +41,17 @@ return: '/'
     <summary>
       {% if page.tag == nil %}
         {% if num_posts == 1%}
-          <p>Displaying post <a class='number-tag'>{{ start_id | plus:1 }}</a></p>
+          <p>Displaying post <a type='button' class='number-tag'>{{ start_id | plus:1 }}</a></p>
         {% else %}
-          <p>Displaying posts <a class='number-tag'>{{ start_id | plus:1 }}</a> to <a class='number-tag'>{{ end_id }}</a> out of <a class='number-tag'>{{ paginator.total_posts }}</a>
+          <p>Displaying posts <a type='button' class='number-tag'>{{ start_id | plus:1 }}</a> to <a type='button' class='number-tag'>{{ end_id }}</a> out of <a type='button' class='number-tag'>{{ paginator.total_posts }}</a>
         {% endif %}
       {% else %}
         {% if num_posts == 1 %}
-          <p>Displaying {{ num_posts }} post for <a class='hashtag' data-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
+          <p>Displaying {{ num_posts }} post for <a type='button' class='hashtag' data-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
         {% else %}
-          <p>Displaying {{ num_posts }} posts for <a class='hashtag' data-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
+          <p>Displaying {{ num_posts }} posts for <a type='button' class='hashtag' data-state='active' href='/log/{{ page.tag }}'>#{{ page.tag }}</a></p>
         {% endif %}
-        <p><a class='reset' href='/log'>Reset</a></p>
+        <p><a type='button' class='reset' href='/log'>Reset</a></p>
       {% endif %}
     </summary>
   </section>
@@ -61,10 +61,10 @@ return: '/'
     {% for post in posts %}
       {% if page.tag == nil or post.tags contains page.tag %}
         <summary class='post' data-instance='posts'>
-          <a class='number-tag'>{{ id }}</a>
+          <a type='button' class='number-tag'>{{ id }}</a>
           <aside>
-            <a class='fade' href='{{ post.url }}'><h1>{{ post.title | upcase }}{% if post.deprecated == true %}<span class='deprecated'></span>{% endif %}</h1></a>
-            <span class='date'>{{ post.date | date_to_long_string }}</span>
+            <a href='{{ post.url }}'><h1>{{ post.title | upcase }}{% if post.deprecated == true %}<span class='deprecated'></span>{% endif %}</h1></a>
+            <span type='label' class='date'>{{ post.date | date_to_long_string }}</span>
 
             {% include hashtags.html tags=post.tags %}
 
@@ -76,7 +76,7 @@ return: '/'
               {{ post.content | truncatewords:120 }}
             </div>
           </aside>
-          <a class='read-more' href='{{ post.url }}'>Continue reading</a>
+          <a type='button' class='read-more' href='{{ post.url }}'>Continue reading</a>
           <hr/>
         </summary>
         {% capture id %}{{ id | plus:1 }}{% endcapture %}

@@ -2,44 +2,47 @@
 
 section.results
   summary
-    margin(0 auto)
-    size(100% null)
-    max-size(980px null)
+    margin: 0 auto
+    max-size: 980px none
+    size: 100% auto
     text-align: center
-    display: block
-    position: relative
-
-    p
-      line-height: 2em
 
 section.posts
   summary.post
-    margin(40px auto)
-    size(100% null)
-    max-size(980px null)
-    transition(transform opacity, 0.4s, ease-out)
+    margin: 40px auto
+    max-size: 980px none
+    size: 100% auto
+    transition: (transform opacity) .4s ease-out
 
     +state('hidden', true)
+      opacity: 0
       transform: translate3d(0, 30px, 0)
-      opacity: 0.0
 
     +state('visible')
-      transform: translate3d(0, 0, 0)
       opacity: 1.0
+      transform: translate3d(0, 0, 0)
 
-    a.number-tag
-      align('left' -40px null, 'top', 'absolute')
+    +button-class('number-tag')
+      align: 'left' 'top'
+      edge: x x x -40px
+
+    +links()
+      text-decoration: none
+
+      h1
+        transition: opacity 0.4s ease-out
+
+      +state('hover')
+        h1
+          opacity: .6
 
     h1
-      margin(0 0 15px)
-      size(auto null)
-      max-size(100% null)
-      font($font-family-header, 2.25em, $font-weight-header-light)
+      set-font('sans-serif', 'l', 'light')
+      color: get-color('true-white')
       line-height: 1.2em
+      margin: 0 0 15px
+      max-size: 100% none
       text-align: left
-      color: #fff
-      display: inline-block
-      position: relative
 
       +screen('>=tablet')
         max-size(80% null)
@@ -49,13 +52,10 @@ section.posts
       margin(20px 0)
 
   hr
-    margin(60px 0)
-    size(40% 1px)
     border: 0
-    background: rgba(255, 255, 255, 0.03)
+    background: get-color('true-white', .03)
+    margin: 60px 0
+    size: 40% 1px
 
   span.date
-    font($font-family-content, 1em, $font-weight-header-normal)
-    color: #666
-    display: block
-    line-height: 1.2em
+    color: get-color('dark-grey')

@@ -25,7 +25,7 @@ And so I began the implementation.
 
 I started off in the sandbox environment (obviously), with sandbox tester accounts, on an iOS 8 device. Following Apple's [guide](https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2), I tried to retrieve the App Store receipt url using `[NSBundle mainBundle].appStoreReceiptURL`.
 
->   **NOTE**
+>   **NOTE**:
 >   In the sandbox environment, I was unable to locate the receipt unless I manually refresh it via `SKReceiptRefreshRequest`. During the production environment, however, the receipt is readily available upon the initial launch of the app. For safety reasons it is best to account for both cases and do not assume that the receipt is available, even though it should be in production.
 
 When I located the App Store receipt, I verified it locally with iTunes Store (see Apple's [guide](https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2)). In return I received JSON data that contains all the details of the receipt, which looks something like this in the sandbox environment:
@@ -57,12 +57,12 @@ When I located the App Store receipt, I verified it locally with iTunes Store (s
 
 Note the 2 keys of interest: `original_application_version` and `original_purchase date`.
 
->   **NOTE**
+>   **NOTE**:
 >   In the sandbox environment, the `original_application_version` seems to always be `1.0`.
 
 The approach I took was to compare `original_application_version` against the new version number of the freemium update. Theoretically, if `original_application_version` is earlier than the new version, that would indicate that the user is a pre-owner, and therefore all the features should be unlocked. It was a fair assumption at the moment and I knew not a method to verify this in production. In fact, I was so hung up on this assumption that I thought it was unnecessary to make use of `original_purchase_date`. This soon proved to be a fatal mistake.
 
->   **NOTE**
+>   **NOTE**:
 >   I was unable to verify this in production. I have read that some developers are able to monitor the app receipt in production by first downloading their app from the App Store, then installing a dev version over it via Xcode. This did not work for me unfortunately, and I suspect that it has to do with iOS 8.
 
 So the app went live. I soon learned that some pre-owners were able to restore their features, but some **weren't**. I also learned that **all new users got all features unlocked**.
@@ -80,7 +80,7 @@ I cried a little bit inside devastated by this major screw up, and finally began
 
 With the production receipt in front of me, I discovered what the mistake was. I assumed that `original_application_version` refers to the version number of the app. It does not. It is actually referring to the **build number**. Is this documented? Yes it is. According to Apple's [doc](https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ReceiptFields.html):
 
->   **Original Application Version**
+>   **Original Application Version**:
 >   The version of the app that was originally purchased.
 >
 >   ASN.1 Field Type 19

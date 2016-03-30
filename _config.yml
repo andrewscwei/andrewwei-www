@@ -21,12 +21,20 @@ defaults:
       layout: default
       description: 'Andrew Wei, codenamed mu, is a software engineer and experience designer.'
   - scope:
+      path: 'log'
+      type: 'pages'
+    values:
+      layout: 'log/posts'
+      node: log
+      return: /log
+  - scope:
       path: ''
       type: 'posts'
     values:
       layout: 'log/post'
       category: log
       node: log
+      return: /log
   - scope:
       path: ''
       type: 'drafts'
@@ -34,6 +42,7 @@ defaults:
       layout: 'log/post'
       category: log
       node: log
+      return: /log
 
 exclude:
   - _assets

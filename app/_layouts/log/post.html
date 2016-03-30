@@ -9,7 +9,7 @@ return: /log
     {% if page.cover != null %}<figure class='background' style='background-image:url({{ page.cover }});'></figure>{% endif %}
     <div class='title'>
       <h1>{{ page.title | upcase }}{% if page.deprecated == true %} <span class='deprecated'></span>{% endif %}</h1>
-      <span class='date'>{{ page.date | date_to_long_string }}</span>
+      <span type='label' class='date'>{{ page.date | date_to_long_string }}</span>
       {% include hashtags.html tags=page.tags %}
     </div>
   </section>

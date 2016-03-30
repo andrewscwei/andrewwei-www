@@ -7,7 +7,7 @@
     font($font-family-header, 3.125em, $font-weight-header-light)
     line-height: 1.2em
     text-align: left
-    color: #fff
+    color: get-color('true-white')
     display: inline-block
     position: relative
 
@@ -16,7 +16,7 @@
     font($font-family-header, 1.625em, $font-weight-header-light)
     text-align: left
     line-height: 1.2em
-    color: #fff
+    color: get-color('true-white')
     display: block
     position: relative
 
@@ -29,7 +29,7 @@
     font($font-family-header, 1.5em, $font-weight-header-normal)
     text-align: left
     line-height: 1.2em
-    color: #fff
+    color: get-color('true-white')
     display: block
     position: relative
 
@@ -37,7 +37,7 @@
     margin(40px 0 10px)
     font($font-family-header, 1.25em, $font-weight-header-bold)
     text-align: left
-    color: #fff
+    color: get-color('true-white')
     line-height: 1.2em
     display: block
     position: relative
@@ -46,9 +46,9 @@
     margin(30px 0 10px)
     padding(null null null 20px)
     font($font-family-header, 1.125em, $font-weight-header-bold)
-    color: #fff
+    color: get-color('true-white')
     line-height: 1.2em
-    border-left: 4px solid #fff
+    border-left: 4px solid get-color('true-white')
     text-align: left
     display: block
     position: relative
@@ -65,7 +65,6 @@
 
   p
     font($font-family-content, 1em, $font-weight-content-normal)
-    line-height: 1.4em
     color: #ccc
 
     +screen('>=desktop')
@@ -84,6 +83,7 @@
   strong
     font(null, inherit, $font-weight-content-bold)
     font-style: none
+    color: inherit
 
   a
     text-decoration: none
@@ -103,9 +103,8 @@
       margin(20px 40px)
 
     p
-      font($size:0.875em)
-      line-height: 1.4em
-      color: #000
+      font($size:.875em)
+      color: get-color('true-black')
 
       +screen('>=desktop')
         font($size:1em)

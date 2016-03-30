@@ -1,0 +1,19 @@
+// (c) Andrew Wei
+
+get-color($color=null, $alpha=1)
+  if $color == null
+    return transparent
+  if $color == 'true-black'
+    return rgba(0, 0, 0, $alpha)
+  if $color == 'true-white'
+    return rgba(255, 255, 255, $alpha)
+  if $color == 'dark-grey'
+    return rgba(#666, $alpha)
+  if $color == 'very-dark-grey'
+    return rgba(#333, $alpha)
+  if $color == 'green'
+    return rgba(#20b684, $alpha)
+  if $color == 'pink'
+    return rgba(#f92672, $alpha)
+
+  return #ff0000

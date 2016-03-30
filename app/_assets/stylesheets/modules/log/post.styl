@@ -1,13 +1,13 @@
 // (c) Andrew Wei
 
 main.post
-  size(100%)
-  padding(0)
+  padding: 0
+  size: 100%
 
   section.cover,
   section.no-cover
-    flex-block(center, bottom)
-    size(100% null)
+    flex-block('center', 'bottom')
+    size: 100% auto
     text-align: left
 
     div.title
@@ -20,7 +20,7 @@ main.post
         font($size:2.25em)
         text-align: left
         line-height: 1.2em
-        color: #fff
+        color: get-color('true-white')
         display: block
         position: relative
         word-wrap: break-word
@@ -34,7 +34,7 @@ main.post
       span.date
         font($font-family-content, 1em, $font-weight-header-normal)
         line-height: 1.2em
-        color: #fff
+        color: get-color('true-white')
         display: block
 
   section.no-cover
@@ -61,7 +61,7 @@ main.post
       size(null 80%)
 
     figure.background
-      abs-align()
+      align: 'left' 'top'
       size(100%)
       background-repeat: no-repeat
       background-size: cover
@@ -72,7 +72,7 @@ main.post
 
       &:before
         size(100%)
-        background-color: rgba(34, 34, 34, 0.6)
+        background-color: rgba(34, 34, 34, .6)
         content: ''
         display: block
         position: relative

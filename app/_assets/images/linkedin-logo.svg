@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="154.582px" height="154.324px" viewBox="0 0 154.582 154.324" enable-background="new 0 0 154.582 154.324"
-	 xml:space="preserve">
-<path fill="#333333" d="M2.543,51.246h32.051v103.078H2.543V51.246z M18.57,0c10.242,0,18.566,8.324,18.566,18.57
-	c0,10.258-8.324,18.582-18.566,18.582C8.301,37.152,0,28.828,0,18.57C0,8.324,8.301,0,18.57,0"/>
-<path fill="#333333" d="M54.688,51.246h30.734v14.078h0.438c4.277-8.102,14.73-16.648,30.316-16.648
-	c32.418,0,38.406,21.344,38.406,49.109v56.539h-32v-50.125c0-11.961-0.234-27.336-16.652-27.336
-	c-16.672,0-19.215,13.023-19.215,26.469v50.992H54.688V51.246z"/>
+	 viewBox="0 0 154.6 154.3" style="enable-background:new 0 0 154.6 154.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<path class="st0" d="M2.5,51.2h32.1v103.1H2.5V51.2z M18.6,0c10.2,0,18.6,8.3,18.6,18.6c0,10.3-8.3,18.6-18.6,18.6
+	C8.3,37.2,0,28.8,0,18.6C0,8.3,8.3,0,18.6,0"/>
+<path class="st0" d="M54.7,51.2h30.7v14.1h0.4c4.3-8.1,14.7-16.6,30.3-16.6c32.4,0,38.4,21.3,38.4,49.1v56.5h-32v-50.1
+	c0-12-0.2-27.3-16.7-27.3c-16.7,0-19.2,13-19.2,26.5v51h-32V51.2z"/>
 </svg>

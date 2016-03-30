@@ -1,0 +1,10 @@
+<nav id='global-nav'>
+  <a class='monogram' type='button' href='/'>
+    {% include svgs/logo.html %}
+  </a>
+  {% if page.return != nil %}
+    <a class='return' type='button' href='{{ page.return }}'>
+      {% include svgs/return.html %}
+    </a>
+  {% endif %}
+</nav>

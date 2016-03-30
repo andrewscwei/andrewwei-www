@@ -49,7 +49,7 @@ export default {
     entry: path.join(paths.src, '_assets', 'stylesheets', '*.{css,styl}'),
     output: path.join(paths.build, 'assets', 'stylesheets'),
     stylus: {
-      compress: env.debug,
+      compress: !env.debug,
       'include css': true,
       include: [path.join(paths.modules), path.join(paths.src, '_assets', 'stylesheets')],
     },
@@ -111,7 +111,7 @@ export default {
     entry: path.join(paths.build, '**', '*.{css,jpg,jpeg,gif,png,svg,js,eot,svg,ttf,woff,woff2,ogv,mp4}'),
     output: paths.build,
     manifestFile: 'rev-manifest.json',
-    replace: path.join(paths.build, '**', '*.{css,scss,sass,js,html}')
+    replace: path.join(paths.build, '**', '*.{css,styl,js,html}')
   },
   watch: {
     entries: [{
@@ -121,7 +121,7 @@ export default {
       files: path.join(paths.src, '_assets', 'videos', '**', '*.{ogv,mp4}'),
       tasks: ['videos']
     }, {
-      files: path.join(paths.src, '_assets', 'stylesheets', '**', '*.{css,scss,sass}'),
+      files: path.join(paths.src, '_assets', 'stylesheets', '**', '*.{css,styl}'),
       tasks: ['styles']
     }, {
       files: path.join(paths.src, '_data', '**', '*.yml'),

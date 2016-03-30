@@ -10,7 +10,7 @@ $preformatted-background-color = #1d1f21
     border-radius: 4px
     word-break: break-all
     display: inline-block
-    color: #fff
+    color: get-color('true-white')
     position: relative
 
     span
@@ -19,9 +19,6 @@ $preformatted-background-color = #1d1f21
   pre
     margin(20px 0)
     font($size:1em)
-
-    +screen('>=desktop')
-      font($size: 1.125em)
 
     code
       padding(20px)
@@ -39,7 +36,7 @@ $preformatted-background-color = #1d1f21
 
     span
       font($size:16px)
-      color: #fff
+      color: get-color('true-white')
 
       +screen('>=phablet')
         font($size:18px)

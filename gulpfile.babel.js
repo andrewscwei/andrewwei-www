@@ -52,7 +52,7 @@ gulp.task('styles', () => {
   if (config.env.debug) {
     return gulp.src(config.styles.entry)
       .pipe($sourcemaps.init())
-      .pipe($stylus(config.styles.stylus).on('error', (err) => {
+      .pipe($stylus(config.styles.stylus).on('error', function(err) {
         $util.log($util.colors.red('[stylus] Error: ' + err.message));
         this.emit('end');
       }))
@@ -63,7 +63,7 @@ gulp.task('styles', () => {
   }
   else {
     return gulp.src(config.styles.entry)
-      .pipe($stylus(config.styles.stylus).on('error', (err) => {
+      .pipe($stylus(config.styles.stylus).on('error', function(err) {
         $util.log($util.colors.red('[stylus] Error: ' + err.message));
         this.emit('end');
       }))

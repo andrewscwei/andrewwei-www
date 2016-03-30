@@ -2,12 +2,17 @@
 layout: 'default'
 ---
 
-<main id='body' class='playground' data-class='Playground'>
+<main id='page-playground' class='playground' data-class='Playground' data-instance='body'>
   <section class='bio' data-instance='bio'>
-    <h3>Hello.</h3>
-    <h2>My name is&nbsp;</h2><h1>Andrew Wei</h1><h2>.</h2>
-    <aside>
-      <p>There's nothing much here other than my <a href='/log'>work log</a>.</p>
+    <h3 class='sub-title'>Hello.</h3>
+    <h2 class='title'>My name is&nbsp;</h2><h1 class='title'>Andrew Wei</h1><h2 class='title'>.</h2>
+    <aside class='description'>
+      <p>I am a software engineer and experience designer. My codename is <em>mu</em>. There's nothing much here other than my <a href='/log'>work log</a>.</p>
+    </aside>
+    <aside class='social'>
+      <a class='social github' type='button' href='https://www.github.com/{{ site.data.social.github }}'></a>
+      <a class='social twitter' type='button' href='https://www.twitter.com/{{ site.data.social.twitter }}'></a>
+      <a class='social linkedin' type='button' href='https://www.linkedin.com/in/{{ site.data.social.linkedin }}'></a>
     </aside>
   </section>
 </main>

@@ -1,14 +1,14 @@
 <div id='paginator' data-class='Paginator'>
   {% if paginator.previous_page != nil %}
     <div class='prev' data-instance='prev'>
-      <a class='paginator newer' data-instance='newer' href='{{ paginator.previous_page_path }}'>
+      <a type='button' class='paginator newer' data-instance='newer' href='{{ paginator.previous_page_path }}'>
         <span class='number'>{{ paginator.previous_page }}</span>
         <span class='label'>
           {% include svgs/return.html %}
         </span>
       </a>
       {% if paginator.previous_page > 1 %}
-        <a class='paginator newest' data-instance='newest' href='/log'>
+        <a type='button' class='paginator newest' data-instance='newest' href='/log'>
           <span class='label'>Newest</span>
         </a>
       {% endif %}
@@ -17,11 +17,11 @@
   {% if paginator.next_page != nil %}
     <div class='next' data-instance='next'>
       {% if paginator.next_page < paginator.total_pages %}
-        <a class='paginator oldest' data-instance='oldest' href='/log/page{{ paginator.total_pages }}'>
+        <a type='button' class='paginator oldest' data-instance='oldest' href='/log/page{{ paginator.total_pages }}'>
           <span class='label'>Oldest</span>
         </a>
       {% endif %}
-      <a class='paginator older' data-instance='older' href='{{ paginator.next_page_path }}'>
+      <a type='button' class='paginator older' data-instance='older' href='{{ paginator.next_page_path }}'>
         <span class='label'>
           {% include svgs/return.html %}
         </span>
