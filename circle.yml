@@ -10,13 +10,13 @@ test:
   post:
     - sed -i -e '/public/d' .gitignore
     - git config user.name "circleci"
-    - git config user.email "andrewscwei@gmail.com"
+    - git config user.email "circleci@circleci.com"
     - git add public
     - git rm -rf app
-    - git rm -rf tasks
     - git rm -rf tests
     - git rm -rf .bundle
     - git rm -f .editorconfig
+    - git rm -f .taskconfig
     - git rm -f Gemfile
     - git rm -f Gemfile.lock
     - git rm -f README.md
