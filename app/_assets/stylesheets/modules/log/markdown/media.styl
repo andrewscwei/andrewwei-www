@@ -2,20 +2,31 @@
 
 .log-styles
   img
-    margin(50px auto)
-    size(null auto)
-    max-size(98% null)
     border-radius: 4px
     display: block
+    margin: 50px auto
+    max-size: 98% none
     position: relative
+    size: auto
 
     & + br + em
-      margin(-60px auto 60px)
-      size(90% null)
-      font($font-family-content, .875em, $font-weight-content-normal)
-      line-height: 1.2em
-      text-align: center
-      color: #999
-      display: block
+      set-font('sans-serif', 'xs', 'normal')
       box-sizing: border-box
+      color: get-color('grey')
+      display: block
+      line-height: 1.2em
+      margin: -60px auto 60px
       position: relative
+      size: 90% auto
+      text-align: center
+
+    & + em
+      set-font('sans-serif', 'xs', 'normal')
+      box-sizing: border-box
+      color: get-color('grey')
+      display: block
+      line-height: 1.2em
+      margin: -40px auto 60px
+      position: relative
+      size: 90% auto
+      text-align: center

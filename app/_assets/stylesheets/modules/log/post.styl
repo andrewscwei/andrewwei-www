@@ -1,5 +1,18 @@
 // (c) Andrew Wei
 
+#cover
+  align: 'left' 'top' 'fixed'
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  size: 100vw 100vh
+
+  &::before
+    align: 'left' 'top'
+    background-color: get-color('black', .4)
+    content: ''
+    size: 100%
+
 main.post
   padding: 0
   size: 100%
@@ -8,48 +21,33 @@ main.post
   section.no-cover
     flex-block('center', 'bottom')
     size: 100% auto
-    text-align: left
 
     div.title
-      size(100% null)
+      size: 100% auto
 
       h1
-        margin(0)
-        size(auto null)
-        max-size(100% null)
-        font($size:2.25em)
-        text-align: left
-        line-height: 1.2em
         color: get-color('true-white')
-        display: block
-        position: relative
+        max-size: 100% none
         word-wrap: break-word
 
-        +screen('>=tablet')
-          font($size:3.75em)
-
         +screen('>=desktop')
-          max-size(80% null)
+          max-size: 80% none
 
       span.date
-        font($font-family-content, 1em, $font-weight-header-normal)
-        line-height: 1.2em
         color: get-color('true-white')
-        display: block
 
   section.no-cover
     padding(100px screen-padding-right() 0 screen-padding-left())
-    size(null auto)
 
     +screen('>=phablet')
       padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
 
     +screen('>=tablet')
-      padding(screen-padding-right('tablet') screen-padding-left('tablet'))
+      padding(null screen-padding-right('tablet') null screen-padding-left('tablet'))
 
   section.cover
     padding(40px screen-padding-right() 40px screen-padding-left())
-    size(null 100%)
+    size: 100%
 
     +screen('>=phablet')
       padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
@@ -58,30 +56,12 @@ main.post
       padding(null screen-padding-right('tablet') null screen-padding-left('tablet'))
 
     +screen('h>=phablet')
-      size(null 80%)
-
-    figure.background
-      align: 'left' 'top'
-      size(100%)
-      background-repeat: no-repeat
-      background-size: cover
-      background-position: center
-
-      +screen('>=desktop')
-        background-attachment: fixed
-
-      &:before
-        size(100%)
-        background-color: rgba(34, 34, 34, .6)
-        content: ''
-        display: block
-        position: relative
+      size: 100% 80%
 
   section.body
     padding(screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left())
-    background-color: inherit
-    z-index: 10
-    position: relative
+    background: get-color('background')
+    z-index: get-z('content')
 
     +screen('>=phablet')
       padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
@@ -91,14 +71,12 @@ main.post
 
     div.content
       size(100% auto)
-      position: relative
 
   section.comments
     padding(screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left())
-    background-color: inherit
-    z-index: 10
+    background: get-color('background')
     text-align: center
-    position: relative
+    z-index: get-z('content')
 
     +screen('>=phablet')
       padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))

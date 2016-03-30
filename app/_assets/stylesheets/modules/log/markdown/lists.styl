@@ -2,27 +2,23 @@
 
 .log-styles
   li
-    font($font-family-content, 1em, $font-weight-content-normal)
-    color: #ccc
-
-    +screen('>=desktop')
-      font($size:1.125em)
+    color: get-color('light-grey')
 
   ol,
   ul
-    margin(30px 10px)
-    padding(0 0 0 20px)
     list-style: decimal
+    margin: 30px 10px
+    padding: 0 0 0 20px
 
     +screen('>=tablet')
-      padding(0 20px)
+      padding: 0 20px
 
     +screen('>=desktop')
-      padding(0 40px)
+      padding: 0 40px
 
     ol,
     ul
-      margin(0)
+      margin: 0
 
     li
       list-style: inherit

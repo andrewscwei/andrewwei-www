@@ -5,8 +5,16 @@ get-color($color=null, $alpha=1)
     return transparent
   if $color == 'true-black'
     return rgba(0, 0, 0, $alpha)
+  if $color == 'black'
+    return rgba(#111, $alpha)
   if $color == 'true-white'
     return rgba(255, 255, 255, $alpha)
+  if $color == 'very-light-grey'
+    return rgba(#ddd, $alpha)
+  if $color == 'light-grey'
+    return rgba(#ccc, $alpha)
+  if $color == 'grey'
+    return rgba(#999, $alpha)
   if $color == 'dark-grey'
     return rgba(#666, $alpha)
   if $color == 'very-dark-grey'
@@ -15,5 +23,7 @@ get-color($color=null, $alpha=1)
     return rgba(#20b684, $alpha)
   if $color == 'pink'
     return rgba(#f92672, $alpha)
+  if $color == 'background'
+    return rgba(#161719, $alpha)
 
   return #ff0000
