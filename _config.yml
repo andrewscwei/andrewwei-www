@@ -1,4 +1,5 @@
 googleAnalyticsID: UA-19387715-3
+url: http://andrewwei.mu
 source: app
 destination: public
 highlighter: pygments
