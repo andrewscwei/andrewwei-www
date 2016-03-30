@@ -1,0 +1,107 @@
+// (c) Andrew Wei
+
+main.post
+  size(100%)
+  padding(0)
+
+  section.cover,
+  section.no-cover
+    flex-block(center, bottom)
+    size(100% null)
+    text-align: left
+
+    div.title
+      size(100% null)
+
+      h1
+        margin(0)
+        size(auto null)
+        max-size(100% null)
+        font($size:2.25em)
+        text-align: left
+        line-height: 1.2em
+        color: #fff
+        display: block
+        position: relative
+        word-wrap: break-word
+
+        +screen('>=tablet')
+          font($size:3.75em)
+
+        +screen('>=desktop')
+          max-size(80% null)
+
+      span.date
+        font($font-family-content, 1em, $font-weight-header-normal)
+        line-height: 1.2em
+        color: #fff
+        display: block
+
+  section.no-cover
+    padding(100px screen-padding-right() 0 screen-padding-left())
+    size(null auto)
+
+    +screen('>=phablet')
+      padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
+
+    +screen('>=tablet')
+      padding(screen-padding-right('tablet') screen-padding-left('tablet'))
+
+  section.cover
+    padding(40px screen-padding-right() 40px screen-padding-left())
+    size(null 100%)
+
+    +screen('>=phablet')
+      padding(null screen-padding-right('phablet') null screen-padding-left('phablet'))
+
+    +screen('>=tablet')
+      padding(null screen-padding-right('tablet') null screen-padding-left('tablet'))
+
+    +screen('h>=phablet')
+      size(null 80%)
+
+    figure.background
+      abs-align()
+      size(100%)
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center
+
+      +screen('>=desktop')
+        background-attachment: fixed
+
+      &:before
+        size(100%)
+        background-color: rgba(34, 34, 34, 0.6)
+        content: ''
+        display: block
+        position: relative
+
+  section.body
+    padding(screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left())
+    background-color: inherit
+    z-index: 10
+    position: relative
+
+    +screen('>=phablet')
+      padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
+
+    +screen('>=tablet')
+      padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))
+
+    div.content
+      size(100% auto)
+      position: relative
+
+  section.comments
+    padding(screen-padding-top() screen-padding-right() screen-padding-bottom() screen-padding-left())
+    background-color: inherit
+    z-index: 10
+    text-align: center
+    position: relative
+
+    +screen('>=phablet')
+      padding(screen-padding-top('phablet') screen-padding-right('phablet') screen-padding-bottom('phablet') screen-padding-left('phablet'))
+
+    +screen('>=tablet')
+      padding(screen-padding-top('tablet') screen-padding-right('tablet') screen-padding-bottom('tablet') screen-padding-left('tablet'))

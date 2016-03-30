@@ -1,28 +1,29 @@
-/**
- * (c) Andrew Wei
- */
+// (c) Andrew Wei
 
 'use strict';
 
 var express = require('express');
 var compress = require('compression');
-var http = require('http');
+var cors = require('cors');
 var path = require('path');
+var http = require('http');
 var app = express();
 
 var publicPath = path.join(__dirname, 'public');
 var port = process.env.PORT || 3000;
+
+// Enable CORS.
+app.use(cors());
 
 // Enable gzip compression.
 app.use(compress());
 
 // Add expire headers to static files.
 app.use(function(req, res, next) {
-  if ((req.url.indexOf('/assets/') === 0) || (req.url.indexOf('/favicon.png') === 0)) {
-    res.setHeader('Cache-Control', 'public, max-age=345600');
+  if ((req.url.indexOf('/assets/') === 0) || (req.url.indexOf('/media/') === 0) || (req.url.indexOf('/favicon.png') === 0)) {
     res.setHeader('Expires', new Date(Date.now() + 345600000).toUTCString());
+    res.setHeader('Cache-Control', 'public, max-age=345600000');
   }
-
   return next();
 });
 

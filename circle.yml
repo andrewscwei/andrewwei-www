@@ -3,8 +3,6 @@ machine:
     TZ: PST8PDT
   node:
     version: 5.6.0
-  ruby:
-    version: 2.2.1
 dependencies:
   post:
     - npm run build

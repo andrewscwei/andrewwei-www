@@ -1,0 +1,52 @@
+// (c) Andrew Wei
+
+main.playground
+  flex-block('center', 'center', row, true)
+  padding(50px)
+  size(100%)
+
+  section.bio
+    max-size(none 400px)
+    text-align: left
+
+    h1,
+    h2
+      transition(opacity transform, 0.4s, ease-out, 0.2s 0s)
+      transform: translate3d(0, 30px, 0)
+      opacity: 0.0
+
+    h3
+      transition(opacity transform, 0.4s, ease-out)
+      transform: translate3d(0, 30px, 0)
+      opacity: 0.0
+
+    aside
+      margin(10px 0)
+      transition(opacity, 0.4s, ease-out, 0.6s)
+      opacity: 0.0
+
+    +state('active')
+      h1,
+      h2,
+      h3,
+      aside
+        transform: translate3d(0, 0, 0)
+        opacity: 1.0
+
+    h2
+      font($font-family-header, 2.5em, $font-weight-header-light)
+      line-height: 1.0em
+      text-align: left
+      color: #fff
+      display: inline-block
+
+      +screen('>=tablet')
+        font($size:3.75em)
+        line-height: 1.2em
+
+    h3
+      font($font-family-header, 2.25em, $font-weight-header-normal)
+      text-align: left
+      line-height: 1.2em
+      color: #666
+      display: block

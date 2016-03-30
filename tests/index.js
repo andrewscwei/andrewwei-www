@@ -1,6 +1,4 @@
-/**
- * (c) Andrew Wei
- */
+// (c) Andrew Wei
 
 'use strict';
 

@@ -1,0 +1,54 @@
+// (c) Andrew Wei
+
+.log-styles
+  li
+    font($font-family-content, 1em, $font-weight-content-normal)
+    color: #ccc
+
+    +screen('>=desktop')
+      font($size:1.125em)
+
+  ol,
+  ul
+    margin(30px 10px)
+    padding(0 0 0 20px)
+    list-style: decimal
+
+    +screen('>=tablet')
+      padding(0 20px)
+
+    +screen('>=desktop')
+      padding(0 40px)
+
+    ol,
+    ul
+      margin(0)
+
+    li
+      list-style: inherit
+
+  ol
+    list-style: decimal
+
+  ol ol,
+  ul ol
+    list-style: lower-alpha
+
+  ol ol ol,
+  ul ol ol,
+  ol ul ol,
+  ul ul ol
+    list-style: lower-roman
+
+  ul
+    list-style: disc
+
+  ul ul,
+  ol ul
+    list-style: circle
+
+  ul ul ul,
+  ol ul ul,
+  ul ol ul,
+  ol ol ul
+    list-style: square

@@ -1,0 +1,131 @@
+// (c) Andrew Wei
+/**
+ * @file This file contains all config settings for Gulp tasks.
+ */
+
+import path from 'path';
+import webpack from 'webpack';
+import { env as $env } from 'gulp-util';
+import _ from 'lodash';
+
+/**
+ * Supported flags when executing certain Gulp tasks.
+ *
+ * @type {boolean} --debug, --d, process.env.NODE_ENV
+ * @type {boolean} --watch, --w
+ */
+const env = {
+  debug: $env['debug'] || $env['d'] || process.env.NODE_ENV === 'development',
+  watch: $env['watch'] || $env['w']
+};
+
+/**
+ * Common paths used throughout the Gulp pipeline.
+ */
+const paths = {
+  src: path.join(__dirname, 'app'),
+  build: path.join(__dirname, 'public'),
+  modules: path.join(__dirname, 'node_modules'),
+  cdn: ((process.env.CIRCLE_BRANCH === 'master') && process.env.CDN_PATH) || ''
+};
+
+export default {
+  debug: env.debug,
+  env: env,
+  paths: paths,
+  images: {
+    entry: path.join(paths.src, '_assets', 'images', '**', '*.{jpg,jpeg,gif,png,svg}'),
+    output: path.join(paths.build, 'assets', 'images')
+  },
+  videos: {
+    entry: path.join(paths.src, '_assets', 'videos', '**', '*.{ogv,mp4}'),
+    output: path.join(paths.build, 'assets', 'videos')
+  },
+  fonts: {
+    entry: path.join(paths.src, '_assets', 'fonts', '**', '*.{eot,svg,ttf,woff,woff2}'),
+    output: path.join(paths.build, 'assets', 'fonts')
+  },
+  styles: {
+    entry: path.join(paths.src, '_assets', 'stylesheets', '*.{css,styl}'),
+    output: path.join(paths.build, 'assets', 'stylesheets'),
+    stylus: {
+      compress: env.debug,
+      'include css': true,
+      include: [path.join(paths.modules), path.join(paths.src, '_assets', 'stylesheets')],
+    },
+    autoprefixer: {
+      browsers: ['last 2 version']
+    }
+  },
+  scripts: {
+    cache: env.debug,
+    context: path.join(paths.src, '_assets', 'javascripts'),
+    debug: env.debug,
+    devtool: env.debug ? 'eval' : null,
+    entry: {
+      main: './main.js'
+    },
+    output: {
+      path: path.join(paths.build, 'assets', 'javascripts'),
+      publicPath: '/assets/javascripts/',
+      filename: '[name].js',
+      chunkFilename: '[chunkhash].js'
+    },
+    module: {
+      loaders: [{
+        test: /\.js/,
+        loader: 'babel',
+        include: path.join(paths.src, '_assets', 'javascripts'),
+        exclude: /node_modules/
+      }, {
+        test: /\.yml/,
+        loaders: [
+          'json',
+          'yaml'
+        ],
+        include: path.join(paths.src, '_data')
+      }, {
+        test: /\.json/,
+        loader: 'json',
+        include: path.join(paths.src, '_data')
+      }]
+    },
+    resolve: {
+      extensions: ['', '.js', '.json', '.yml'],
+      root: [
+        path.join(paths.src, '_assets', 'javascripts'),
+        path.join(paths.src, '_data')
+      ],
+      modulesDirectories: [
+        paths.modules
+      ]
+    },
+    plugins: env.debug ? [
+        new webpack.optimize.CommonsChunkPlugin('common.js')
+      ] : [
+        new webpack.optimize.CommonsChunkPlugin('common.js'),
+        new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }, sourceMap: false })
+      ]
+  },
+  rev: {
+    entry: path.join(paths.build, '**', '*.{css,jpg,jpeg,gif,png,svg,js,eot,svg,ttf,woff,woff2,ogv,mp4}'),
+    output: paths.build,
+    manifestFile: 'rev-manifest.json',
+    replace: path.join(paths.build, '**', '*.{css,scss,sass,js,html}')
+  },
+  watch: {
+    entries: [{
+      files: path.join(paths.src, '_assets', 'images', '**', '*.{jpg,jpeg,gif,png,svg}'),
+      tasks: ['images']
+    }, {
+      files: path.join(paths.src, '_assets', 'videos', '**', '*.{ogv,mp4}'),
+      tasks: ['videos']
+    }, {
+      files: path.join(paths.src, '_assets', 'stylesheets', '**', '*.{css,scss,sass}'),
+      tasks: ['styles']
+    }, {
+      files: path.join(paths.src, '_data', '**', '*.yml'),
+      tasks: ['styles']
+    }]
+  }
+};
