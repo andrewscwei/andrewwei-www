@@ -1,3 +1,3 @@
-# andrewwei.mu [![Circle CI](https://circleci.com/gh/andrewscwei/andrewwei.mu/tree/master.svg?style=svg)](https://circleci.com/gh/andrewscwei/andrewwei.mu/tree/master) [![Circle CI](https://circleci.com/gh/andrewscwei/andrewwei.mu/tree/staging.svg?style=svg)](https://circleci.com/gh/andrewscwei/andrewwei.mu/tree/staging) [![Circle CI](https://circleci.com/gh/andrewscwei/andrewwei.mu/tree/development.svg?style=svg)](https://circleci.com/gh/andrewscwei/andrewwei.mu/tree/development)
+# andrewwei.mu
 
 This app is a static, database-less, blog-aware site that uses the [Jekyll](http://jekyllrb.com) generator and pipelined by [Gulp](http://gulpjs.com).
